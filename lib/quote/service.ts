@@ -10,6 +10,7 @@ import { nextProformaCode } from "@/lib/proforma/sequence";
 import { proformaSchema, proformaTotals } from "@/lib/proforma/types";
 import { sanitizeNit, sanitizePhoneBO, sanitizeText } from "@/lib/sanitize";
 import { CATEGORIES } from "@/lib/catalog/types";
+import { warrantyLabel } from "@/lib/catalog/warranty";
 export async function saveOwnedBuild(raw: unknown, owner: string) {
   const input = quoteBuildInput.parse(raw),
     catalog = await listCatalogForUi(),
@@ -70,7 +71,7 @@ export async function issueOwnedQuote(raw: unknown, owner: string) {
     .where(eq(schema.proformas.requestKey, input.requestKey));
   if (issued) {
     if (issued.buildId !== input.buildId) throw new QuoteError("La solicitud ya fue utilizada.");
-    return { id: issued.id, code: issued.code };
+    return { id: issued.id, code: issued.code, created: false as const };
   }
   const catalog = await listCatalogForUi();
   const prepared = prepareBuild(
@@ -103,7 +104,7 @@ export async function issueOwnedQuote(raw: unknown, owner: string) {
     if (previous) {
       if (previous.buildId !== input.buildId)
         throw new QuoteError("La solicitud ya fue utilizada.");
-      return { id: previous.id, code: previous.code };
+      return { id: previous.id, code: previous.code, created: false as const };
     }
     for (const s of prepared.selected.filter((s) => !s.owned)) {
       const [offer] = await tx
@@ -152,6 +153,7 @@ export async function issueOwnedQuote(raw: unknown, owner: string) {
           category:
             CATEGORIES.find((c) => c.key === s.component.category)?.label ?? s.component.category,
           name: s.component.name,
+          warranty: warrantyLabel(s.component.warrantyMonths),
           quantity: s.quantity ?? 1,
           unitPriceBob: s.component.priceBob!,
           componentId: s.component.id,
@@ -170,7 +172,7 @@ export async function issueOwnedQuote(raw: unknown, owner: string) {
         "Validez: " + input.validityDays + " días calendario desde la emisión.",
         "No es factura. No habilita crédito fiscal.",
         "Montaje y entrega no incluidos salvo indicación expresa.",
-        "ELITEPC: piezas 3 meses; procesador 12 meses. Sin limitar derechos legales ni garantías adicionales aplicables.",
+        "La garantía comercial de cada pieza se indica en su detalle. Consultá las condiciones de cobertura antes de comprar.",
       ],
     });
     const totals = proformaTotals(snapshot);
@@ -192,6 +194,6 @@ export async function issueOwnedQuote(raw: unknown, owner: string) {
       terms: snapshot.terms.join("\n"),
       snapshot,
     });
-    return { id, code };
+    return { id, code, created: true as const };
   });
 }

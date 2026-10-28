@@ -110,6 +110,7 @@ describe.sequential("PostgreSQL: circuito real de cotización", () => {
     quoteId = result.id;
     firstCode = result.code;
     expect(firstCode).toMatch(/^PRO-\d{4}-\d{5}$/);
+    expect(result.created).toBe(true);
     const [record] = await db
       .select()
       .from(schema.proformas)
@@ -121,6 +122,7 @@ describe.sequential("PostgreSQL: circuito real de cotización", () => {
       "owner-a",
     );
     expect(again.id).toBe(quoteId);
+    expect(again.created).toBe(false);
     await db
       .update(schema.components)
       .set({ nameDisplay: "Nombre cambiado después de emitir" })
