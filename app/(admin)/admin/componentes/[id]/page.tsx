@@ -14,6 +14,7 @@ import {
 import { workedBrands } from "@/lib/brand-showcase";
 import { getProductCommerce } from "@/lib/admin/products";
 export const metadata = { title: "Editar producto" };
+export const maxDuration = 120;
 export default async function EditProductPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   if (!z.uuid().safeParse(id).success) notFound();
@@ -46,6 +47,7 @@ export default async function EditProductPage({ params }: { params: Promise<{ id
       <h1>Editar producto.</h1>
       <p className="page-intro">Los cambios de ficha no modifican los documentos ya emitidos.</p>
       <ProductEditor
+        aiConfigured={Boolean(process.env.ANTHROPIC_API_KEY)}
         commerce={commerce}
         key={row.id}
         initial={{

@@ -58,6 +58,9 @@ export async function AdminPanel({
           <Link className="button button--ghost" href="/admin/componentes/importar">
             Importar CSV
           </Link>
+          <Link className="button button--ghost" href="/admin/componentes/ia">
+            Cargar con IA
+          </Link>
           <Link className="text-link" href="/catalog">
             Ver catálogo público ↗
           </Link>

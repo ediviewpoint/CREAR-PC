@@ -24,6 +24,10 @@ npx --yes vercel deploy --prod --yes
 
 Las variables de producción se gestionan en Vercel; no subir `.env.local` ni copiar sus valores en archivos del repositorio. Las variables públicas se incorporan durante la compilación, por lo que requieren un nuevo despliegue después de cambiarlas.
 
+Para el asistente de fichas, configurar `ANTHROPIC_API_KEY` como secreto de servidor. `ANTHROPIC_MODEL` es opcional; por defecto se usa `claude-haiku-5-5`. La clave nunca se devuelve al navegador. No usar el prefijo `NEXT_PUBLIC_`. La búsqueda requiere que la cuenta de Anthropic tenga disponible la herramienta web; puede desactivarse en la interfaz para extraer solo del texto pegado. Las rutas administrativas de fichas permiten hasta 120 segundos por consulta y cada solicitud tiene un plazo interno de 110 segundos.
+
+Referencia de la integración: [Messages API de Claude](https://platform.claude.com/docs/en/api/messages/create), [búsqueda web](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool) y [modelos](https://platform.claude.com/docs/en/models/overview).
+
 ## Base de datos
 
 Verificar el destino y el historial antes de aplicar migraciones:

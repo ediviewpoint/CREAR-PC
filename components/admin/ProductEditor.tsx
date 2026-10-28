@@ -4,6 +4,8 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { saveManagedProductAction, type ProductActionState } from "@/app/_actions/products";
 import type { ProductCategory, SpecField } from "@/lib/admin/component-fields";
+import { ProductAiAssistant } from "./ProductAiAssistant";
+import type { AiProductDraft } from "@/lib/admin/ai-products";
 export type ProductEditorData = {
   id: string;
   name: string;
@@ -25,6 +27,7 @@ type Props = {
   categories: { key: ProductCategory; label: string }[];
   fieldSets: Record<ProductCategory, SpecField[]>;
   brands: string[];
+  aiConfigured: boolean;
   commerce: {
     store: { name: string; city: string; active: boolean } | null;
     mode: "priced" | "quote";
@@ -70,7 +73,14 @@ const optionLabels: Record<string, string> = {
   solid: "Sólido",
   "glass+mesh": "Vidrio y malla",
 };
-export function ProductEditor({ initial, categories, fieldSets, brands, commerce }: Props) {
+export function ProductEditor({
+  initial,
+  categories,
+  fieldSets,
+  brands,
+  commerce,
+  aiConfigured,
+}: Props) {
   const [category, setCategory] = useState<ProductCategory>(initial?.category ?? "cpu");
   const [name, setName] = useState(initial?.name ?? "");
   const [slug, setSlug] = useState(initial?.slug ?? "");
@@ -80,8 +90,39 @@ export function ProductEditor({ initial, categories, fieldSets, brands, commerce
   const [preview, setPreview] = useState("");
   const [state, setState] = useState<ProductActionState>({ ok: false, message: "" });
   const [pending, start] = useTransition();
+  const [aiBusy, setAiBusy] = useState(false);
+  const [aiPatch, setAiPatch] = useState<{ draft: AiProductDraft; replace: boolean } | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const appliedAiPatch = useRef<typeof aiPatch>(null);
   const submitting = useRef(false);
   const router = useRouter();
+  useEffect(() => {
+    if (
+      !aiPatch ||
+      !formRef.current ||
+      appliedAiPatch.current === aiPatch ||
+      aiPatch.draft.category !== category
+    )
+      return;
+    appliedAiPatch.current = aiPatch;
+    const { draft, replace } = aiPatch;
+    const form = formRef.current;
+    for (const [key, value] of Object.entries({
+      brand: draft.brand,
+      source: draft.source,
+      ...Object.fromEntries(
+        Object.entries(draft.fields).map(([path, entry]) => [`spec.${path}`, entry]),
+      ),
+    })) {
+      const input = form.elements.namedItem(key);
+      if (
+        (input instanceof HTMLInputElement || input instanceof HTMLSelectElement) &&
+        value !== "" &&
+        (replace || !input.value.trim())
+      )
+        input.value = value;
+    }
+  }, [aiPatch, category]);
   useEffect(
     () => () => {
       if (preview.startsWith("blob:")) URL.revokeObjectURL(preview);
@@ -101,6 +142,7 @@ export function ProductEditor({ initial, categories, fieldSets, brands, commerce
   }
   return (
     <form
+      ref={formRef}
       className="product-editor"
       onSubmit={(event) => {
         event.preventDefault();
@@ -151,7 +193,37 @@ export function ProductEditor({ initial, categories, fieldSets, brands, commerce
           <input type="hidden" name="version" value={initial.version} />
         </>
       )}
-      <fieldset disabled={pending}>
+      <fieldset disabled={pending || aiBusy}>
+        <ProductAiAssistant
+          configured={aiConfigured}
+          categories={categories}
+          fieldSets={fieldSets}
+          name={name}
+          lockedCategory={initial?.category}
+          onBusyChange={setAiBusy}
+          onApply={(draft, replace) => {
+            if (initial && draft.category !== initial.category)
+              return "La categoría del producto existente no se puede cambiar. Revisá el modelo consultado.";
+            if (
+              !initial &&
+              draft.category !== category &&
+              !replace &&
+              Array.from(formRef.current?.elements ?? []).some(
+                (element) =>
+                  (element instanceof HTMLInputElement || element instanceof HTMLSelectElement) &&
+                  element.name.startsWith("spec.") &&
+                  element.value.trim(),
+              )
+            )
+              return "La propuesta cambia la categoría y reemplazaría especificaciones escritas a mano. Revisá el modelo o marcá Reemplazar campos ya completados para aplicar ese cambio.";
+            if (!initial && draft.category !== category) setCategory(draft.category);
+            if (replace || !name.trim()) {
+              setName(draft.name);
+              if (!initial && !slugEdited.current) setSlug(slugify(draft.name));
+            }
+            setAiPatch({ draft, replace });
+          }}
+        />
         <section className="product-editor__section">
           <div className="product-editor__section-title">
             <span className="mono">01</span>

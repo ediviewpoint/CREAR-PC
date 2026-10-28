@@ -19,6 +19,70 @@ test.beforeEach(async ({ context }) => {
   await context.addCookies(adminCookies);
 });
 
+test("Claude propone una ficha y crea una tanda revisada de borradores", async ({ page }) => {
+  test.skip(
+    !process.env.ADMIN_AI_E2E,
+    "Consulta real opcional: requiere la clave de Claude en el servidor aislado",
+  );
+  test.setTimeout(240000);
+  await page.goto("/admin/componentes/nuevo");
+  const form = page.locator("form.product-editor");
+  const stamp = Date.now();
+  await form.locator('[name="name"]').fill(`Producto manual ${stamp}`);
+  await form.locator('[name="brand"]').fill("Marca escrita");
+  await form.getByRole("radio", { name: "Con precio", exact: true }).check();
+  await form.locator('[name="priceAmount"]').fill("850.00");
+  const assistant = form.locator(".product-ai");
+  await assistant
+    .getByRole("textbox", { name: "Datos para Claude" })
+    .fill(
+      "Kingston FURY Beast DDR5 kit 32 GB (2 módulos de 16 GB), frecuencia 5600 MHz, voltaje 1.25 V. Fuente: https://www.kingston.com/en/memory",
+    );
+  await assistant.getByRole("checkbox", { name: "Buscar fuentes en la web" }).uncheck();
+  await assistant.getByRole("button", { name: "Analizar y proponer ficha" }).click();
+  await expect(assistant.locator(".product-ai__proposal")).toHaveCount(1, { timeout: 120000 });
+  await page.setViewportSize({ width: 320, height: 812 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await assistant.getByRole("button", { name: "Aplicar a campos vacíos", exact: true }).click();
+  await expect(form.locator('[name="category"]')).toHaveValue("ram");
+  await expect(form.locator('[name="spec.capacityGb"]')).toHaveValue("32");
+  await expect(form.locator('[name="name"]')).toHaveValue(`Producto manual ${stamp}`);
+  await expect(form.locator('[name="brand"]')).toHaveValue("Marca escrita");
+  await expect(form.locator('[name="priceAmount"]')).toHaveValue("850.00");
+  await expect(form.locator('[name="isActive"]')).not.toBeChecked();
+  await page.goto("/admin/componentes/ia");
+  const batch = page.locator(".product-ai");
+  await batch
+    .getByRole("textbox", { name: "Datos para Claude" })
+    .fill(
+      "Producto 1: Kingston FURY Beast DDR5 32 GB, kit de 2 módulos, 5600 MHz. Producto 2: Crucial DDR4 16 GB, un módulo, 3200 MHz. Fuente: https://www.kingston.com/en/memory y https://www.crucial.com/memory",
+    );
+  await batch.getByRole("checkbox", { name: "Buscar fuentes en la web" }).uncheck();
+  await batch.getByRole("button", { name: "Preparar propuestas con IA", exact: true }).click();
+  await expect(batch.locator(".product-ai__proposal")).toHaveCount(2, { timeout: 120000 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await batch
+    .getByRole("textbox", { name: "Nombre propuesto", exact: true })
+    .nth(0)
+    .fill(`RAM IA alfa ${stamp}`);
+  await batch
+    .getByRole("textbox", { name: "Nombre propuesto", exact: true })
+    .nth(1)
+    .fill(`RAM IA beta ${stamp}`);
+  await batch
+    .getByRole("button", { name: "Guardar 2 borradores seleccionados", exact: true })
+    .click();
+  await expect(batch.getByRole("status")).toContainText("2 productos guardados", {
+    timeout: 15000,
+  });
+  await batch.getByRole("link", { name: "Revisar productos guardados" }).click();
+  await page.getByRole("searchbox", { name: "Buscar producto" }).fill(String(stamp));
+  const rows = page.getByRole("row").filter({ hasText: String(stamp) });
+  await expect(rows).toHaveCount(2);
+  await expect(rows.first()).toContainText("Borrador");
+  await expect(rows.first()).toContainText("Por cotizar");
+});
+
 test("entrar desde la web, navegar por el panel y cerrar sesión", async ({ browser }) => {
   const context = await browser.newContext();
   const page = await context.newPage();

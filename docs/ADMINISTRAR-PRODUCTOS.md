@@ -14,6 +14,16 @@ Sin `DATABASE_URL` se muestra el catálogo de referencia, sin administración pe
 
 ## Agregar un producto
 
+### Completar con Claude
+
+En **Añadir producto** o **Editar**, usar **Completar con Claude**: pegar la referencia exacta, una descripción o la ficha del fabricante. Si el nombre ya está escrito, puede usarse sin repetirlo. **Buscar fuentes en la web** permite consultar datos del modelo; desmarcarlo para extraer únicamente del texto pegado.
+
+Claude muestra una propuesta de identificación y especificaciones con su fuente y los datos pendientes. **Aplicar a campos vacíos** conserva lo que ya escribiste. Para sustituirlo, marcar explícitamente **Reemplazar campos ya completados**. En productos existentes no se cambia la categoría ni el identificador del enlace. Revisar los datos antes de guardar; una propuesta no publica ni guarda automáticamente.
+
+Para varias fichas, abrir **Cargar con IA** desde el resumen o el listado. Pegar hasta diez productos por tanda, revisar las propuestas, corregir nombres y marcas y seleccionar cuáles guardar. Se crean como borradores sin fotos, precios ni garantía comercial. Los identificadores repetidos se rechazan sin guardar una tanda parcial.
+
+Las consultas y búsquedas usan el saldo de tu cuenta de Claude. Solo se envía el texto de productos introducido para la consulta; no se adjuntan credenciales, precios ni clientes del catálogo. Los campos desconocidos o con valores sin respaldo se dejan pendientes.
+
 1. Entrar a `/admin/login` con la contraseña configurada en el servidor.
 2. Abrir `/admin/componentes` → **Añadir producto**.
 3. Escribir nombre, marca y categoría. Revisar el identificador del enlace: queda fijo después del alta.

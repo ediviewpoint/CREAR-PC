@@ -35,6 +35,7 @@ import { GET as getPhoto } from "@/app/api/product-images/[id]/route";
 import { getCatalog } from "@/lib/catalog/load";
 import { saveManagedProductAction, setProductPublicationAction } from "@/app/_actions/products";
 import { importProductCsv, previewProductCsv, validateProductCsv } from "./product-csv";
+import { importAiDrafts } from "./ai-products";
 const pg = new PGlite(),
   db = drizzle(pg, { schema });
 beforeAll(async () => {
@@ -73,6 +74,38 @@ async function currentVersion(id: string) {
 }
 describe.sequential("Administración de productos con PostgreSQL aislado", () => {
   let id: string, firstImage: string;
+  it("guarda propuestas de IA como borradores y rechaza duplicados sin importar parcialmente", async () => {
+    const draft = {
+      name: "RAM IA aislada",
+      brand: "Kingston",
+      category: "ram",
+      source: "https://www.kingston.com/product",
+      fields: { capacityGb: "32" },
+      isActive: true,
+      priceAmount: "1",
+    };
+    expect(await importAiDrafts([draft])).toBe(1);
+    const [row] = await db
+      .select()
+      .from(schema.components)
+      .where(eq(schema.components.slug, "ram-ia-aislada"));
+    expect(row?.isActive).toBe(false);
+    expect(row?.spec).toMatchObject({ capacityGb: 32 });
+    expect(
+      await db.select().from(schema.prices).where(eq(schema.prices.componentId, row!.id)),
+    ).toHaveLength(0);
+    await expect(importAiDrafts([{ ...draft, name: "RAM IA nueva" }, draft])).rejects.toThrow(
+      "Ya existen",
+    );
+    expect(
+      await db.select().from(schema.components).where(eq(schema.components.slug, "ram-ia-nueva")),
+    ).toHaveLength(0);
+    await expect(
+      importAiDrafts([
+        { ...draft, name: "RAM IA desconocida", fields: { "__proto__.polluted": "true" } },
+      ]),
+    ).rejects.toThrow("campos");
+  });
   it("crea producto y tienda con precio propio, mantiene historial y permite retirarlo", async () => {
     const form = completeRam(baseForm("Precio integrado prueba", true));
     form.set("priceMode", "priced");

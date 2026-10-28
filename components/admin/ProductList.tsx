@@ -70,6 +70,9 @@ export function ProductList({ products }: { products: ProductListRow[] }) {
         <Link className="button button--ghost" href="/admin/componentes/importar">
           Importar CSV
         </Link>
+        <Link className="button button--ghost" href="/admin/componentes/ia">
+          Cargar con IA
+        </Link>
       </div>
       <p className="small muted" role="status">
         {filtered.length} de {products.length} productos ·{" "}

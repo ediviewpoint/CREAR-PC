@@ -8,6 +8,7 @@ import {
 import { workedBrands } from "@/lib/brand-showcase";
 import { getProductCommerce } from "@/lib/admin/products";
 export const metadata = { title: "Añadir producto" };
+export const maxDuration = 120;
 export default async function NewProductPage() {
   const commerce = await getProductCommerce();
   const fieldSets = Object.fromEntries(
@@ -24,6 +25,7 @@ export default async function NewProductPage() {
         Guardá un borrador o publicá una ficha completa. No hace falta escribir código.
       </p>
       <ProductEditor
+        aiConfigured={Boolean(process.env.ANTHROPIC_API_KEY)}
         commerce={commerce}
         categories={PRODUCT_CATEGORIES}
         fieldSets={fieldSets}
