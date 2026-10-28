@@ -17,6 +17,8 @@ Antes del día del launch, confirmar en orden:
 - [ ] `NEXT_PUBLIC_SITE_URL` en producción = `https://crearpc.bo`.
 - [ ] `LEGAL_RESPONSIBLE`, `LEGAL_NIT`, `LEGAL_ADDRESS`, `NEXT_PUBLIC_CONTACT_EMAIL`, `NEXT_PUBLIC_SUPPORT_WHATSAPP` cargados en Vercel (production). Si falta `LEGAL_NIT`, las proformas seguirán como "borrador" (no comerciales).
 - [ ] Precios y tiendas reales cargados (via `/admin` o `pnpm db:import-prices`). Catálogo no muestra "Por cotizar" para los componentes principales.
+- [ ] **Observabilidad** (opcional, recomendado): `SENTRY_DSN` + `NEXT_PUBLIC_SENTRY_DSN` configurados en Vercel. Sin esto, los errores en prod solo quedan en `vercel logs`.
+- [ ] **Email transaccional** (opcional): `RESEND_API_KEY` + `RESEND_FROM_EMAIL` configurados si querés enviar la proforma por mail. Sin esto, el flujo degrada a descarga manual del PDF.
 
 ## 2. Deploy
 
