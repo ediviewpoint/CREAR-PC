@@ -1,5 +1,15 @@
 # Logos de marcas — ELITEPC
 
+## Logos incorporados en la revisión final
+
+Se añadieron diez SVG locales: Toshiba, Seagate, Western Digital, Hitachi, Kingston, Crucial, MSI, Hikvision, TEAMGROUP y Apacer. La procedencia exacta está en DOWNLOADS.json. Algunos son símbolos monocromos de Simple Icons, otros son archivos de marca conservados en repositorios de recursos; no se atribuyen a descargas directas del fabricante. Los nombres junto a cada símbolo identifican la marca. Se ajustó únicamente el lienzo SVG para quitar márgenes internos excesivos, conservando trazados, colores y proporciones.
+
+Referencias de contraste de identidad: https://www.msi.com/page/msi-logos, https://www.kingston.com/, https://www.westerndigital.com/company/newsroom/brand-assets, https://www.hikvision.com/, https://www.teamgroupinc.com/en/, https://www.apacer.com/en/. Las marcas pertenecen a sus respectivos titulares; los archivos no acreditan una alianza comercial.
+
+Se descartaron explícitamente un icono de instalador .msi, un icono ajeno rotulado Western Digital y un marcador genérico de Hikvision. La revisión visual está en output/review/brand-assets-contact-sheet.png. Los SVG incorporados no contienen scripts, manejadores de eventos ni referencias a recursos HTTP externos.
+
+Pendientes externos: Diamond necesita identificar el fabricante exacto. Para PUSKILL se localizó un PNG identificado como oficial en https://github.com/WesleySMacedo/puskill-ai-ready/blob/236829fb2f67a8c38ccfc029312462600fb2181f/public/assets/branding/logo_puskill_oficial_black.png; los conectores de esta sesión rechazan el contenido binario y la descarga directa desde el proceso local está bloqueada. Ambas marcas conservan su nombre tipográfico; no se fabricó un logo sustituto. El texto de ampliación siguiente describe el estado anterior a esta revisión.
+
 ## Ampliación solicitada
 
 El responsable añadió Toshiba, Seagate, Western Digital, Hitachi, Kingston, Crucial, MSI, Hikvision, TEAMGROUP, Apacer, PUSKILL y Diamond. Se muestran por ahora como nombres tipográficos neutrales; no son recreaciones de sus logotipos. La descarga directa de nuevos archivos no estuvo disponible en este entorno. Sustituirlos por originales verificables cuando se proporcionen los archivos. No se asigna a Diamond una identidad comercial concreta más allá del nombre dado por el responsable, ni se confunde Hikvision con Hiksemi.

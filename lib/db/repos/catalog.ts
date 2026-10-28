@@ -4,16 +4,31 @@ import { getDb, schema } from "@/lib/db";
 import { normalizeComponent } from "@/lib/catalog/normalize";
 import { selectCurrentOffers } from "@/lib/catalog/offers";
 import type { CatalogComponent } from "@/lib/catalog/types";
+import { publicImageUrl } from "@/lib/catalog/image-reference";
 export async function listCatalogForUi(): Promise<CatalogComponent[]> {
   const db = getDb();
   const [components, prices, stores, images, benches] = await Promise.all([
     db.select().from(schema.components).where(eq(schema.components.isActive, true)),
     db.select().from(schema.prices),
     db.select().from(schema.stores).where(eq(schema.stores.isActive, true)),
-    db.select().from(schema.componentImages),
+    db
+      .select({
+        id: schema.componentImages.id,
+        componentId: schema.componentImages.componentId,
+        url: publicImageUrl,
+        altEs: schema.componentImages.altEs,
+        isPrimary: schema.componentImages.isPrimary,
+        sortOrder: schema.componentImages.sortOrder,
+      })
+      .from(schema.componentImages),
     db.select().from(schema.benchmarks),
   ]);
-  const current = selectCurrentOffers(prices, new Set(stores.map((s) => s.id)));
+  const current = selectCurrentOffers(
+    prices,
+    new Set(stores.map((s) => s.id)),
+    new Date(),
+    new Set(stores.filter((s) => s.isOwn).map((s) => s.id)),
+  );
   return components
     .flatMap((c) => {
       const item = normalizeComponent(
@@ -33,13 +48,16 @@ export async function listCatalogForUi(): Promise<CatalogComponent[]> {
           .filter((o) => o.componentId === c.id)
           .sort((a, b) => Number(a.amount) - Number(b.amount)),
         best = offers[0];
-      const image = images
+      const gallery = images
         .filter((i) => i.componentId === c.id)
-        .sort((a, b) => Number(b.isPrimary) - Number(a.isPrimary) || a.sortOrder - b.sortOrder)[0];
+        .sort((a, b) => Number(b.isPrimary) - Number(a.isPrimary) || a.sortOrder - b.sortOrder);
+      const image = gallery[0];
       return [
         {
           ...item,
           source: "database" as const,
+          warrantyMonths: c.warrantyMonths,
+          images: gallery.map((photo) => ({ id: photo.id, url: photo.url, alt: photo.altEs })),
           priceBob: best ? Number(best.amount) : null,
           stockQty: best?.stockQty ?? null,
           offerId: best?.id,

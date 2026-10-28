@@ -1,181 +1,58 @@
-# DEPLOYMENT — CREAR PC (ELITEPC)
+# Publicación de CREAR PC
 
-**Última actualización:** 28/10/2026.
+Proyecto: `merlasmvz-5229s-projects/crear-pc`.
+Dominio principal verificado: https://www.ofertas333.com.
+Alias: https://crear-pc.vercel.app y https://ofertas333.com.
 
-Proyecto Vercel: `merlasmvz-5229s-projects/crear-pc`
-Alias de producción: https://crear-pc.vercel.app
-
----
-
-## 1. Estado del deploy
-
-| Entorno | URL | Protección |
-|---|---|---|
-| **production** | https://crear-pc.vercel.app | Pública (sin SSO) |
-| preview | https://crear-{hash}-merlasmvz-5229s-projects.vercel.app | Vercel SSO |
-| development | http://localhost:3000 | — |
-
-Health check en runtime: `GET /api/health` → JSON con status de DB, env críticas y datos del vendor.
-
----
-
-## 2. Variables de entorno
-
-Las que YA están seteadas en Vercel (los 3 ambientes):
-
-```
-DATABASE_URL                         (secret — Supabase pooler)
-ADMIN_PASSWORD                       (secret — login /admin, mínimo 16 chars)
-CRON_SECRET                          (secret — autoriza /api/cron/*)
-NEXT_PUBLIC_SITE_URL                 https://crear-pc.vercel.app
-NEXT_PUBLIC_SITE_NAME                CREAR PC
-NEXT_PUBLIC_SITE_LOCALE              es-BO
-NEXT_PUBLIC_DEFAULT_CURRENCY         BOB
-NEXT_PUBLIC_SUPABASE_URL             https://ajxidbnxeutyhwzanytk.supabase.co
-BCB_RATE_SOURCE                      manual
-BCB_USD_BOB                          6.96
-```
-
-Las que **faltan completar** (opcionales — la UI degrada graciosamente):
-
-```
-NEXT_PUBLIC_SUPABASE_ANON_KEY        (Supabase → Settings → API → anon public)
-SUPABASE_SERVICE_ROLE_KEY            (Supabase → Settings → API → service_role)
-LEGAL_RESPONSIBLE                    (razón social del vendedor)
-LEGAL_NIT                            (NIT fiscal boliviano)
-LEGAL_ADDRESS                        (dirección física)
-LEGAL_CITY                           (default: Santa Cruz de la Sierra, Bolivia)
-NEXT_PUBLIC_CONTACT_EMAIL            (si está, /contacto activa el link)
-NEXT_PUBLIC_SUPPORT_WHATSAPP         (si está, aparece en footer)
-```
-
----
-
-## 3. Scripts de administración
+## Verificación y publicación
 
 ```powershell
-# Pushear secrets desde .env.local a Vercel (whitelist)
-node scripts/push-secrets.mjs
-
-# Fijar NEXT_PUBLIC_SITE_URL a un dominio nuevo
-# (editar la constante url dentro de scripts/set-site-url.mjs)
-node scripts/set-site-url.mjs
-
-# Pushear env vars no-secret (SITE_NAME, LOCALE, etc.)
-node scripts/set-vercel-env.mjs
+npm run lint
+npm run typecheck
+npm test
+npm run test:production-config
+npm run test:migration-history
+npm run test:review-database
+npm run build
 ```
 
-Estos scripts usan `spawnSync` de Node (no PowerShell) para evitar BOM UTF-8 que Vercel rechaza como "whitespace in header value".
-
----
-
-## 4. Pipeline de deploy
-
-### Preview (automático por PR o manual)
+Después de revisar y subir el commit a GitHub, desplegar al proyecto ya vinculado:
 
 ```powershell
-vercel deploy --yes
+npx --yes vercel deploy --prod --yes
 ```
 
-### Producción
+Las variables de producción se gestionan en Vercel; no subir `.env.local` ni copiar sus valores en archivos del repositorio. Las variables públicas se incorporan durante la compilación, por lo que requieren un nuevo despliegue después de cambiarlas.
+
+## Base de datos
+
+Verificar el destino y el historial antes de aplicar migraciones:
 
 ```powershell
-# 1) Verificar quality gate localmente
-pnpm typecheck
-pnpm lint
-pnpm test
-pnpm build
-
-# 2) Promover
-vercel deploy --prod --yes
+npm run db:check
+npm run db:migrations:check
 ```
 
-El build en Vercel vuelve a correr `typecheck` + `build`, así que un typecheck limpio local no garantiza prod — un typecheck más estricto puede fallar en Linux + TS más reciente (ocurrió una vez con `instanceof` dentro de `evaluateAll` callback — fix en commit `fix: cast HTMLImageElement en e2e/brands.spec.ts`).
+`db:check` y `db:migrations:check` son de solo lectura. Para aplicar las pendientes en el destino confirmado, usar `npm run db:migrate`. No ejecutar semillas de demostración sobre la base comercial.
 
----
+Las migraciones hasta `0006_own_store_prices` están aplicadas en la base configurada. Se mantienen los ocho productos iniciales; las tiendas, precios y disponibilidad reales se cargan desde el panel.
 
-## 5. Dominios custom (pendiente)
-
-Cuando ELITEPC tenga `crearpc.bo` o similar:
+## Comprobación posterior
 
 ```powershell
-vercel domains add crearpc.bo
-vercel domains add www.crearpc.bo
-# luego apuntar DNS A/CNAME según indique Vercel.
-# después:
-node scripts/set-site-url.mjs    # editar url = "https://crearpc.bo"
-vercel deploy --prod --yes
+npm run smoke -- --base=https://www.ofertas333.com
 ```
 
----
+Comprobar también el acceso público **Admin**, el ingreso con contraseña, el listado de productos y la visualización móvil. Los ensayos que crean productos y proformas deben usar `scripts/admin-review-server.mjs` con su base aislada, no la base comercial.
 
-## 6. Supabase
+`GET /api/health` comprueba conexión y presencia de variables. No confirma por sí solo precios vigentes, identidad comercial ni copias de seguridad.
 
-Project: `ajxidbnxeutyhwzanytk`
-Pooler region: `aws-0-us-east-1`.
+## Datos comerciales y recuperación
 
-- Migraciones aplicadas: `drizzle/0000` → `drizzle/0003` (ver `docs/ESTADO-INTEGRACION.md`).
-- RLS activado en tablas de aplicación.
-- 8 componentes del MVP ya cargados vía `lib/catalog/mvp.ts`.
-- Sin tiendas, precios ni stock ficticios.
+La publicación técnica no sustituye la carga del NIT, precios, stock y datos reales del negocio. Consultar [preparación de producción](PREPARAR-PRODUCCION.md) y [administración de productos](ADMINISTRAR-PRODUCTOS.md).
 
-Para re-correr migraciones o seed:
+Para revertir una publicación, promover desde Vercel un despliegue anterior conocido. Esto no revierte migraciones ni datos de PostgreSQL. Confirmar respaldos y ensayar restauraciones en una base separada.
 
-```powershell
-pnpm db:migrate
-pnpm db:seed
-```
+## Limpieza
 
----
-
-## 7. Observabilidad
-
-- **Logs**: Vercel Dashboard → Logs. `lib/logger.ts` (pino) escribe JSON a stdout.
-- **Health**: `GET /api/health` reporta DB + env + vendor fields pendientes.
-- **Analytics**: Vercel Analytics activo (cookieless).
-
----
-
-## 8. Cron Jobs
-
-Definidos en `vercel.ts` → `crons`:
-
-| Path | Schedule | Zona Bolivia |
-|---|---|---|
-| `/api/cron/refresh-prices` | `0 4 * * *` | 00:00 BOT diario |
-| `/api/cron/expire-proformas` | `15 4 * * *` | 00:15 BOT diario |
-| `/api/cron/weekly-report` | `0 12 * * 1` | 08:00 BOT lunes |
-
-Protegidos por `CRON_SECRET` en header `Authorization: Bearer <secret>`. Vercel lo adjunta automáticamente al llamar los crons.
-
----
-
-## 9. Rotación de secretos
-
-- `ADMIN_PASSWORD` → tras cualquier compartición accidental, generar nuevo con:
-  ```powershell
-  node -e "console.log(require('node:crypto').randomBytes(32).toString('hex'))"
-  ```
-  y correr `node scripts/push-secrets.mjs` después de guardarlo en `.env.local`.
-
-- `CRON_SECRET` → mismo procedimiento.
-
-- `DATABASE_URL` → rotar password en Supabase Dashboard → Settings → Database → Reset database password. Luego actualizar `.env.local` y pushear.
-
-- **El token Vercel `vck_...` compartido en chat el 2026-10-27 debe estar revocado** en https://vercel.com/account/tokens.
-
----
-
-## 10. Troubleshooting
-
-### Deploy falla con "whitespace in header value"
-Alguna env var tiene BOM o `\n` final. Usar `node scripts/push-secrets.mjs` (no PowerShell `echo | vercel env add`).
-
-### `/admin` redirige en loop
-`ADMIN_PASSWORD` no está en el entorno runtime. Verificar `vercel env ls` y re-deploy.
-
-### `/api/health` reporta `database.ok=false`
-`DATABASE_URL` ausente o pooler Supabase inaccesible. Correr `node scripts/push-secrets.mjs` tras verificar `.env.local`.
-
-### Build local pasa pero Vercel falla typecheck
-TS en Linux es más estricto con narrow en callbacks. Hacer cast explícito en vez de confiar en `instanceof`.
+Se retiraron los scripts antiguos que modificaban secretos, dominios y conexiones automáticamente, y cuatro revisiones locales sustituidas por las pruebas vigentes. No se usan como mecanismo de despliegue. `.vercelignore` excluye archivos de entorno, cachés, compilaciones y resultados locales del paquete publicado.

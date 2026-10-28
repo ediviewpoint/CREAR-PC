@@ -1,0 +1,55 @@
+{
+  "downloadedAt": "2026-10-28",
+  "assets": [
+    {
+      "id": "toshiba",
+      "source": "https://github.com/simple-icons/simple-icons/blob/develop/icons/toshiba.svg"
+    },
+    {
+      "id": "seagate",
+      "source": "https://github.com/simple-icons/simple-icons/blob/develop/icons/seagate.svg"
+    },
+    {
+      "id": "hitachi",
+      "source": "https://github.com/simple-icons/simple-icons/blob/develop/icons/hitachi.svg"
+    },
+    {
+      "id": "kingston",
+      "source": "https://github.com/simple-icons/simple-icons/blob/develop/icons/kingstontechnology.svg"
+    },
+    {
+      "id": "msi",
+      "source": "https://github.com/haithien152/RepairService/blob/7e3286183484a0b766fed03c3e34a35c805e4245/logo/msi-logo.svg"
+    },
+    {
+      "id": "hikvision",
+      "source": "https://github.com/HeyHuazi/SVGLOGO/blob/142498f527ac2dd3116cc1feccb9670879839f74/static/library/company/Hikvision.svg"
+    },
+    {
+      "id": "western-digital",
+      "source": "https://github.com/simple-icons/simple-icons/blob/10.0.0/icons/westerndigital.svg"
+    },
+    {
+      "id": "apacer",
+      "source": "https://github.com/detain/svg-logos/blob/b02ee1ac30c7ff4757278337c95588b01ed0954b/svg/a/apacer.svg"
+    },
+    {
+      "id": "crucial",
+      "source": "https://github.com/detain/svg-logos/blob/b02ee1ac30c7ff4757278337c95588b01ed0954b/svg/c/crucial.svg"
+    },
+    {
+      "id": "teamgroup",
+      "source": "https://github.com/cyborg-ghassen/shortcut/blob/bc4d8cc8ba03a61cec988b40b7369193f464d748/react/src/assets/img/logos/teamgroup.svg"
+    }
+  ],
+  "pending": [
+    {
+      "id": "diamond",
+      "reason": "Identidad exacta del fabricante pendiente"
+    },
+    {
+      "id": "puskill",
+      "reason": "Original localizado en PNG; herramientas conectadas no permiten descargar ese archivo binario"
+    }
+  ]
+}

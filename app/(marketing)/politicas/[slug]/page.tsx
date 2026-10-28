@@ -9,7 +9,7 @@ const policies: Record<string, { title: string; intro: string; summary: string }
     title: "Garantía, sin letra chica.",
     intro: "Qué pedir antes de comprar y cómo actuar si una pieza falla.",
     summary:
-      "ELITEPC: 3 meses para las piezas y 12 meses para el procesador. Se conservan los derechos legales y las coberturas adicionales aplicables.",
+      "La garantía comercial se informa en la ficha de cada producto y en su proforma. Consultá las condiciones de cobertura antes de comprar.",
   },
   privacidad: {
     title: "Tus datos, con claridad.",

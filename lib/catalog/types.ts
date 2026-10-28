@@ -25,6 +25,8 @@ export type CatalogComponent = {
   imageAlt?: string;
   priceSource?: { url: string; observedAt: string; store: string };
   image?: string;
+  images?: { id: string; url: string; alt: string }[];
+  warrantyMonths?: number | null;
   specs: { label: string; value: string }[];
   sources: { url: string; fetchedAt?: string }[];
   selection: Selection;

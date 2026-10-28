@@ -58,60 +58,70 @@ export const workedBrands: readonly WorkedBrand[] = [
   },
   {
     id: "toshiba",
+    logo: "/brands/toshiba.svg",
     name: "Toshiba",
     category: "Almacenamiento",
     source: "https://www.global.toshiba/",
   },
   {
     id: "seagate",
+    logo: "/brands/seagate.svg",
     name: "Seagate",
     category: "Almacenamiento",
     source: "https://www.seagate.com/",
   },
   {
     id: "western-digital",
+    logo: "/brands/western-digital.svg",
     name: "Western Digital",
     category: "Almacenamiento",
     source: "https://www.westerndigital.com/",
   },
   {
     id: "hitachi",
+    logo: "/brands/hitachi.svg",
     name: "Hitachi",
     category: "Almacenamiento",
     source: "https://www.hitachi.com/",
   },
   {
     id: "kingston",
+    logo: "/brands/kingston.svg",
     name: "Kingston",
     category: "Memoria / Almacenamiento",
     source: "https://www.kingston.com/",
   },
   {
     id: "crucial",
+    logo: "/brands/crucial.svg",
     name: "Crucial",
     category: "Memoria / Almacenamiento",
     source: "https://www.crucial.com/",
   },
   {
     id: "msi",
+    logo: "/brands/msi.svg",
     name: "MSI",
     category: "Placas madre / Tarjetas gráficas",
     source: "https://www.msi.com/",
   },
   {
     id: "hikvision",
+    logo: "/brands/hikvision.svg",
     name: "Hikvision",
     category: "Consultar modelos",
     source: "https://www.hikvision.com/",
   },
   {
     id: "teamgroup",
+    logo: "/brands/teamgroup.svg",
     name: "TEAMGROUP",
     category: "Memoria / Almacenamiento",
     source: "https://www.teamgroupinc.com/",
   },
   {
     id: "apacer",
+    logo: "/brands/apacer.svg",
     name: "Apacer",
     category: "Memoria / Almacenamiento",
     source: "https://www.apacer.com/",
@@ -119,3 +129,20 @@ export const workedBrands: readonly WorkedBrand[] = [
   { id: "puskill", name: "PUSKILL", category: "Consultar modelos" },
   { id: "diamond", name: "Diamond", category: "Consultar modelos" },
 ];
+
+const brandKey = (value: string) => value.toLowerCase().replace(/[^a-z0-9]/g, "");
+const aliases: Readonly<Record<string, string>> = {
+  wd: "western-digital",
+  wdc: "western-digital",
+  team: "teamgroup",
+  pusskill: "puskill",
+};
+export function findWorkedBrand(name: string, category?: string) {
+  const key = brandKey(name);
+  if (key === "amd" && category === "cpu")
+    return workedBrands.find((brand) => brand.id === "amd-ryzen");
+  const alias = aliases[key];
+  return workedBrands.find((brand) =>
+    alias ? brand.id === alias : brandKey(brand.name) === key || brandKey(brand.id) === key,
+  );
+}

@@ -13,6 +13,19 @@ const row = {
   sourceUrl: "https://fixture.invalid",
 };
 describe("Ofertas", () => {
+  it("conserva precios propios antiguos y sigue retirándolos si ya no hay stock", () => {
+    const own = { ...row, observedAt: new Date("2025-01-01") };
+    expect(selectCurrentOffers([own], new Set(["store"]), now, new Set(["store"]))).toHaveLength(1);
+    expect(
+      selectCurrentOffers(
+        [{ ...own, inStock: false }],
+        new Set(["store"]),
+        now,
+        new Set(["store"]),
+      ),
+    ).toHaveLength(0);
+    expect(selectCurrentOffers([own], new Set(), now, new Set(["store"]))).toHaveLength(0);
+  });
   it("rechaza precios vencidos, futuros, sin fuente, sin stock y tiendas inactivas", () => {
     for (const extra of [
       { observedAt: new Date("2026-10-01") },

@@ -1,0 +1,14 @@
+.git
+.next
+.next-preview
+.turbo
+node_modules
+output
+test-results
+playwright-report
+coverage
+*.tsbuildinfo
+.env*
+.claude
+.codex
+.agents

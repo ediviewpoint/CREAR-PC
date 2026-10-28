@@ -7,6 +7,9 @@ test("las marcas confirmadas tienen identificación local y no amplían el catá
   const brands = page.locator(".worked-brands");
   await brands.scrollIntoViewIfNeeded();
   await expect(brands.locator(".worked-brand")).toHaveCount(19);
+  await expect(brands.locator("img")).toHaveCount(17);
+  await expect(brands.locator(".worked-brand__name")).toHaveCount(2);
+  for (const image of await brands.locator("img").all()) await image.scrollIntoViewIfNeeded();
   for (const name of [
     "Toshiba",
     "Seagate",
@@ -44,4 +47,13 @@ test("las marcas confirmadas tienen identificación local y no amplían el catá
   );
   await page.goto("/catalog");
   await expect(page.locator(".component-card")).toHaveCount(8);
+});
+
+test("un logo que no carga conserva el nombre de la marca", async ({ page }) => {
+  await page.route("**/brands/kingston.svg", (route) => route.abort());
+  await page.goto("/catalog");
+  const card = page.locator(".component-card").filter({ hasText: "Kingston FURY" });
+  await card.scrollIntoViewIfNeeded();
+  await expect(card.locator(".component-card__brand .preview-brand__name")).toHaveText("Kingston");
+  await expect(card.getByRole("link", { name: /Kingston FURY/ })).toBeVisible();
 });

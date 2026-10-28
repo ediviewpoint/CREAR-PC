@@ -17,7 +17,7 @@ export function getDb(): DrizzleClient {
     );
   }
   // Supabase pooler no soporta prepared statements → prepare: false.
-  cachedClient = postgres(connectionString, { prepare: false, max: 1 });
+  cachedClient = postgres(connectionString, { prepare: false, max: 1, connect_timeout: 8 });
   cachedDb = drizzle(cachedClient, { schema });
   return cachedDb;
 }

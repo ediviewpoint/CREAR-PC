@@ -1,5 +1,9 @@
 # CREAR PC — Configurador Boliviano de PCs a Medida
 
+Antes de operar con datos reales: [diagnóstico, datos pendientes y preparación de producción](docs/PREPARAR-PRODUCCION.md). Ejecutá `npm run production:check` y `npm run db:check` para revisar configuración y esquema sin mostrar credenciales ni modificar la base.
+
+Para operar el catálogo desde la web: [guía de productos, fotos, precios y cotizaciones](docs/ADMINISTRAR-PRODUCTOS.md). El panel permite crear borradores, editar fichas, subir fotos y publicar o desactivar productos sin modificar el código.
+
 > **Sitio web para armar una PC desde cero** combinando los componentes que YA TIENES (case, GPU, placa, RAM, CPU, discos, coolers) o eligiéndolos del catálogo. Pensado y operado desde **Santa Cruz de la Sierra, Bolivia**. Precios en **Bolivianos (Bs.)**, garantías, proformas y privacidad adaptadas al marco local.
 >
 > **Estética objetivo:** NO gaming genérico ni UI de IA clásica. Referencias visuales: **Apple (macOS/Mac Pro)** + **ASUS ROG Strix**. Paleta base: **blanco** y **azul marino**.

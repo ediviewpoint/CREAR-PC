@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { BrandLogo } from "./BrandLogo";
 import { workedBrands } from "@/lib/brand-showcase";
 import { Reveal } from "@/components/motion/Reveal";
 export function BrandsSection() {
@@ -22,18 +22,14 @@ export function BrandsSection() {
         {workedBrands.map((brand, index) => (
           <Reveal key={brand.id} index={index} className="worked-brand">
             <div className="worked-brand__identity" data-brand={brand.id}>
-              {brand.logo ? (
-                <Image
-                  src={brand.logo}
-                  alt={brand.name}
-                  width={180}
-                  height={70}
-                  className="worked-brand__logo"
-                  sizes="180px"
-                />
-              ) : (
-                <span className="worked-brand__name">{brand.name}</span>
-              )}
+              <BrandLogo
+                logo={brand.logo}
+                name={brand.name}
+                width={180}
+                height={70}
+                className="worked-brand__logo"
+                fallbackClassName="worked-brand__name"
+              />
             </div>
             <div className="worked-brand__caption">
               <h3>{brand.name}</h3>

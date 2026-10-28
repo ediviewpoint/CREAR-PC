@@ -1,6 +1,8 @@
 import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
+const rootDir = fileURLToPath(new URL(".", import.meta.url));
 
 export default defineConfig({
   plugins: [react()],
@@ -16,9 +18,9 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "."),
+      "@": rootDir,
       // Permitir importar módulos marcados "server-only" en Vitest.
-      "server-only": path.resolve(__dirname, "./test/stubs/server-only.ts"),
+      "server-only": path.resolve(rootDir, "./test/stubs/server-only.ts"),
     },
   },
 });

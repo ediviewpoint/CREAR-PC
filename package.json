@@ -30,6 +30,11 @@
     "smoke": "tsx scripts/smoke-check.ts",
     "prices:refresh": "tsx scripts/refresh-prices.ts",
     "db:check": "node scripts/db-status.mjs",
+    "db:migrations:check": "node scripts/migration-check.mjs",
+    "test:migration-history": "node --test scripts/lib/migration-history.test.mjs",
+    "test:review-database": "node --test scripts/lib/pglite-review-wire.test.mjs",
+    "production:check": "node scripts/production-check.mjs",
+    "test:production-config": "node --test scripts/lib/production-config.test.mjs",
     "seed:check": "tsx scripts/seed.ts --check",
     "test:e2e": "playwright test"
   },

@@ -160,7 +160,7 @@ export function ProformaPDF({
           <View key={i} style={[s.row, compact ? s.rowCompact : {}]} wrap={false}>
             <Text style={s.num}>{i + 1}</Text>
             <Text style={s.category}>{item.category}</Text>
-            <Text style={s.model}>{item.name}</Text>
+              <Text style={s.model}>{item.name}{item.warranty?`\nGarantía: ${item.warranty}`:""}</Text>
             <Text style={s.qty}>{item.quantity}</Text>
             <Text style={s.price}>
               {item.pricePending ? "Por cotizar" : formatBob(item.unitPriceBob)}

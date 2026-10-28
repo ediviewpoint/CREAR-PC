@@ -1,15 +1,18 @@
 import { getDb, schema } from "@/lib/db";
-import { AdminForm } from "./AdminForm";
-import { savePriceAction, saveStoreAction, saveComponentAction } from "@/app/_actions/admin";
+import { AdminMutationForm as AdminForm } from "./AdminForm";
+import { savePriceAction, saveStoreAction } from "@/app/_actions/admin";
 import { requireAdmin } from "@/lib/auth/admin";
 import { formatBob } from "@/lib/utils/format";
-import { componentCategory } from "@/lib/schemas/components";
+import { ProductManager } from "./ProductManager";
+import Link from "next/link";
+import { selectCurrentOffers } from "@/lib/catalog/offers";
 export async function AdminPanel({
   section,
 }: {
   section: "componentes" | "precios" | "tiendas" | "builds" | "proformas" | "resumen";
 }) {
   await requireAdmin();
+  if (section === "componentes") return <ProductManager />;
   let data;
   try {
     const db = getDb(),
@@ -33,66 +36,104 @@ export async function AdminPanel({
     );
   }
   const { components, stores, prices, builds, proformas } = data;
+  const currentOffers = selectCurrentOffers(
+    prices,
+    new Set(stores.filter((store) => store.isActive).map((store) => store.id)),
+    new Date(),
+    new Set(stores.filter((store) => store.isOwn).map((store) => store.id)),
+  );
+  const pricedProducts = new Set(currentOffers.map((offer) => offer.componentId));
+  const missingPrices = components.filter(
+    (component) => component.isActive && !pricedProducts.has(component.id),
+  ).length;
   if (section === "resumen")
     return (
       <section>
         <p className="eyebrow">Datos del taller</p>
         <h1>Todo, a la vista.</h1>
+        <div className="product-editor__actions">
+          <Link className="button" href="/admin/componentes/nuevo">
+            Añadir producto +
+          </Link>
+          <Link className="button button--ghost" href="/admin/componentes/importar">
+            Importar CSV
+          </Link>
+          <Link className="text-link" href="/catalog">
+            Ver catálogo público ↗
+          </Link>
+        </div>
+        {missingPrices > 0 && (
+          <div className="admin-notice">
+            <h2>Precios por completar</h2>
+            <p>
+              {missingPrices}{" "}
+              {missingPrices === 1
+                ? "producto publicado no tiene"
+                : "productos publicados no tienen"}{" "}
+              un precio disponible. Abrí su ficha para cargar precio y stock.
+            </p>
+            <Link className="text-link" href="/admin/componentes">
+              Revisar productos ↗
+            </Link>
+          </div>
+        )}
         <div className="admin-grid">
-          {[
-            ["Componentes", components.length],
-            ["Tiendas", stores.length],
-            ["Cotizaciones", prices.length],
-            ["Builds", builds.length],
-            ["Proformas", proformas.length],
-          ].map(([label, count]) => (
-            <div className="admin-card" key={label}>
+          {(
+            [
+              { label: "Productos", count: components.length, href: "/admin/componentes" },
+              { label: "Tiendas", count: stores.length, href: "/admin/tiendas" },
+              {
+                label: "Productos con precio",
+                count: components.filter((component) => pricedProducts.has(component.id)).length,
+                href: "/admin/componentes",
+              },
+              { label: "Equipos guardados", count: builds.length, href: "/admin/builds" },
+              { label: "Proformas", count: proformas.length, href: "/admin/proformas" },
+            ] as const
+          ).map(({ label, count, href }) => (
+            <Link className="admin-card" key={label} href={href}>
               <p>{label}</p>
               <strong>{count}</strong>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
     );
   const records =
-    section === "componentes"
-      ? components.map((c) => [c.nameDisplay, c.category, c.brand, c.slug])
-      : section === "tiendas"
-        ? stores.map((s) => [s.name, s.city, s.website ?? "—"])
-        : section === "precios"
-          ? [...prices]
-              .sort((a, b) => b.observedAt.getTime() - a.observedAt.getTime())
-              .map((p) => [
-                components.find((c) => c.id === p.componentId)?.nameDisplay ?? p.componentId,
-                stores.find((s) => s.id === p.storeId)?.name ?? p.storeId,
-                formatBob(Number(p.amount)),
-                p.inStock ? "Disponible" : "Sin stock",
-                p.observedAt.toISOString().slice(0, 10),
-              ])
-          : section === "builds"
-            ? builds.map((b) => [
-                b.name,
-                b.isPublic ? "Público" : "Privado",
-                formatBob(Number(b.totalBob)),
-                b.updatedAt.toISOString().slice(0, 10),
-              ])
-            : proformas.map((p) => [
-                p.code,
-                p.clientName,
-                formatBob(Number(p.totalBob)),
-                p.validUntil,
-                p.isPublic ? "Pública" : "Privada",
-              ]);
+    section === "tiendas"
+      ? stores.map((s) => [s.name, s.city, s.website ?? "—"])
+      : section === "precios"
+        ? [...prices]
+            .sort((a, b) => b.observedAt.getTime() - a.observedAt.getTime())
+            .map((p) => [
+              components.find((c) => c.id === p.componentId)?.nameDisplay ?? p.componentId,
+              stores.find((s) => s.id === p.storeId)?.name ?? p.storeId,
+              formatBob(Number(p.amount)),
+              p.inStock ? "Disponible" : "Sin stock",
+              p.observedAt.toISOString().slice(0, 10),
+            ])
+        : section === "builds"
+          ? builds.map((b) => [
+              b.name,
+              b.isPublic ? "Público" : "Privado",
+              formatBob(Number(b.totalBob)),
+              b.updatedAt.toISOString().slice(0, 10),
+            ])
+          : proformas.map((p) => [
+              p.code,
+              p.clientName,
+              formatBob(Number(p.totalBob)),
+              p.validUntil,
+              p.isPublic ? "Pública" : "Privada",
+            ]);
   const headings =
-    section === "componentes"
-      ? ["Componente", "Categoría", "Marca", "Slug"]
-      : section === "tiendas"
-        ? ["Tienda", "Ciudad", "Sitio"]
-        : section === "precios"
-          ? ["Componente", "Tienda", "Bs.", "Stock", "Consulta"]
-          : section === "builds"
-            ? ["Build", "Acceso", "Total", "Actualización"]
-            : ["Código", "Cliente", "Total", "Vencimiento", "Acceso"];
+    section === "tiendas"
+      ? ["Tienda", "Ciudad", "Sitio"]
+      : section === "precios"
+        ? ["Componente", "Tienda", "Bs.", "Stock", "Consulta"]
+        : section === "builds"
+          ? ["Build", "Acceso", "Total", "Actualización"]
+          : ["Código", "Cliente", "Total", "Vencimiento", "Acceso"];
   return (
     <section>
       <p className="eyebrow">Administración</p>
@@ -144,13 +185,12 @@ export async function AdminPanel({
             Componente
             <select name="componentId" required>
               <option value="">Elegí una pieza</option>
-              {components
-                .filter((c) => c.isActive)
-                .map((c) => (
-                  <option key={c.id} value={c.id}>
-                    {c.nameDisplay}
-                  </option>
-                ))}
+              {components.map((c) => (
+                <option key={c.id} value={c.id}>
+                  {c.nameDisplay}
+                  {c.isActive ? "" : " (borrador)"}
+                </option>
+              ))}
             </select>
           </label>
           <label>
@@ -158,7 +198,7 @@ export async function AdminPanel({
             <select name="storeId" required>
               <option value="">Elegí una tienda</option>
               {stores
-                .filter((s) => s.isActive)
+                .filter((s) => s.isActive && !s.isOwn)
                 .map((s) => (
                   <option key={s.id} value={s.id}>
                     {s.name}
@@ -178,45 +218,14 @@ export async function AdminPanel({
             <input name="inStock" type="checkbox" defaultChecked />
             Disponible en tienda
           </label>
+          <label>
+            Cantidad disponible (opcional)
+            <input name="stockQty" type="number" min="0" max="1000000" step="1" />
+          </label>
           <p className="small muted">
-            El registro agrega una observación al historial. La UI usa la última por tienda, con
-            vigencia de 7 días.
+            Para tu tienda, editá precio y stock en la ficha del producto. Este formulario registra
+            cotizaciones externas, con vigencia de 7 días.
           </p>
-        </AdminForm>
-      )}
-      {section === "componentes" && (
-        <AdminForm action={saveComponentAction}>
-          <h2>Registrar componente</h2>
-          <label>
-            Categoría
-            <select name="category">
-              {componentCategory.options
-                .filter((c) => !["fan", "monitor"].includes(c))
-                .map((c) => (
-                  <option key={c}>{c}</option>
-                ))}
-            </select>
-          </label>
-          <label>
-            Nombre completo
-            <input name="name" required maxLength={180} />
-          </label>
-          <label>
-            Marca
-            <input name="brand" required maxLength={60} />
-          </label>
-          <label>
-            Slug único
-            <input name="slug" required pattern="[a-z0-9]+(-[a-z0-9]+)*" maxLength={120} />
-          </label>
-          <label>
-            Fuente del fabricante
-            <input name="source" type="url" required />
-          </label>
-          <label>
-            Especificaciones JSON de la categoría
-            <textarea name="spec" rows={12} required placeholder='{"socket":"AM5", ...}' />
-          </label>
         </AdminForm>
       )}
     </section>

@@ -15,9 +15,10 @@ try {
   });
   const brands = page.locator(".worked-brands");
   await brands.scrollIntoViewIfNeeded();
-  await expect(brands.locator("img")).toHaveCount(7);
+  await expect(brands.locator("img")).toHaveCount(17);
   await expect(brands.locator(".worked-brand")).toHaveCount(19);
-  await expect(brands.locator(".worked-brand__name")).toHaveCount(12);
+  await expect(brands.locator(".worked-brand__name")).toHaveCount(2);
+  for (const image of await brands.locator("img").all()) await image.scrollIntoViewIfNeeded();
   await expect
     .poll(() =>
       brands
@@ -35,7 +36,7 @@ try {
     true,
   );
   console.log(
-    "19 marcas: 7 logos locales y 12 nombres tipográficos; claro, oscuro y 320px sin desborde.",
+    "19 marcas: 17 logos locales y 2 nombres pendientes de identificación/archivo; claro, oscuro y 320px sin desborde.",
   );
 } finally {
   await browser.close();

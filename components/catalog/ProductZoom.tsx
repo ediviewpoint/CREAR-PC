@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import type { Route } from "next";
 import Link from "next/link";
 import { ProductVisual } from "./ProductVisual";
@@ -8,6 +8,9 @@ import type { CatalogComponent } from "@/lib/catalog/types";
 import { PreviewBrand } from "@/components/build/PreviewBrand";
 export function ProductZoom({ component }: { component: CatalogComponent }) {
   const dialog = useRef<HTMLDialogElement>(null);
+  const [index,setIndex]=useState(0);
+  const photos=component.images?.length?component.images:component.image?[{id:"main",url:component.image,alt:component.imageAlt||component.name}]:[];
+  const active=photos[index]??photos[0];
   return (
     <>
       <button
@@ -23,7 +26,7 @@ export function ProductZoom({ component }: { component: CatalogComponent }) {
           imageAlt={component.imageAlt}
         />
         <span className="zoom-trigger__label">
-          Explorar <span aria-hidden="true">↗</span>
+          Explorar {photos.length>1?`· ${photos.length} fotos`:""}<span aria-hidden="true">↗</span>
         </span>
       </button>
       <dialog
@@ -46,12 +49,18 @@ export function ProductZoom({ component }: { component: CatalogComponent }) {
           </button>
         </div>
         <div className="zoom-dialog__stage">
+          <div>
           <ProductVisual
             category={component.category}
             name={component.name}
-            image={component.image}
-            imageAlt={component.imageAlt}
+            image={active?.url}
+            imageAlt={active?.alt}
           />
+          {photos.length>1&&<div className="product-gallery-thumbs" role="group" aria-label="Vistas del producto">{photos.map((photo,i)=><button key={photo.id} type="button" aria-label={`Ver foto ${i+1} de ${component.name}`} aria-pressed={active?.id===photo.id} onClick={()=>setIndex(i)}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={photo.url} alt="" width={72} height={60}/>
+          </button>)}</div>}
+          </div>
           <div className="zoom-dialog__info">
             <PreviewBrand component={component} large />
             <p className="eyebrow">

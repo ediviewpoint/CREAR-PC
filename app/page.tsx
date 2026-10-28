@@ -99,8 +99,8 @@ export default function HomePage() {
         </div>
         <div>
           <p>
-            ELITEPC ofrece 3 meses de garantía comercial en piezas y 12 meses en procesadores.
-            Conocé las condiciones antes de comprar.
+            Consultá la garantía comercial de cada producto en su ficha y en la proforma.
+            Revisá las condiciones de cobertura antes de comprar.
           </p>
           <Link className="text-link" href="/politicas/garantia">
             Qué revisar de la garantía ↗

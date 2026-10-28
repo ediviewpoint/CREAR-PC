@@ -1,4 +1,5 @@
 import type { ProformaData } from "@/lib/proforma/types";
+import { sql } from "drizzle-orm";
 import {
   pgTable,
   pgEnum,
@@ -60,6 +61,7 @@ export const components = pgTable(
     nameDisplay: varchar("name_display", { length: 180 }).notNull(),
     releaseYear: smallint("release_year"),
     tdpW: smallint("tdp_w"),
+    warrantyMonths: smallint("warranty_months"),
     spec: jsonb("spec").notNull().$type<Record<string, unknown>>(),
     sources: jsonb("sources").notNull().default([]).$type<{ url: string; fetchedAt?: string }[]>(),
     isActive: boolean("is_active").notNull().default(true),
@@ -108,8 +110,14 @@ export const stores = pgTable(
     whatsapp: varchar("whatsapp", { length: 40 }),
     website: text("website"),
     isActive: boolean("is_active").notNull().default(true),
+    isOwn: boolean("is_own").notNull().default(false),
   },
-  (t) => [uniqueIndex("stores_slug_idx").on(t.slug)],
+  (t) => [
+    uniqueIndex("stores_slug_idx").on(t.slug),
+    uniqueIndex("stores_one_own_idx")
+      .on(t.isOwn)
+      .where(sql`${t.isOwn} = true`),
+  ],
 );
 
 export const prices = pgTable(

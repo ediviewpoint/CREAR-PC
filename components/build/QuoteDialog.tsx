@@ -16,39 +16,50 @@ export function QuoteDialog({
 }) {
   const ref = useRef<HTMLDialogElement>(null),
     key = useRef("");
+  const inFlight = useRef(false);
   const [pending, start] = useTransition(),
     [message, setMessage] = useState("");
   const router = useRouter();
   function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (inFlight.current) return;
+    inFlight.current = true;
     const form = new FormData(event.currentTarget);
     start(async () => {
       setMessage("");
-      const saved = await saveBuildForQuoteAction(build);
-      if (!saved.ok) {
-        setMessage(saved.message);
-        return;
+      try {
+        const saved = await saveBuildForQuoteAction(build);
+        if (!saved.ok) {
+          setMessage(saved.message);
+          return;
+        }
+        onSaved(saved.buildId);
+        key.current ||= crypto.randomUUID();
+        const result = await generateProformaAction({
+          buildId: saved.buildId,
+          requestKey: key.current,
+          client: {
+            name: String(form.get("name") ?? ""),
+            ciNit: String(form.get("ciNit") ?? ""),
+            phone: String(form.get("phone") ?? ""),
+            email: String(form.get("email") ?? ""),
+          },
+          discountBob: Number(form.get("discount") ?? 0),
+          validityDays: Number(form.get("days") ?? 7),
+          isPublic: form.get("public") === "on",
+        });
+        if (!result.ok) {
+          setMessage(result.message);
+          return;
+        }
+        router.push(`/proforma/${result.id}`);
+      } catch {
+        setMessage(
+          "No se pudo completar la emisión. Tus datos siguen en el formulario; volvé a intentar.",
+        );
+      } finally {
+        inFlight.current = false;
       }
-      onSaved(saved.buildId);
-      key.current ||= crypto.randomUUID();
-      const result = await generateProformaAction({
-        buildId: saved.buildId,
-        requestKey: key.current,
-        client: {
-          name: String(form.get("name") ?? ""),
-          ciNit: String(form.get("ciNit") ?? ""),
-          phone: String(form.get("phone") ?? ""),
-          email: String(form.get("email") ?? ""),
-        },
-        discountBob: Number(form.get("discount") ?? 0),
-        validityDays: Number(form.get("days") ?? 7),
-        isPublic: form.get("public") === "on",
-      });
-      if (!result.ok) {
-        setMessage(result.message);
-        return;
-      }
-      router.push(`/proforma/${result.id}`);
     });
   }
   return (
@@ -56,7 +67,7 @@ export function QuoteDialog({
       <button
         className="button"
         type="button"
-        disabled={disabled}
+        disabled={disabled || pending}
         onClick={() => {
           key.current = "";
           setMessage("");
@@ -66,7 +77,7 @@ export function QuoteDialog({
         Generar proforma ↗
       </button>
       <dialog className="zoom-dialog quote-dialog" ref={ref} aria-labelledby="quote-title">
-        <form onSubmit={submit}>
+        <form onSubmit={submit} aria-busy={pending}>
           <h2 id="quote-title">Datos para tu proforma.</h2>
           <p className="muted small">
             La emisión guarda los importes y condiciones de esta cotización.

@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
   },
   typedRoutes: true,
+  experimental: { serverActions: { bodySizeLimit: "22mb" } },
 };
 
 export default nextConfig;

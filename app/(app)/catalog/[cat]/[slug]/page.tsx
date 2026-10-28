@@ -7,6 +7,7 @@ import { ProductZoom } from "@/components/catalog/ProductZoom";
 import { Benchmarks } from "@/components/catalog/Benchmarks";
 import { CATEGORIES } from "@/lib/catalog/types";
 import { PreviewBrand } from "@/components/build/PreviewBrand";
+import { warrantyLabel } from "@/lib/catalog/warranty";
 type Props = { params: Promise<{ cat: string; slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { cat, slug } = await params;
@@ -40,7 +41,7 @@ export default async function ProductPage({ params }: Props) {
           </p>
           <div className="warranty-note">
             <span className="eyebrow">Garantía comercial ELITEPC</span>
-            <strong>{c.category === "cpu" ? "12 meses" : "3 meses"}</strong>
+            <strong>{warrantyLabel(c.warrantyMonths)}</strong>
             <p>
               Para compras a ELITEPC. Se conservan los derechos legales y las coberturas adicionales
               aplicables.

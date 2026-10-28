@@ -9,13 +9,15 @@ import type { CatalogComponent } from "./types";
 import { withProductPhotos } from "./product-media";
 let unavailableUntil = 0;
 export const getCatalog = cache(async (): Promise<CatalogComponent[]> => {
-  if (process.env.DATABASE_URL && Date.now() >= unavailableUntil) {
+  if (process.env.DATABASE_URL) {
+    if (Date.now() < unavailableUntil) throw new Error("El catálogo no está disponible temporalmente.");
     try {
       const rows = await listCatalogForUi();
-      if (rows.length) return withProductPhotos(rows.filter((c) => MVP_SLUGS.includes(c.slug)));
+      return withProductPhotos(rows);
     } catch {
       unavailableUntil = Date.now() + 30000;
-      console.warn("[catalog] Base no disponible; catálogo de referencia sin cotizaciones.");
+      console.warn("[catalog] Base de datos no disponible.");
+      throw new Error("El catálogo no está disponible temporalmente.");
     }
   }
   const dir = path.join(process.cwd(), "data/seed"),

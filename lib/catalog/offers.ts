@@ -9,7 +9,12 @@ export type OfferRow = {
   observedAt: Date;
   sourceUrl: string | null;
 };
-export function selectCurrentOffers(rows: OfferRow[], activeStores: Set<string>, now = new Date()) {
+export function selectCurrentOffers(
+  rows: OfferRow[],
+  activeStores: Set<string>,
+  now = new Date(),
+  ownStores = new Set<string>(),
+) {
   const latest = new Map<string, OfferRow>();
   for (const row of [...rows].sort(
     (a, b) => b.observedAt.getTime() - a.observedAt.getTime() || b.id.localeCompare(a.id),
@@ -25,7 +30,7 @@ export function selectCurrentOffers(rows: OfferRow[], activeStores: Set<string>,
       (r.stockQty === null || r.stockQty > 0) &&
       Number(r.amount) > 0 &&
       r.observedAt.getTime() <= now.getTime() &&
-      now.getTime() - r.observedAt.getTime() <= 7 * 86400000 &&
+      (ownStores.has(r.storeId) || now.getTime() - r.observedAt.getTime() <= 7 * 86400000) &&
       Boolean(r.sourceUrl && /^https?:\/\//.test(r.sourceUrl)),
   );
 }

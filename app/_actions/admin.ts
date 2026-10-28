@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
+import { eq } from "drizzle-orm";
 import { getDb, schema } from "@/lib/db";
 import {
   requireAdmin,
@@ -11,8 +12,6 @@ import {
   endAdminSession,
 } from "@/lib/auth/admin";
 import { rateLimit, clientKey } from "@/lib/rate-limit";
-import { normalizeComponent } from "@/lib/catalog/normalize";
-import { componentCategory } from "@/lib/schemas/components";
 export type AdminState = { message: string };
 export async function loginAdminAction(_: AdminState, form: FormData): Promise<AdminState> {
   const h = await headers();
@@ -60,7 +59,8 @@ export async function saveStoreAction(_: AdminState, form: FormData): Promise<Ad
     });
   if (!input.success) return { message: "Revisá nombre, ciudad y URL de la tienda." };
   const slug = toSlug([input.data.name, input.data.city]);
-  if (slug.length < 2) return { message: "El nombre y la ciudad no permiten generar un identificador válido." };
+  if (slug.length < 2)
+    return { message: "El nombre y la ciudad no permiten generar un identificador válido." };
   try {
     await getDb()
       .insert(schema.stores)
@@ -78,11 +78,27 @@ export async function savePriceAction(_: AdminState, form: FormData): Promise<Ad
       componentId: z.uuid(),
       storeId: z.uuid(),
       amount: z.coerce.number().positive().max(1000000),
-      sourceUrl: z.url(),
+      sourceUrl: z.url().refine((value) => /^https?:\/\//.test(value)),
+      stockQty: z.coerce.number().int().min(0).max(1000000).nullable(),
     })
-    .safeParse(Object.fromEntries(form));
+    .safeParse({
+      ...Object.fromEntries(form),
+      stockQty: form.get("stockQty") === "" || !form.has("stockQty") ? null : form.get("stockQty"),
+    });
   if (!input.success) return { message: "Revisá componente, tienda, precio positivo y fuente." };
+  if (form.get("inStock") === "on" && input.data.stockQty === 0)
+    return { message: "Con cantidad cero, desmarcá Disponible en tienda." };
   try {
+    const [store] = await getDb()
+      .select({ active: schema.stores.isActive, own: schema.stores.isOwn })
+      .from(schema.stores)
+      .where(eq(schema.stores.id, input.data.storeId));
+    if (!store?.active) return { message: "Elegí una tienda activa." };
+    if (store.own)
+      return {
+        message:
+          "Actualizá el precio de tu tienda desde la ficha del producto para guardar también su disponibilidad.",
+      };
     await getDb()
       .insert(schema.prices)
       .values({
@@ -98,49 +114,5 @@ export async function savePriceAction(_: AdminState, form: FormData): Promise<Ad
     return { message: "Cotización registrada. Se conserva el historial anterior." };
   } catch {
     return { message: "No se pudo registrar la cotización. Revisá conexión y referencias." };
-  }
-}
-export async function saveComponentAction(_: AdminState, form: FormData): Promise<AdminState> {
-  await requireAdmin();
-  try {
-    const kind = componentCategory.parse(form.get("category")),
-      slug = z
-        .string()
-        .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
-        .max(120)
-        .parse(form.get("slug")),
-      brand = z.string().trim().min(1).max(60).parse(form.get("brand")),
-      name = z.string().trim().min(1).max(180).parse(form.get("name")),
-      sourceUrl = z.url().parse(form.get("source"));
-    const component = normalizeComponent(
-      {
-        slug,
-        brand,
-        name_display: name,
-        spec: JSON.parse(String(form.get("spec"))),
-        sources: [{ url: sourceUrl, fetchedAt: new Date().toISOString() }],
-      },
-      kind,
-    );
-    if (!component)
-      return { message: "Las especificaciones no cumplen el esquema de la categoría." };
-    await getDb()
-      .insert(schema.components)
-      .values({
-        slug,
-        brand,
-        model: name.slice(0, 120),
-        nameDisplay: name,
-        category: kind,
-        spec: component.selection.item.spec,
-        tdpW: component.selection.item.tdpW,
-        sources: component.sources,
-      });
-    revalidatePath("/admin", "layout");
-    revalidatePath("/catalog");
-    revalidatePath("/build");
-    return { message: "Componente guardado." };
-  } catch {
-    return { message: "No se pudo guardar: revisá JSON, campos, slug único y conexión." };
   }
 }

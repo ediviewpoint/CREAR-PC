@@ -72,6 +72,7 @@ export function ProformaReadable({
                 <td>{item.category}</td>
                 <td>
                   {item.name}
+                  {item.warranty&&<p className="small">Garantía comercial: {item.warranty}</p>}
                   {item.sourceUrl && (
                     <p className="small">
                       <a href={item.sourceUrl} target="_blank" rel="noreferrer">

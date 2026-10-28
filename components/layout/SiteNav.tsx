@@ -9,6 +9,14 @@ export function SiteNav() {
         Componentes
       </Link>
       <Link
+        href="/admin"
+        aria-label="Administración"
+        title="Administración del sitio"
+        aria-current={pathname.startsWith("/admin") ? "page" : undefined}
+      >
+        Admin
+      </Link>
+      <Link
         className="header-build"
         href="/build"
         aria-current={pathname.startsWith("/build") ? "page" : undefined}

@@ -17,6 +17,8 @@ import { useBuildWizard } from "./useBuildWizard";
 import { CATEGORY_GUIDE } from "./category-guide";
 import { readDraft, writeDraft } from "./local-draft";
 import { RouteLoading } from "@/components/layout/RouteLoading";
+import { MVP_SLUGS } from "@/lib/catalog/mvp";
+import { warrantyLabel } from "@/lib/catalog/warranty";
 import type { ProformaData } from "@/lib/proforma/types";
 const subscribe = () => () => {};
 export function BuildWorkbench(props: Parameters<typeof WorkbenchContent>[0]) {
@@ -105,6 +107,10 @@ function WorkbenchContent({
   const canQuote = complete && compat.ok && !pendingPrices && selected.some((s) => !s.owned);
   const toBuy = selected.filter((row) => !row.owned);
   const priced = toBuy.filter((row) => row.component.priceBob !== null).length;
+  const referenceBuild = MVP_SLUGS.map((slug) =>
+    catalog.find((component) => component.slug === slug),
+  );
+  const referenceAvailable = referenceBuild.every((component) => !!component);
   const quoteInput: QuoteBuildInput = {
     id: savedId,
     name: name.trim() || "Mi nueva PC",
@@ -213,6 +219,7 @@ function WorkbenchContent({
           category:
             CATEGORIES.find((c) => c.key === s.component.category)?.label ?? s.component.category,
           name: s.component.name,
+            warranty: warrantyLabel(s.component.warrantyMonths),
           quantity: s.quantity ?? 1,
           unitPriceBob: s.component.priceBob ?? 0,
           pricePending: s.component.priceBob === null,
@@ -223,7 +230,7 @@ function WorkbenchContent({
         "Validez: 7 días calendario desde la emisión.",
         "No es factura. No habilita crédito fiscal.",
         "Montaje y entrega no incluidos salvo indicación expresa.",
-        "ELITEPC: piezas 3 meses; procesador 12 meses. Sin limitar derechos legales ni garantías adicionales aplicables.",
+        "La garantía comercial de cada pieza se indica en su detalle. Confirmá la cobertura con el vendedor.",
       ],
     };
     try {
@@ -255,9 +262,14 @@ function WorkbenchContent({
         <button
           className="button button--ghost"
           type="button"
+          disabled={!referenceAvailable}
           onClick={() => {
             setUndo(selected);
-            setSelected(catalog.map((component) => ({ component, owned: false, quantity: 1 })));
+            setSelected(
+              referenceBuild.flatMap((component) =>
+                component ? [{ component, owned: false, quantity: 1 }] : [],
+              ),
+            );
             setSelectionMessage(
               "Equipo de prueba cargado. Podés deshacer este cambio desde el resumen.",
             );
@@ -268,7 +280,9 @@ function WorkbenchContent({
           Cargar equipo de prueba
         </button>
         <span className="small muted">
-          Una pieza por categoría. Los precios se cotizan por separado.
+          {referenceAvailable
+            ? "Una pieza por categoría. Los precios se cotizan por separado."
+            : "El equipo de referencia no está completo en el catálogo. Elegí las piezas disponibles por categoría."}
         </span>
       </div>
       <section className="assembly-progress" aria-label="Progreso de tu equipo">

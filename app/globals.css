@@ -7,6 +7,7 @@
 @import "./styles/preview-studio.css";
 @import "./styles/assembly.css";
 @import "./styles/accessibility.css";
+@import "./styles/admin-products.css";
 @theme inline {
   --font-sans: var(--font-ui);
   --color-bg: var(--bg);

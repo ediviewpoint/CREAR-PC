@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { sql } from "drizzle-orm";
+import { sql, eq } from "drizzle-orm";
 import { getDb, schema } from "@/lib/db";
 import { cronAuthorized } from "@/lib/cron/auth";
 export const runtime = "nodejs";
@@ -45,15 +45,19 @@ export async function GET(request: Request) {
       throw new Error("date");
     if (rows.length)
       await getDb().transaction(async (tx) => {
+        const ownStores = await tx
+          .select({ id: schema.stores.id })
+          .from(schema.stores)
+          .where(eq(schema.stores.isOwn, true));
+        if (rows.some((row) => ownStores.some((store) => store.id === row.storeId)))
+          throw new Error("El feed no puede reemplazar precios propios.");
         for (const row of rows)
-          await tx
-            .insert(schema.prices)
-            .values({
-              ...row,
-              amount: row.amount.toFixed(2),
-              currency: "BOB",
-              observedAt: new Date(row.observedAt),
-            });
+          await tx.insert(schema.prices).values({
+            ...row,
+            amount: row.amount.toFixed(2),
+            currency: "BOB",
+            observedAt: new Date(row.observedAt),
+          });
       });
     return Response.json({ ok: true, mode: "configured-feed", updated: rows.length });
   } catch {

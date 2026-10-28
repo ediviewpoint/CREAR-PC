@@ -3,7 +3,7 @@ import path from "node:path";
 import { createRequire } from "node:module";
 import postgres from "postgres";
 import { drizzle } from "drizzle-orm/postgres-js";
-import { inArray } from "drizzle-orm";
+import { inArray, eq } from "drizzle-orm";
 import { z } from "zod";
 import { components, stores, prices } from "../lib/db/schema";
 
@@ -98,6 +98,17 @@ async function main() {
 
   try {
     await db.transaction(async (tx) => {
+      const ownStores = await tx
+        .select({ slug: stores.slug })
+        .from(stores)
+        .where(eq(stores.isOwn, true));
+      if (
+        parsedStores.some((store) => ownStores.some((own) => own.slug === store.slug)) ||
+        parsedOffers.some((offer) => ownStores.some((own) => own.slug === offer.storeSlug))
+      )
+        throw new Error(
+          "Los precios de tu tienda se gestionan desde la ficha del producto, no desde la importación de cotizaciones externas.",
+        );
       const storeIdBySlug = new Map<string, string>();
       for (const s of parsedStores) {
         const [row] = await tx
@@ -173,9 +184,6 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error(
-    "Importación no completada:",
-    err instanceof Error ? err.message : String(err),
-  );
+  console.error("Importación no completada:", err instanceof Error ? err.message : String(err));
   process.exitCode = 1;
 });

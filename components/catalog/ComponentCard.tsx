@@ -6,6 +6,7 @@ import type { CatalogComponent } from "@/lib/catalog/types";
 import { formatBob } from "@/lib/utils/format";
 import { ProductZoom } from "./ProductZoom";
 import { PreviewBrand } from "@/components/build/PreviewBrand";
+import { warrantyLabel } from "@/lib/catalog/warranty";
 export function ComponentCard({
   component,
   selected,
@@ -53,7 +54,7 @@ export function ComponentCard({
           ))}
         </div>
         <p className="card-warranty">
-          Garantía ELITEPC <span>{component.category === "cpu" ? "12 meses" : "3 meses"}</span>
+          Garantía comercial <span>{warrantyLabel(component.warrantyMonths)}</span>
         </p>
         <div className="component-card__quote">
           <p className="component-card__price">

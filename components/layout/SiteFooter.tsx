@@ -35,6 +35,7 @@ export function SiteFooter() {
       </div>
       <div className="footer-bottom">
         <span>CREAR PC / Configurador boliviano</span>
+        <Link href="/admin">Administración</Link>
         <span>Precios en Bs. · Sin pagos en línea</span>
       </div>
     </footer>

@@ -24,6 +24,7 @@ export const proformaSchema = z
         z.object({
           category: z.string().max(80),
           name: z.string().max(180),
+          warranty: z.string().max(100).optional(),
           quantity: z.number().int().min(1).max(99),
           unitPriceBob: z.number().finite().min(0).max(1000000),
           pricePending: z.boolean().optional(),
