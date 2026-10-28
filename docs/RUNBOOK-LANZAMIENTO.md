@@ -13,8 +13,8 @@ Antes del día del launch, confirmar en orden:
 - [ ] `.env.local` sincronizado con Vercel: `vercel env pull .env.local` y diffear.
 - [ ] Token Vercel personal revocado (ningún `vck_...` histórico activo).
 - [ ] Supabase: backup manual del proyecto (Dashboard → Database → Backups).
-- [ ] Dominio `crearpc.bo` apunta a Vercel (A record + CNAME).
-- [ ] `NEXT_PUBLIC_SITE_URL` en producción = `https://crearpc.bo`.
+- [ ] Dominio activo: `www.ofertas333.com` (apunta a Vercel). Si se migra a `crearpc.bo` en el futuro, actualizar DNS + `NEXT_PUBLIC_SITE_URL` + canónicas.
+- [ ] `NEXT_PUBLIC_SITE_URL` en producción = `https://www.ofertas333.com`.
 - [ ] `LEGAL_RESPONSIBLE`, `LEGAL_NIT`, `LEGAL_ADDRESS`, `NEXT_PUBLIC_CONTACT_EMAIL`, `NEXT_PUBLIC_SUPPORT_WHATSAPP` cargados en Vercel (production). Si falta `LEGAL_NIT`, las proformas seguirán como "borrador" (no comerciales).
 - [ ] Precios y tiendas reales cargados (via `/admin` o `pnpm db:import-prices`). Catálogo no muestra "Por cotizar" para los componentes principales.
 - [ ] **Observabilidad** (opcional, recomendado): `SENTRY_DSN` + `NEXT_PUBLIC_SENTRY_DSN` configurados en Vercel. Sin esto, los errores en prod solo quedan en `vercel logs`.
@@ -32,7 +32,7 @@ Esperar a que Vercel reporte URL de producción. Capturar el `deployment ID` (sa
 ## 3. Smoke test post-deploy
 
 ```powershell
-pnpm smoke --base=https://crearpc.bo
+pnpm smoke --base=https://www.ofertas333.com
 ```
 
 Debe reportar `13/13 OK`. Si algo falla:
