@@ -1,0 +1,68 @@
+# dependencies
+node_modules
+.pnpm-store
+.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# testing
+coverage
+.nyc_output
+playwright-report
+test-results
+
+# next.js
+.next
+.next-preview
+out
+dist
+
+# turbopack
+.turbo
+
+# production
+*.tsbuildinfo
+
+# misc
+.DS_Store
+Thumbs.db
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+.env
+.env.*
+!.env.example
+
+# vercel
+.vercel
+
+# IDE
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea
+*.swp
+*.swo
+
+# OS
+desktop.ini
+
+# drizzle
+drizzle/*.sql.generated
+
+# PDFs generados en dev
+public/generated-pdfs/
+
+# datos sensibles de precios o datasets temporales
+data/raw/
+data/scratch/
+*.local.json
+
+# evidencia visual / QA generada localmente
+output/

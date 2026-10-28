@@ -1,0 +1,483 @@
+[
+    {
+        "slug": "corsair-rm850e-850w",
+        "brand": "Corsair",
+        "model": "RM850e 850W",
+        "name_display": "Corsair RM850e 850W 80+ Gold",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "wattage": 850,
+            "efficiencyRating": "80+ Gold",
+            "formFactor": "ATX",
+            "modular": "full",
+            "lengthMm": 150,
+            "connectors": {
+                "cpu8pin": 0,
+                "cpu4plus4": 2,
+                "pcie8pin": 4,
+                "pcie12vhpwr": 1,
+                "sata": 12,
+                "molex": 4
+            },
+            "fanSizeMm": 120,
+            "fanlessMode": false,
+            "atx3": true
+        },
+        "sources": [
+            {
+                "url": "https://www.corsair.com/us/en/p/psu/cp-9020265-na/rm850e-fully-modular-low-noise-atx-power-supply-cp-9020265-na",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "corsair-rm1000e-1000w",
+        "brand": "Corsair",
+        "model": "RM1000e 1000W",
+        "name_display": "Corsair RM1000e 1000W 80+ Gold",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "wattage": 1000,
+            "efficiencyRating": "80+ Gold",
+            "formFactor": "ATX",
+            "modular": "full",
+            "lengthMm": 180,
+            "connectors": {
+                "cpu8pin": 0,
+                "cpu4plus4": 2,
+                "pcie8pin": 6,
+                "pcie12vhpwr": 2,
+                "sata": 16,
+                "molex": 4
+            },
+            "fanSizeMm": 135,
+            "fanlessMode": false,
+            "atx3": true
+        },
+        "sources": [
+            {
+                "url": "https://www.corsair.com/us/en/p/psu/cp-9020263-na/rm1000e-fully-modular-low-noise-atx-power-supply-cp-9020263-na",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "corsair-cx650-650w",
+        "brand": "Corsair",
+        "model": "CX650 650W",
+        "name_display": "Corsair CX650 650W 80+ Bronze",
+        "release_year": 2020,
+        "tdp_w": null,
+        "spec": {
+            "wattage": 650,
+            "efficiencyRating": "80+ Bronze",
+            "formFactor": "ATX",
+            "modular": "none",
+            "lengthMm": 150,
+            "connectors": {
+                "cpu8pin": 1,
+                "cpu4plus4": 1,
+                "pcie8pin": 2,
+                "pcie12vhpwr": 0,
+                "sata": 8,
+                "molex": 4
+            },
+            "fanSizeMm": 120,
+            "fanlessMode": false,
+            "atx3": false
+        },
+        "sources": [
+            {
+                "url": "https://www.corsair.com/us/en/p/psu/cp-9020121-na/cx650-80-plus-bronze-650-watt-atx-power-supply-cp-9020121-na",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "seasonic-focus-gx-850-850w",
+        "brand": "Seasonic",
+        "model": "FOCUS GX-850 850W",
+        "name_display": "Seasonic FOCUS GX-850 850W 80+ Gold",
+        "release_year": 2020,
+        "tdp_w": null,
+        "spec": {
+            "wattage": 850,
+            "efficiencyRating": "80+ Gold",
+            "formFactor": "ATX",
+            "modular": "full",
+            "lengthMm": 150,
+            "connectors": {
+                "cpu8pin": 0,
+                "cpu4plus4": 2,
+                "pcie8pin": 4,
+                "pcie12vhpwr": 0,
+                "sata": 12,
+                "molex": 3
+            },
+            "fanSizeMm": 120,
+            "fanlessMode": true,
+            "atx3": false
+        },
+        "sources": [
+            {
+                "url": "https://seasonic.com/focus-gx",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "seasonic-focus-gx-750-750w",
+        "brand": "Seasonic",
+        "model": "FOCUS GX-750 750W",
+        "name_display": "Seasonic FOCUS GX-750 750W 80+ Gold",
+        "release_year": 2019,
+        "tdp_w": null,
+        "spec": {
+            "wattage": 750,
+            "efficiencyRating": "80+ Gold",
+            "formFactor": "ATX",
+            "modular": "full",
+            "lengthMm": 140,
+            "connectors": {
+                "cpu8pin": 0,
+                "cpu4plus4": 2,
+                "pcie8pin": 4,
+                "pcie12vhpwr": 0,
+                "sata": 10,
+                "molex": 3
+            },
+            "fanSizeMm": 120,
+            "fanlessMode": true,
+            "atx3": false
+        },
+        "sources": [
+            {
+                "url": "https://seasonic.com/focus-gx",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "be-quiet-straight-power-12-850w",
+        "brand": "be quiet!",
+        "model": "Straight Power 12 850W",
+        "name_display": "be quiet! Straight Power 12 850W 80+ Platinum",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "wattage": 850,
+            "efficiencyRating": "80+ Platinum",
+            "formFactor": "ATX",
+            "modular": "full",
+            "lengthMm": 160,
+            "connectors": {
+                "cpu8pin": 0,
+                "cpu4plus4": 2,
+                "pcie8pin": 4,
+                "pcie12vhpwr": 1,
+                "sata": 10,
+                "molex": 4
+            },
+            "fanSizeMm": 135,
+            "fanlessMode": false,
+            "atx3": true
+        },
+        "sources": [
+            {
+                "url": "https://www.bequiet.com/en/powersupply/3269",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "evga-supernova-750-g6-750w",
+        "brand": "EVGA",
+        "model": "SuperNOVA 750 G6 750W",
+        "name_display": "EVGA SuperNOVA 750 G6 750W 80+ Gold",
+        "release_year": 2021,
+        "tdp_w": null,
+        "spec": {
+            "wattage": 750,
+            "efficiencyRating": "80+ Gold",
+            "formFactor": "ATX",
+            "modular": "full",
+            "lengthMm": 140,
+            "connectors": {
+                "cpu8pin": 1,
+                "cpu4plus4": 1,
+                "pcie8pin": 4,
+                "pcie12vhpwr": 0,
+                "sata": 10,
+                "molex": 4
+            },
+            "fanSizeMm": 135,
+            "fanlessMode": false,
+            "atx3": false
+        },
+        "sources": [
+            {
+                "url": "https://www.evga.com/products/product.aspx?pn=220-G6-0750-X1",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "thermaltake-toughpower-gf3-1000w",
+        "brand": "Thermaltake",
+        "model": "Toughpower GF3 1000W",
+        "name_display": "Thermaltake Toughpower GF3 1000W 80+ Gold",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "wattage": 1000,
+            "efficiencyRating": "80+ Gold",
+            "formFactor": "ATX",
+            "modular": "full",
+            "lengthMm": 160,
+            "connectors": {
+                "cpu8pin": 0,
+                "cpu4plus4": 2,
+                "pcie8pin": 6,
+                "pcie12vhpwr": 1,
+                "sata": 12,
+                "molex": 4
+            },
+            "fanSizeMm": 140,
+            "fanlessMode": false,
+            "atx3": true
+        },
+        "sources": [
+            {
+                "url": "https://www.thermaltake.com/toughpower-gf3-1000w.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "thermaltake-smart-500w",
+        "brand": "Thermaltake",
+        "model": "Smart 500W",
+        "name_display": "Thermaltake Smart 500W 80+ White",
+        "release_year": 2018,
+        "tdp_w": null,
+        "spec": {
+            "wattage": 500,
+            "efficiencyRating": "80+ White",
+            "formFactor": "ATX",
+            "modular": "none",
+            "lengthMm": 150,
+            "connectors": {
+                "cpu8pin": 1,
+                "cpu4plus4": 1,
+                "pcie8pin": 2,
+                "pcie12vhpwr": 0,
+                "sata": 6,
+                "molex": 3
+            },
+            "fanSizeMm": 120,
+            "fanlessMode": false,
+            "atx3": false
+        },
+        "_notes": "Muy común en Bolivia por precio. Para builds >400W recomendar Gold o superior (W-03).",
+        "sources": [
+            {
+                "url": "https://www.thermaltake.com/smart-500w-80-white.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "cooler-master-mwe-gold-750w",
+        "brand": "Cooler Master",
+        "model": "MWE Gold 750W V2",
+        "name_display": "Cooler Master MWE Gold 750W V2 80+ Gold",
+        "release_year": 2021,
+        "tdp_w": null,
+        "spec": {
+            "wattage": 750,
+            "efficiencyRating": "80+ Gold",
+            "formFactor": "ATX",
+            "modular": "none",
+            "lengthMm": 160,
+            "connectors": {
+                "cpu8pin": 1,
+                "cpu4plus4": 1,
+                "pcie8pin": 4,
+                "pcie12vhpwr": 0,
+                "sata": 8,
+                "molex": 3
+            },
+            "fanSizeMm": 120,
+            "fanlessMode": false,
+            "atx3": false
+        },
+        "sources": [
+            {
+                "url": "https://www.coolermaster.com/catalog/power-supplies/mwe-gold/mwe-gold-750-v2-full-modular/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "corsair-rm750e-750w",
+        "brand": "Corsair",
+        "model": "RM750e 750W",
+        "name_display": "Corsair RM750e 750W 80+ Gold",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "wattage": 750,
+            "efficiencyRating": "80+ Gold",
+            "formFactor": "ATX",
+            "modular": "full",
+            "lengthMm": 150,
+            "connectors": {
+                "cpu8pin": 0,
+                "cpu4plus4": 2,
+                "pcie8pin": 4,
+                "pcie12vhpwr": 1,
+                "sata": 10,
+                "molex": 3
+            },
+            "fanSizeMm": 120,
+            "fanlessMode": false,
+            "atx3": true
+        },
+        "sources": [
+            {
+                "url": "https://www.corsair.com/us/en/p/psu/cp-9020264-na/rm750e-fully-modular-low-noise-atx-power-supply-cp-9020264-na",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "seasonic-prime-tx-850-850w",
+        "brand": "Seasonic",
+        "model": "PRIME TX-850 850W",
+        "name_display": "Seasonic PRIME TX-850 850W 80+ Titanium",
+        "release_year": 2021,
+        "tdp_w": null,
+        "spec": {
+            "wattage": 850,
+            "efficiencyRating": "80+ Titanium",
+            "formFactor": "ATX",
+            "modular": "full",
+            "lengthMm": 170,
+            "connectors": {
+                "cpu8pin": 0,
+                "cpu4plus4": 2,
+                "pcie8pin": 4,
+                "pcie12vhpwr": 0,
+                "sata": 12,
+                "molex": 3
+            },
+            "fanSizeMm": 135,
+            "fanlessMode": true,
+            "atx3": false
+        },
+        "sources": [
+            {
+                "url": "https://seasonic.com/prime-tx",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "cooler-master-mwe-bronze-650w",
+        "brand": "Cooler Master",
+        "model": "MWE Bronze 650W V2",
+        "name_display": "Cooler Master MWE Bronze 650W V2 80+ Bronze",
+        "release_year": 2020,
+        "tdp_w": null,
+        "spec": {
+            "wattage": 650,
+            "efficiencyRating": "80+ Bronze",
+            "formFactor": "ATX",
+            "modular": "none",
+            "lengthMm": 150,
+            "connectors": {
+                "cpu8pin": 1,
+                "cpu4plus4": 1,
+                "pcie8pin": 2,
+                "pcie12vhpwr": 0,
+                "sata": 7,
+                "molex": 3
+            },
+            "fanSizeMm": 120,
+            "fanlessMode": false,
+            "atx3": false
+        },
+        "sources": [
+            {
+                "url": "https://www.coolermaster.com/catalog/power-supplies/mwe-bronze/mwe-bronze-650-v2/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "be-quiet-pure-power-12-600w",
+        "brand": "be quiet!",
+        "model": "Pure Power 12 M 600W",
+        "name_display": "be quiet! Pure Power 12 M 600W 80+ Gold",
+        "release_year": 2023,
+        "tdp_w": null,
+        "spec": {
+            "wattage": 600,
+            "efficiencyRating": "80+ Gold",
+            "formFactor": "ATX",
+            "modular": "semi",
+            "lengthMm": 140,
+            "connectors": {
+                "cpu8pin": 0,
+                "cpu4plus4": 2,
+                "pcie8pin": 2,
+                "pcie12vhpwr": 0,
+                "sata": 8,
+                "molex": 3
+            },
+            "fanSizeMm": 120,
+            "fanlessMode": false,
+            "atx3": true
+        },
+        "sources": [
+            {
+                "url": "https://www.bequiet.com/en/powersupply/3745",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "corsair-hx1000i-1000w",
+        "brand": "Corsair",
+        "model": "HX1000i 1000W",
+        "name_display": "Corsair HX1000i 1000W 80+ Platinum",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "wattage": 1000,
+            "efficiencyRating": "80+ Platinum",
+            "formFactor": "ATX",
+            "modular": "full",
+            "lengthMm": 180,
+            "connectors": {
+                "cpu8pin": 0,
+                "cpu4plus4": 2,
+                "pcie8pin": 6,
+                "pcie12vhpwr": 2,
+                "sata": 16,
+                "molex": 4
+            },
+            "fanSizeMm": 140,
+            "fanlessMode": false,
+            "atx3": true
+        },
+        "sources": [
+            {
+                "url": "https://www.corsair.com/us/en/p/psu/cp-9020214-na/hxi-series-hx1000i-high-performance-atx-power-supply-1000-watt-80-plus-platinum-certified-psu-cp-9020214-na",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    }
+]

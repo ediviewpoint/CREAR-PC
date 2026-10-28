@@ -1,0 +1,4 @@
+# Datasets provistos por Gemini (ver GEMINI.md + docs/DATA-SCHEMA.md).
+# Archivos esperados: cpus.json, gpus.json, mobos.json, ram.json, storage.json,
+# psus.json, cases.json, coolers_air.json, coolers_aio.json, stores.json,
+# prices.json, benchmarks.json.

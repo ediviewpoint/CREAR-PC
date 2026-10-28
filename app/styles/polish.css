@@ -1,0 +1,305 @@
+﻿/* Final interaction pass: restrained motion and clear states across the site. */
+html {
+  scroll-padding-top: 24px;
+}
+.site-header nav a[aria-current="page"] {
+  color: var(--fg);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 7px;
+  text-decoration-thickness: 2px;
+}
+.site-header .header-build[aria-current="page"] {
+  background: var(--primary);
+  color: var(--on-primary);
+  text-decoration: none;
+  border-color: var(--primary);
+}
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.theme-toggle svg {
+  flex-shrink: 0;
+}
+.button {
+  transition:
+    background-color 200ms var(--ease-standard),
+    border-color 200ms var(--ease-standard),
+    box-shadow 200ms var(--ease-standard),
+    transform 200ms var(--ease-standard);
+}
+.button:not(.button--ghost):not(:disabled):hover {
+  box-shadow: 0 5px 14px rgb(5 15 36 / 12%);
+}
+input:not([type="checkbox"]):hover,
+select:hover,
+textarea:hover {
+  border-color: var(--fg-muted);
+}
+input:not([type="checkbox"]):focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+}
+.component-card {
+  position: relative;
+}
+.catalog-card-reveal {
+  min-width: 0;
+}
+.catalog-card-reveal > .component-card {
+  height: 100%;
+}
+.component-card--selected {
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+.card-selected {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 2;
+  border: 1px solid var(--primary);
+  padding: 5px 8px;
+  border-radius: 3px;
+  background: var(--bg);
+  color: var(--fg);
+  font: 500 10px/1.4 var(--font-ui);
+  pointer-events: none;
+}
+.zoom-trigger__label {
+  transition:
+    border-color 200ms var(--ease-standard),
+    color 200ms var(--ease-standard);
+}
+.zoom-trigger:hover .zoom-trigger__label {
+  border-color: var(--navy-700);
+  color: var(--navy-700);
+}
+.zoom-dialog {
+  width: min(1040px, calc(100vw - 40px));
+  padding: 24px;
+}
+.zoom-dialog__header {
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+}
+.zoom-dialog__header .eyebrow {
+  font-size: 10px;
+}
+.zoom-dialog__stage {
+  display: grid;
+  gap: 24px;
+  min-width: 0;
+}
+.zoom-dialog__stage > .product-visual {
+  border: 1px solid var(--white-100);
+  border-radius: 4px;
+  aspect-ratio: 1;
+}
+.zoom-dialog__info {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 20px;
+  padding: 4px 0;
+  min-width: 0;
+}
+.zoom-dialog__info h2 {
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+.zoom-dialog__info > .eyebrow {
+  font-size: 10px;
+}
+.inspect-specs {
+  width: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.inspect-specs > div {
+  padding: 12px;
+  background: var(--bg-elevated);
+  min-width: 0;
+}
+.inspect-specs dt {
+  font-size: 10px;
+  color: var(--fg-muted);
+  margin-bottom: 4px;
+}
+.inspect-specs dd {
+  font: 12px/1.6 var(--font-mono);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.catalog-grid ~ .empty-state {
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  padding: 32px;
+  margin-top: 16px;
+  border-radius: 6px;
+}
+.catalog-grid ~ .empty-state > svg {
+  width: 36px;
+  height: 36px;
+}
+.mobile-summary-link {
+  display: none;
+}
+.build-summary {
+  scroll-margin-top: 24px;
+}
+.build-summary:target {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+.wizard-controls .button {
+  flex: 1;
+}
+.category-rail button:not([aria-current]):hover,
+.preview-parts button:not([aria-current]):hover {
+  background: var(--bg-elevated);
+  border-color: var(--border-control);
+  color: var(--fg);
+}
+.selected-parts li {
+  transition: background-color 200ms var(--ease-standard);
+}
+.selected-parts li:hover {
+  background: var(--bg-elevated);
+}
+.power-meter,
+.power-meter > span {
+  border-radius: 3px;
+}
+.power-meter > span {
+  transition: width 320ms var(--ease-standard);
+}
+.legal-content table {
+  display: table;
+  width: 100%;
+}
+.legal-content th {
+  background: var(--bg-elevated);
+  font-size: 11px;
+  text-align: left;
+}
+.legal-content tbody tr:nth-child(even) {
+  background: var(--bg-elevated);
+}
+.policy-index nav a {
+  border-bottom: 1px solid var(--border);
+}
+.policy-tabs a {
+  transition:
+    border-color 200ms var(--ease-standard),
+    color 200ms var(--ease-standard);
+}
+.policy-tabs a:hover {
+  color: var(--fg);
+  border-bottom-color: var(--border-control);
+}
+.contact-topics section {
+  padding-bottom: 16px;
+}
+.admin-table-wrap tbody tr:hover {
+  background: var(--bg-elevated);
+}
+.empty-page {
+  min-height: 55dvh;
+  align-content: center;
+  max-width: 860px;
+}
+.empty-page h1 {
+  font-size: clamp(36px, 5vw, 64px);
+  letter-spacing: -0.04em;
+}
+.empty-page > p:not(.eyebrow) {
+  max-width: 50ch;
+  color: var(--fg-muted);
+}
+.worked-brand__identity[data-brand="goline"] img {
+  max-width: 140px;
+}
+@media (min-width: 640px) {
+  .zoom-dialog__stage {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 32px;
+  }
+  .zoom-dialog__stage > .product-visual {
+    align-self: center;
+  }
+  .zoom-dialog__info {
+    padding: 12px 8px;
+  }
+}
+@media (max-width: 639px) {
+  .theme-toggle {
+    font-size: 10px;
+    padding-inline: 8px;
+    gap: 5px;
+  }
+  .zoom-dialog {
+    width: calc(100vw - 24px);
+    max-height: calc(100dvh - 24px);
+    padding: 16px;
+  }
+  .zoom-dialog__stage > .product-visual {
+    aspect-ratio: 4/3;
+  }
+  .zoom-dialog .product-visual > svg:not(.product-drafting) {
+    width: 116px;
+    height: 116px;
+  }
+  .zoom-dialog__header {
+    margin-bottom: 16px;
+  }
+  .zoom-dialog__info {
+    gap: 16px;
+  }
+  .zoom-dialog__info .button {
+    width: 100%;
+  }
+  .mobile-summary-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    min-height: 48px;
+    margin-top: 16px;
+    padding: 12px 16px;
+    border: 1px solid var(--border-control);
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 12px;
+  }
+  .mobile-summary-link .mono {
+    font-size: 10px;
+  }
+  .legal-content table {
+    display: block;
+    overflow: auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .power-meter > span,
+  .selected-parts li,
+  .button,
+  .zoom-trigger__label,
+  .policy-tabs a {
+    transition: none;
+  }
+}

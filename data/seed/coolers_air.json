@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "deepcool-ak400",
+    "brand": "DeepCool",
+    "model": "AK400",
+    "name_display": "DeepCool AK400",
+    "tdp_w": 2,
+    "spec": {
+      "heightMm": 155,
+      "tdpW": 220,
+      "socketSupport": [
+        "LGA1700",
+        "LGA1200",
+        "LGA1151",
+        "LGA1150",
+        "LGA1155",
+        "AM5",
+        "AM4"
+      ],
+      "fanSizeMm": 120,
+      "fanRpmMin": 500,
+      "fanRpmMax": 1850,
+      "noiseDbMax": 29,
+      "heatpipes": 4
+    },
+    "sources": [
+      {
+        "url": "https://www.deepcool.com/products/Cooling/cpuaircoolers/AK400-Performance-CPU-Cooler/2021/15222.shtml",
+        "fetchedAt": "2026-10-28T00:00:00Z"
+      }
+    ],
+    "_notes": "220 W: disipación térmica declarada. Ventilador: 1.56 W eléctricos, redondeados conservadoramente a 2 W para suma de consumo. Sin precio ni stock inferido."
+  }
+]

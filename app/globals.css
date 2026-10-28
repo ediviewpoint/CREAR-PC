@@ -1,0 +1,76 @@
+@import "tailwindcss";
+@import "./styles/tokens.css";
+@import "./styles/site.css";
+@import "./styles/refinement.css";
+@import "./styles/brands.css";
+@import "./styles/polish.css";
+@import "./styles/preview-studio.css";
+@import "./styles/assembly.css";
+@import "./styles/accessibility.css";
+@theme inline {
+  --font-sans: var(--font-ui);
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-border: var(--border);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-ring: var(--ring);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-error: var(--error);
+}
+* {
+  box-sizing: border-box;
+  border-color: var(--border);
+}
+html {
+  font-size: 16px;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: var(--text-body)/var(--leading-body) var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+}
+button,
+input,
+select {
+  font: inherit;
+}
+button,
+a,
+input,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+button:not(:disabled),
+select {
+  cursor: pointer;
+}
+a {
+  color: inherit;
+}
+button:disabled {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+}
+:where(a, button, input, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 4px;
+}
+::selection {
+  background: var(--selection-bg);
+  color: var(--selection-fg);
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

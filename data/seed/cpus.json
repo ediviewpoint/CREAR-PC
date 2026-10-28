@@ -1,0 +1,1135 @@
+[
+    {
+        "slug": "amd-ryzen-5-5600x",
+        "brand": "AMD",
+        "model": "Ryzen 5 5600X",
+        "name_display": "AMD Ryzen 5 5600X",
+        "release_year": 2020,
+        "tdp_w": 65,
+        "spec": {
+            "socket": "AM4",
+            "cores": 6,
+            "threads": 12,
+            "pCores": null,
+            "eCores": null,
+            "baseClockGhz": 3.7,
+            "boostClockGhz": 4.6,
+            "l2CacheMb": 3,
+            "l3CacheMb": 32,
+            "iGpu": false,
+            "iGpuModel": null,
+            "pcieGen": 4,
+            "pcieLanes": 24,
+            "memorySupport": [
+                "DDR4"
+            ],
+            "memoryMaxMhz": 3200,
+            "memoryMaxGb": 128,
+            "tdpWBase": 65,
+            "tdpWBoost": 88,
+            "unlocked": true
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/processors/desktops/ryzen/5000-series/amd-ryzen-5-5600x.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-ryzen-5-5600",
+        "brand": "AMD",
+        "model": "Ryzen 5 5600",
+        "name_display": "AMD Ryzen 5 5600",
+        "release_year": 2022,
+        "tdp_w": 65,
+        "spec": {
+            "socket": "AM4",
+            "cores": 6,
+            "threads": 12,
+            "pCores": null,
+            "eCores": null,
+            "baseClockGhz": 3.5,
+            "boostClockGhz": 4.4,
+            "l2CacheMb": 3,
+            "l3CacheMb": 32,
+            "iGpu": false,
+            "iGpuModel": null,
+            "pcieGen": 4,
+            "pcieLanes": 24,
+            "memorySupport": [
+                "DDR4"
+            ],
+            "memoryMaxMhz": 3200,
+            "memoryMaxGb": 128,
+            "tdpWBase": 65,
+            "tdpWBoost": 88,
+            "unlocked": true
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/processors/desktops/ryzen/5000-series/amd-ryzen-5-5600.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-ryzen-7-5700x",
+        "brand": "AMD",
+        "model": "Ryzen 7 5700X",
+        "name_display": "AMD Ryzen 7 5700X",
+        "release_year": 2022,
+        "tdp_w": 65,
+        "spec": {
+            "socket": "AM4",
+            "cores": 8,
+            "threads": 16,
+            "pCores": null,
+            "eCores": null,
+            "baseClockGhz": 3.4,
+            "boostClockGhz": 4.6,
+            "l2CacheMb": 4,
+            "l3CacheMb": 32,
+            "iGpu": false,
+            "iGpuModel": null,
+            "pcieGen": 4,
+            "pcieLanes": 24,
+            "memorySupport": [
+                "DDR4"
+            ],
+            "memoryMaxMhz": 3200,
+            "memoryMaxGb": 128,
+            "tdpWBase": 65,
+            "tdpWBoost": 88,
+            "unlocked": true
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/processors/desktops/ryzen/5000-series/amd-ryzen-7-5700x.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-ryzen-7-5800x",
+        "brand": "AMD",
+        "model": "Ryzen 7 5800X",
+        "name_display": "AMD Ryzen 7 5800X",
+        "release_year": 2020,
+        "tdp_w": 105,
+        "spec": {
+            "socket": "AM4",
+            "cores": 8,
+            "threads": 16,
+            "pCores": null,
+            "eCores": null,
+            "baseClockGhz": 3.8,
+            "boostClockGhz": 4.7,
+            "l2CacheMb": 4,
+            "l3CacheMb": 32,
+            "iGpu": false,
+            "iGpuModel": null,
+            "pcieGen": 4,
+            "pcieLanes": 24,
+            "memorySupport": [
+                "DDR4"
+            ],
+            "memoryMaxMhz": 3200,
+            "memoryMaxGb": 128,
+            "tdpWBase": 105,
+            "tdpWBoost": 142,
+            "unlocked": true
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/processors/desktops/ryzen/5000-series/amd-ryzen-7-5800x.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-ryzen-9-5900x",
+        "brand": "AMD",
+        "model": "Ryzen 9 5900X",
+        "name_display": "AMD Ryzen 9 5900X",
+        "release_year": 2020,
+        "tdp_w": 105,
+        "spec": {
+            "socket": "AM4",
+            "cores": 12,
+            "threads": 24,
+            "pCores": null,
+            "eCores": null,
+            "baseClockGhz": 3.7,
+            "boostClockGhz": 4.8,
+            "l2CacheMb": 6,
+            "l3CacheMb": 64,
+            "iGpu": false,
+            "iGpuModel": null,
+            "pcieGen": 4,
+            "pcieLanes": 24,
+            "memorySupport": [
+                "DDR4"
+            ],
+            "memoryMaxMhz": 3200,
+            "memoryMaxGb": 128,
+            "tdpWBase": 105,
+            "tdpWBoost": 142,
+            "unlocked": true
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/processors/desktops/ryzen/5000-series/amd-ryzen-9-5900x.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-ryzen-5-7600x",
+        "brand": "AMD",
+        "model": "Ryzen 5 7600X",
+        "name_display": "AMD Ryzen 5 7600X",
+        "release_year": 2022,
+        "tdp_w": 105,
+        "spec": {
+            "socket": "AM5",
+            "cores": 6,
+            "threads": 12,
+            "pCores": null,
+            "eCores": null,
+            "baseClockGhz": 4.7,
+            "boostClockGhz": 5.3,
+            "l2CacheMb": 6,
+            "l3CacheMb": 32,
+            "iGpu": true,
+            "iGpuModel": "AMD Radeon Graphics",
+            "pcieGen": 5,
+            "pcieLanes": 24,
+            "memorySupport": [
+                "DDR5"
+            ],
+            "memoryMaxMhz": 5200,
+            "memoryMaxGb": 128,
+            "tdpWBase": 105,
+            "tdpWBoost": 142,
+            "unlocked": true
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-5-7600x.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-ryzen-5-7600",
+        "brand": "AMD",
+        "model": "Ryzen 5 7600",
+        "name_display": "AMD Ryzen 5 7600",
+        "release_year": 2023,
+        "tdp_w": 65,
+        "spec": {
+            "socket": "AM5",
+            "cores": 6,
+            "threads": 12,
+            "pCores": null,
+            "eCores": null,
+            "baseClockGhz": 3.8,
+            "boostClockGhz": 5.1,
+            "l2CacheMb": 6,
+            "l3CacheMb": 32,
+            "iGpu": true,
+            "iGpuModel": "AMD Radeon Graphics",
+            "pcieGen": 5,
+            "pcieLanes": 24,
+            "memorySupport": [
+                "DDR5"
+            ],
+            "memoryMaxMhz": 5200,
+            "memoryMaxGb": 128,
+            "tdpWBase": 65,
+            "tdpWBoost": 88,
+            "unlocked": false
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-5-7600.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-ryzen-7-7700x",
+        "brand": "AMD",
+        "model": "Ryzen 7 7700X",
+        "name_display": "AMD Ryzen 7 7700X",
+        "release_year": 2022,
+        "tdp_w": 105,
+        "spec": {
+            "socket": "AM5",
+            "cores": 8,
+            "threads": 16,
+            "pCores": null,
+            "eCores": null,
+            "baseClockGhz": 4.5,
+            "boostClockGhz": 5.4,
+            "l2CacheMb": 8,
+            "l3CacheMb": 32,
+            "iGpu": true,
+            "iGpuModel": "AMD Radeon Graphics",
+            "pcieGen": 5,
+            "pcieLanes": 24,
+            "memorySupport": [
+                "DDR5"
+            ],
+            "memoryMaxMhz": 5200,
+            "memoryMaxGb": 128,
+            "tdpWBase": 105,
+            "tdpWBoost": 142,
+            "unlocked": true
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7700x.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-ryzen-7-7800x3d",
+        "brand": "AMD",
+        "model": "Ryzen 7 7800X3D",
+        "name_display": "AMD Ryzen 7 7800X3D",
+        "release_year": 2023,
+        "tdp_w": 120,
+        "spec": {
+            "socket": "AM5",
+            "cores": 8,
+            "threads": 16,
+            "pCores": null,
+            "eCores": null,
+            "baseClockGhz": 4.2,
+            "boostClockGhz": 5.0,
+            "l2CacheMb": 8,
+            "l3CacheMb": 96,
+            "iGpu": true,
+            "iGpuModel": "AMD Radeon Graphics",
+            "pcieGen": 5,
+            "pcieLanes": 24,
+            "memorySupport": [
+                "DDR5"
+            ],
+            "memoryMaxMhz": 5200,
+            "memoryMaxGb": 128,
+            "tdpWBase": 120,
+            "tdpWBoost": 162,
+            "unlocked": false
+        },
+        "_notes": "3D V-Cache; gaming champion for 1080p/1440p. Overclocking not officially supported (PBO limited).",
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7800x3d.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-ryzen-9-7900x",
+        "brand": "AMD",
+        "model": "Ryzen 9 7900X",
+        "name_display": "AMD Ryzen 9 7900X",
+        "release_year": 2022,
+        "tdp_w": 170,
+        "spec": {
+            "socket": "AM5",
+            "cores": 12,
+            "threads": 24,
+            "pCores": null,
+            "eCores": null,
+            "baseClockGhz": 4.7,
+            "boostClockGhz": 5.6,
+            "l2CacheMb": 12,
+            "l3CacheMb": 64,
+            "iGpu": true,
+            "iGpuModel": "AMD Radeon Graphics",
+            "pcieGen": 5,
+            "pcieLanes": 24,
+            "memorySupport": [
+                "DDR5"
+            ],
+            "memoryMaxMhz": 5200,
+            "memoryMaxGb": 128,
+            "tdpWBase": 170,
+            "tdpWBoost": 230,
+            "unlocked": true
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-9-7900x.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-ryzen-9-7950x",
+        "brand": "AMD",
+        "model": "Ryzen 9 7950X",
+        "name_display": "AMD Ryzen 9 7950X",
+        "release_year": 2022,
+        "tdp_w": 170,
+        "spec": {
+            "socket": "AM5",
+            "cores": 16,
+            "threads": 32,
+            "pCores": null,
+            "eCores": null,
+            "baseClockGhz": 4.5,
+            "boostClockGhz": 5.7,
+            "l2CacheMb": 16,
+            "l3CacheMb": 64,
+            "iGpu": true,
+            "iGpuModel": "AMD Radeon Graphics",
+            "pcieGen": 5,
+            "pcieLanes": 24,
+            "memorySupport": [
+                "DDR5"
+            ],
+            "memoryMaxMhz": 5200,
+            "memoryMaxGb": 128,
+            "tdpWBase": 170,
+            "tdpWBoost": 230,
+            "unlocked": true
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-9-7950x.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-ryzen-9-7950x3d",
+        "brand": "AMD",
+        "model": "Ryzen 9 7950X3D",
+        "name_display": "AMD Ryzen 9 7950X3D",
+        "release_year": 2023,
+        "tdp_w": 120,
+        "spec": {
+            "socket": "AM5",
+            "cores": 16,
+            "threads": 32,
+            "pCores": null,
+            "eCores": null,
+            "baseClockGhz": 4.2,
+            "boostClockGhz": 5.7,
+            "l2CacheMb": 16,
+            "l3CacheMb": 128,
+            "iGpu": true,
+            "iGpuModel": "AMD Radeon Graphics",
+            "pcieGen": 5,
+            "pcieLanes": 24,
+            "memorySupport": [
+                "DDR5"
+            ],
+            "memoryMaxMhz": 5200,
+            "memoryMaxGb": 128,
+            "tdpWBase": 120,
+            "tdpWBoost": 162,
+            "unlocked": false
+        },
+        "_notes": "Dual CCD con 3D V-Cache en un CCD. TDP de 120 W gracias al diseño X3D optimizado.",
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-9-7950x3d.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-ryzen-5-9600x",
+        "brand": "AMD",
+        "model": "Ryzen 5 9600X",
+        "name_display": "AMD Ryzen 5 9600X",
+        "release_year": 2024,
+        "tdp_w": 65,
+        "spec": {
+            "socket": "AM5",
+            "cores": 6,
+            "threads": 12,
+            "pCores": null,
+            "eCores": null,
+            "baseClockGhz": 3.9,
+            "boostClockGhz": 5.4,
+            "l2CacheMb": 6,
+            "l3CacheMb": 32,
+            "iGpu": true,
+            "iGpuModel": "AMD Radeon Graphics",
+            "pcieGen": 5,
+            "pcieLanes": 24,
+            "memorySupport": [
+                "DDR5"
+            ],
+            "memoryMaxMhz": 5600,
+            "memoryMaxGb": 192,
+            "tdpWBase": 65,
+            "tdpWBoost": 88,
+            "unlocked": true
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-5-9600x.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-ryzen-7-9700x",
+        "brand": "AMD",
+        "model": "Ryzen 7 9700X",
+        "name_display": "AMD Ryzen 7 9700X",
+        "release_year": 2024,
+        "tdp_w": 65,
+        "spec": {
+            "socket": "AM5",
+            "cores": 8,
+            "threads": 16,
+            "pCores": null,
+            "eCores": null,
+            "baseClockGhz": 3.8,
+            "boostClockGhz": 5.5,
+            "l2CacheMb": 8,
+            "l3CacheMb": 32,
+            "iGpu": true,
+            "iGpuModel": "AMD Radeon Graphics",
+            "pcieGen": 5,
+            "pcieLanes": 24,
+            "memorySupport": [
+                "DDR5"
+            ],
+            "memoryMaxMhz": 5600,
+            "memoryMaxGb": 192,
+            "tdpWBase": 65,
+            "tdpWBoost": 88,
+            "unlocked": true
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9700x.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-ryzen-7-9800x3d",
+        "brand": "AMD",
+        "model": "Ryzen 7 9800X3D",
+        "name_display": "AMD Ryzen 7 9800X3D",
+        "release_year": 2024,
+        "tdp_w": 120,
+        "spec": {
+            "socket": "AM5",
+            "cores": 8,
+            "threads": 16,
+            "pCores": null,
+            "eCores": null,
+            "baseClockGhz": 4.7,
+            "boostClockGhz": 5.7,
+            "l2CacheMb": 8,
+            "l3CacheMb": 96,
+            "iGpu": true,
+            "iGpuModel": "AMD Radeon Graphics",
+            "pcieGen": 5,
+            "pcieLanes": 24,
+            "memorySupport": [
+                "DDR5"
+            ],
+            "memoryMaxMhz": 5600,
+            "memoryMaxGb": 192,
+            "tdpWBase": 120,
+            "tdpWBoost": 162,
+            "unlocked": true
+        },
+        "_notes": "Primera generación 9000X3D con overclocking habilitado. Mejor gaming CPU 2024 según múltiples reviews.",
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9800x3d.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-ryzen-9-9900x",
+        "brand": "AMD",
+        "model": "Ryzen 9 9900X",
+        "name_display": "AMD Ryzen 9 9900X",
+        "release_year": 2024,
+        "tdp_w": 120,
+        "spec": {
+            "socket": "AM5",
+            "cores": 12,
+            "threads": 24,
+            "pCores": null,
+            "eCores": null,
+            "baseClockGhz": 4.4,
+            "boostClockGhz": 5.6,
+            "l2CacheMb": 12,
+            "l3CacheMb": 64,
+            "iGpu": true,
+            "iGpuModel": "AMD Radeon Graphics",
+            "pcieGen": 5,
+            "pcieLanes": 24,
+            "memorySupport": [
+                "DDR5"
+            ],
+            "memoryMaxMhz": 5600,
+            "memoryMaxGb": 192,
+            "tdpWBase": 120,
+            "tdpWBoost": 162,
+            "unlocked": true
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-9-9900x.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-ryzen-9-9950x",
+        "brand": "AMD",
+        "model": "Ryzen 9 9950X",
+        "name_display": "AMD Ryzen 9 9950X",
+        "release_year": 2024,
+        "tdp_w": 170,
+        "spec": {
+            "socket": "AM5",
+            "cores": 16,
+            "threads": 32,
+            "pCores": null,
+            "eCores": null,
+            "baseClockGhz": 4.3,
+            "boostClockGhz": 5.7,
+            "l2CacheMb": 16,
+            "l3CacheMb": 64,
+            "iGpu": true,
+            "iGpuModel": "AMD Radeon Graphics",
+            "pcieGen": 5,
+            "pcieLanes": 24,
+            "memorySupport": [
+                "DDR5"
+            ],
+            "memoryMaxMhz": 5600,
+            "memoryMaxGb": 192,
+            "tdpWBase": 170,
+            "tdpWBoost": 230,
+            "unlocked": true
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-9-9950x.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "intel-core-i5-12400f",
+        "brand": "Intel",
+        "model": "Core i5-12400F",
+        "name_display": "Intel Core i5-12400F",
+        "release_year": 2022,
+        "tdp_w": 65,
+        "spec": {
+            "socket": "LGA1700",
+            "cores": 6,
+            "threads": 12,
+            "pCores": 6,
+            "eCores": 0,
+            "baseClockGhz": 2.5,
+            "boostClockGhz": 4.4,
+            "l2CacheMb": 7.5,
+            "l3CacheMb": 18,
+            "iGpu": false,
+            "iGpuModel": null,
+            "pcieGen": 5,
+            "pcieLanes": 20,
+            "memorySupport": [
+                "DDR4",
+                "DDR5"
+            ],
+            "memoryMaxMhz": 4800,
+            "memoryMaxGb": 128,
+            "tdpWBase": 65,
+            "tdpWBoost": 117,
+            "unlocked": false
+        },
+        "_notes": "Sin iGPU (sufijo F). Requiere GPU discreta obligatoriamente.",
+        "sources": [
+            {
+                "url": "https://ark.intel.com/content/www/us/en/ark/products/134586/intel-core-i5-12400f-processor-18m-cache-up-to-4-40-ghz.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "intel-core-i5-12400",
+        "brand": "Intel",
+        "model": "Core i5-12400",
+        "name_display": "Intel Core i5-12400",
+        "release_year": 2022,
+        "tdp_w": 65,
+        "spec": {
+            "socket": "LGA1700",
+            "cores": 6,
+            "threads": 12,
+            "pCores": 6,
+            "eCores": 0,
+            "baseClockGhz": 2.5,
+            "boostClockGhz": 4.4,
+            "l2CacheMb": 7.5,
+            "l3CacheMb": 18,
+            "iGpu": true,
+            "iGpuModel": "Intel UHD Graphics 730",
+            "pcieGen": 5,
+            "pcieLanes": 20,
+            "memorySupport": [
+                "DDR4",
+                "DDR5"
+            ],
+            "memoryMaxMhz": 4800,
+            "memoryMaxGb": 128,
+            "tdpWBase": 65,
+            "tdpWBoost": 117,
+            "unlocked": false
+        },
+        "sources": [
+            {
+                "url": "https://ark.intel.com/content/www/us/en/ark/products/134585/intel-core-i5-12400-processor-18m-cache-up-to-4-40-ghz.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "intel-core-i5-13600k",
+        "brand": "Intel",
+        "model": "Core i5-13600K",
+        "name_display": "Intel Core i5-13600K",
+        "release_year": 2022,
+        "tdp_w": 125,
+        "spec": {
+            "socket": "LGA1700",
+            "cores": 14,
+            "threads": 20,
+            "pCores": 6,
+            "eCores": 8,
+            "baseClockGhz": 3.5,
+            "boostClockGhz": 5.1,
+            "l2CacheMb": 20,
+            "l3CacheMb": 24,
+            "iGpu": true,
+            "iGpuModel": "Intel UHD Graphics 770",
+            "pcieGen": 5,
+            "pcieLanes": 20,
+            "memorySupport": [
+                "DDR4",
+                "DDR5"
+            ],
+            "memoryMaxMhz": 5600,
+            "memoryMaxGb": 128,
+            "tdpWBase": 125,
+            "tdpWBoost": 181,
+            "unlocked": true
+        },
+        "sources": [
+            {
+                "url": "https://ark.intel.com/content/www/us/en/ark/products/230493/intel-core-i5-13600k-processor-24m-cache-up-to-5-10-ghz.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "intel-core-i5-13600kf",
+        "brand": "Intel",
+        "model": "Core i5-13600KF",
+        "name_display": "Intel Core i5-13600KF",
+        "release_year": 2022,
+        "tdp_w": 125,
+        "spec": {
+            "socket": "LGA1700",
+            "cores": 14,
+            "threads": 20,
+            "pCores": 6,
+            "eCores": 8,
+            "baseClockGhz": 3.5,
+            "boostClockGhz": 5.1,
+            "l2CacheMb": 20,
+            "l3CacheMb": 24,
+            "iGpu": false,
+            "iGpuModel": null,
+            "pcieGen": 5,
+            "pcieLanes": 20,
+            "memorySupport": [
+                "DDR4",
+                "DDR5"
+            ],
+            "memoryMaxMhz": 5600,
+            "memoryMaxGb": 128,
+            "tdpWBase": 125,
+            "tdpWBoost": 181,
+            "unlocked": true
+        },
+        "_notes": "Variante sin iGPU del 13600K. Precio ligeramente inferior.",
+        "sources": [
+            {
+                "url": "https://ark.intel.com/content/www/us/en/ark/products/230494/intel-core-i5-13600kf-processor-24m-cache-up-to-5-10-ghz.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "intel-core-i7-12700f",
+        "brand": "Intel",
+        "model": "Core i7-12700F",
+        "name_display": "Intel Core i7-12700F",
+        "release_year": 2022,
+        "tdp_w": 65,
+        "spec": {
+            "socket": "LGA1700",
+            "cores": 12,
+            "threads": 20,
+            "pCores": 8,
+            "eCores": 4,
+            "baseClockGhz": 2.1,
+            "boostClockGhz": 4.9,
+            "l2CacheMb": 12,
+            "l3CacheMb": 25,
+            "iGpu": false,
+            "iGpuModel": null,
+            "pcieGen": 5,
+            "pcieLanes": 20,
+            "memorySupport": [
+                "DDR4",
+                "DDR5"
+            ],
+            "memoryMaxMhz": 4800,
+            "memoryMaxGb": 128,
+            "tdpWBase": 65,
+            "tdpWBoost": 180,
+            "unlocked": false
+        },
+        "_notes": "Sin iGPU (sufijo F). MTP de 180 W en modo turbo sostenido.",
+        "sources": [
+            {
+                "url": "https://ark.intel.com/content/www/us/en/ark/products/134591/intel-core-i7-12700f-processor-25m-cache-up-to-4-90-ghz.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "intel-core-i7-13700k",
+        "brand": "Intel",
+        "model": "Core i7-13700K",
+        "name_display": "Intel Core i7-13700K",
+        "release_year": 2022,
+        "tdp_w": 125,
+        "spec": {
+            "socket": "LGA1700",
+            "cores": 16,
+            "threads": 24,
+            "pCores": 8,
+            "eCores": 8,
+            "baseClockGhz": 3.4,
+            "boostClockGhz": 5.4,
+            "l2CacheMb": 24,
+            "l3CacheMb": 30,
+            "iGpu": true,
+            "iGpuModel": "Intel UHD Graphics 770",
+            "pcieGen": 5,
+            "pcieLanes": 20,
+            "memorySupport": [
+                "DDR4",
+                "DDR5"
+            ],
+            "memoryMaxMhz": 5600,
+            "memoryMaxGb": 128,
+            "tdpWBase": 125,
+            "tdpWBoost": 253,
+            "unlocked": true
+        },
+        "sources": [
+            {
+                "url": "https://ark.intel.com/content/www/us/en/ark/products/230500/intel-core-i7-13700k-processor-30m-cache-up-to-5-40-ghz.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "intel-core-i7-13700kf",
+        "brand": "Intel",
+        "model": "Core i7-13700KF",
+        "name_display": "Intel Core i7-13700KF",
+        "release_year": 2022,
+        "tdp_w": 125,
+        "spec": {
+            "socket": "LGA1700",
+            "cores": 16,
+            "threads": 24,
+            "pCores": 8,
+            "eCores": 8,
+            "baseClockGhz": 3.4,
+            "boostClockGhz": 5.4,
+            "l2CacheMb": 24,
+            "l3CacheMb": 30,
+            "iGpu": false,
+            "iGpuModel": null,
+            "pcieGen": 5,
+            "pcieLanes": 20,
+            "memorySupport": [
+                "DDR4",
+                "DDR5"
+            ],
+            "memoryMaxMhz": 5600,
+            "memoryMaxGb": 128,
+            "tdpWBase": 125,
+            "tdpWBoost": 253,
+            "unlocked": true
+        },
+        "_notes": "Variante sin iGPU del 13700K.",
+        "sources": [
+            {
+                "url": "https://ark.intel.com/content/www/us/en/ark/products/230501/intel-core-i7-13700kf-processor-30m-cache-up-to-5-40-ghz.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "intel-core-i5-14400f",
+        "brand": "Intel",
+        "model": "Core i5-14400F",
+        "name_display": "Intel Core i5-14400F",
+        "release_year": 2024,
+        "tdp_w": 65,
+        "spec": {
+            "socket": "LGA1700",
+            "cores": 10,
+            "threads": 16,
+            "pCores": 6,
+            "eCores": 4,
+            "baseClockGhz": 2.5,
+            "boostClockGhz": 4.7,
+            "l2CacheMb": 9.5,
+            "l3CacheMb": 20,
+            "iGpu": false,
+            "iGpuModel": null,
+            "pcieGen": 5,
+            "pcieLanes": 20,
+            "memorySupport": [
+                "DDR4",
+                "DDR5"
+            ],
+            "memoryMaxMhz": 4800,
+            "memoryMaxGb": 192,
+            "tdpWBase": 65,
+            "tdpWBoost": 148,
+            "unlocked": false
+        },
+        "_notes": "Sin iGPU (sufijo F). Gran relación precio/rendimiento en Bolivia para gaming con GPU discreta.",
+        "sources": [
+            {
+                "url": "https://ark.intel.com/content/www/us/en/ark/products/236796/intel-core-i5-processor-14400f-20m-cache-up-to-4-70-ghz.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "intel-core-i5-14600k",
+        "brand": "Intel",
+        "model": "Core i5-14600K",
+        "name_display": "Intel Core i5-14600K",
+        "release_year": 2023,
+        "tdp_w": 125,
+        "spec": {
+            "socket": "LGA1700",
+            "cores": 14,
+            "threads": 20,
+            "pCores": 6,
+            "eCores": 8,
+            "baseClockGhz": 3.5,
+            "boostClockGhz": 5.3,
+            "l2CacheMb": 20,
+            "l3CacheMb": 24,
+            "iGpu": true,
+            "iGpuModel": "Intel UHD Graphics 770",
+            "pcieGen": 5,
+            "pcieLanes": 20,
+            "memorySupport": [
+                "DDR4",
+                "DDR5"
+            ],
+            "memoryMaxMhz": 5600,
+            "memoryMaxGb": 192,
+            "tdpWBase": 125,
+            "tdpWBoost": 181,
+            "unlocked": true
+        },
+        "sources": [
+            {
+                "url": "https://ark.intel.com/content/www/us/en/ark/products/236787/intel-core-i5-processor-14600k-24m-cache-up-to-5-30-ghz.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "intel-core-i7-14700k",
+        "brand": "Intel",
+        "model": "Core i7-14700K",
+        "name_display": "Intel Core i7-14700K",
+        "release_year": 2023,
+        "tdp_w": 125,
+        "spec": {
+            "socket": "LGA1700",
+            "cores": 20,
+            "threads": 28,
+            "pCores": 8,
+            "eCores": 12,
+            "baseClockGhz": 3.4,
+            "boostClockGhz": 5.6,
+            "l2CacheMb": 28,
+            "l3CacheMb": 33,
+            "iGpu": true,
+            "iGpuModel": "Intel UHD Graphics 770",
+            "pcieGen": 5,
+            "pcieLanes": 20,
+            "memorySupport": [
+                "DDR4",
+                "DDR5"
+            ],
+            "memoryMaxMhz": 5600,
+            "memoryMaxGb": 192,
+            "tdpWBase": 125,
+            "tdpWBoost": 253,
+            "unlocked": true
+        },
+        "sources": [
+            {
+                "url": "https://ark.intel.com/content/www/us/en/ark/products/236783/intel-core-i7-processor-14700k-33m-cache-up-to-5-60-ghz.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "intel-core-i7-14700kf",
+        "brand": "Intel",
+        "model": "Core i7-14700KF",
+        "name_display": "Intel Core i7-14700KF",
+        "release_year": 2023,
+        "tdp_w": 125,
+        "spec": {
+            "socket": "LGA1700",
+            "cores": 20,
+            "threads": 28,
+            "pCores": 8,
+            "eCores": 12,
+            "baseClockGhz": 3.4,
+            "boostClockGhz": 5.6,
+            "l2CacheMb": 28,
+            "l3CacheMb": 33,
+            "iGpu": false,
+            "iGpuModel": null,
+            "pcieGen": 5,
+            "pcieLanes": 20,
+            "memorySupport": [
+                "DDR4",
+                "DDR5"
+            ],
+            "memoryMaxMhz": 5600,
+            "memoryMaxGb": 192,
+            "tdpWBase": 125,
+            "tdpWBoost": 253,
+            "unlocked": true
+        },
+        "_notes": "Variante sin iGPU del 14700K. Popular en Bolivia por precio.",
+        "sources": [
+            {
+                "url": "https://ark.intel.com/content/www/us/en/ark/products/236784/intel-core-i7-processor-14700kf-33m-cache-up-to-5-60-ghz.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "intel-core-i9-14900k",
+        "brand": "Intel",
+        "model": "Core i9-14900K",
+        "name_display": "Intel Core i9-14900K",
+        "release_year": 2023,
+        "tdp_w": 125,
+        "spec": {
+            "socket": "LGA1700",
+            "cores": 24,
+            "threads": 32,
+            "pCores": 8,
+            "eCores": 16,
+            "baseClockGhz": 3.2,
+            "boostClockGhz": 6.0,
+            "l2CacheMb": 32,
+            "l3CacheMb": 36,
+            "iGpu": true,
+            "iGpuModel": "Intel UHD Graphics 770",
+            "pcieGen": 5,
+            "pcieLanes": 20,
+            "memorySupport": [
+                "DDR4",
+                "DDR5"
+            ],
+            "memoryMaxMhz": 5600,
+            "memoryMaxGb": 192,
+            "tdpWBase": 125,
+            "tdpWBoost": 253,
+            "unlocked": true
+        },
+        "sources": [
+            {
+                "url": "https://ark.intel.com/content/www/us/en/ark/products/236773/intel-core-i9-processor-14900k-36m-cache-up-to-6-00-ghz.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "intel-core-i9-14900kf",
+        "brand": "Intel",
+        "model": "Core i9-14900KF",
+        "name_display": "Intel Core i9-14900KF",
+        "release_year": 2023,
+        "tdp_w": 125,
+        "spec": {
+            "socket": "LGA1700",
+            "cores": 24,
+            "threads": 32,
+            "pCores": 8,
+            "eCores": 16,
+            "baseClockGhz": 3.2,
+            "boostClockGhz": 6.0,
+            "l2CacheMb": 32,
+            "l3CacheMb": 36,
+            "iGpu": false,
+            "iGpuModel": null,
+            "pcieGen": 5,
+            "pcieLanes": 20,
+            "memorySupport": [
+                "DDR4",
+                "DDR5"
+            ],
+            "memoryMaxMhz": 5600,
+            "memoryMaxGb": 192,
+            "tdpWBase": 125,
+            "tdpWBoost": 253,
+            "unlocked": true
+        },
+        "_notes": "Variante sin iGPU del 14900K.",
+        "sources": [
+            {
+                "url": "https://ark.intel.com/content/www/us/en/ark/products/236774/intel-core-i9-processor-14900kf-36m-cache-up-to-6-00-ghz.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    }
+]

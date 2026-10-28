@@ -1,0 +1,41 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1793160648245,
+      "tag": "0000_easy_night_thrasher",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1793163832428,
+      "tag": "0001_black_mulholland_black",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1793166199649,
+      "tag": "0002_counter_bootstrap",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1793168004112,
+      "tag": "0003_private_access",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1793203044550,
+      "tag": "0004_friendly_cerise",
+      "breakpoints": true
+    }
+  ]
+}

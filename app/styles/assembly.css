@@ -1,0 +1,324 @@
+/* Component selection: clear steps, useful guidance and an editable build. */
+.quote-readiness {
+  padding: 16px 0;
+  border-top: 1px solid var(--border);
+  margin-bottom: 12px;
+}
+.quote-readiness h3 {
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+.quote-readiness ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 14px;
+}
+.quote-readiness li {
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+}
+.quote-readiness li > span:first-child {
+  width: 16px;
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+}
+.quote-readiness strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  margin-top: 3px;
+  color: var(--fg-muted);
+}
+.quote-readiness > p {
+  font-size: 12px;
+  color: var(--fg-muted);
+  line-height: 1.7;
+  margin-top: 16px;
+}
+.product-visual > svg.hardware-study,
+.build-cards .product-visual > svg.hardware-study {
+  width: 86%;
+  height: 78%;
+  max-width: 320px;
+  color: #13284a;
+  position: absolute;
+  inset: 7% 7% 15%;
+}
+.workbench-intro {
+  max-width: 48ch;
+  margin: 16px 0 0;
+  color: var(--fg-muted);
+  font-size: 14px;
+}
+.assembly-progress {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 24px;
+  border: 1px solid var(--border-control);
+  border-radius: 12px;
+}
+.assembly-progress > div:first-child {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+}
+.assembly-progress .eyebrow {
+  margin-right: auto;
+}
+.assembly-progress strong {
+  font: 28px var(--font-mono);
+  letter-spacing: -0.06em;
+}
+.assembly-progress strong span {
+  color: var(--fg-muted);
+  font-size: 16px;
+}
+.assembly-progress__track {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 6px;
+}
+.assembly-progress__track span {
+  height: 4px;
+  background: var(--border-control);
+  border-radius: 2px;
+  transition: background 250ms ease;
+}
+.assembly-progress__track [data-filled="true"] {
+  background: var(--primary);
+}
+.assembly-progress > button {
+  justify-self: start;
+}
+.category-purpose {
+  color: var(--fg-muted);
+  font-size: 13px;
+  margin-top: 8px;
+  max-width: 34ch;
+}
+.category-toolbar {
+  align-items: start;
+  scroll-margin-top: 28px;
+  padding-top: 0;
+}
+.assembly-preview-heading {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.assembly-preview-heading > p {
+  margin-bottom: 12px;
+}
+.issue-severity {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.issue-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin-top: 10px;
+}
+.issue-actions button {
+  text-align: left;
+}
+.build-summary .undo-selection {
+  margin-top: 16px;
+  font-size: 12px;
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  .workbench .build-summary {
+    position: relative;
+    max-height: none;
+  }
+}
+.category-toolbar h2 {
+  scroll-margin-top: 32px;
+}
+.category-toolbar .owned-switch {
+  flex-shrink: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--border-control);
+  border-radius: 8px;
+  font-size: 12px;
+}
+.category-guide {
+  display: flex;
+  align-items: start;
+  gap: 14px;
+  border-left: 2px solid var(--primary);
+  padding: 16px;
+  background: var(--bg-elevated);
+}
+.category-guide > svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.category-guide p {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.category-guide p span {
+  color: var(--fg-muted);
+}
+.owned-explanation {
+  margin-block: 12px 20px;
+}
+.selection-feedback {
+  margin: -8px 0 20px;
+  padding: 12px 14px;
+  background: var(--bg-elevated);
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--fg-muted);
+  overflow-wrap: anywhere;
+}
+.component-card__brand {
+  display: flex;
+  min-height: 36px;
+  align-items: center;
+}
+.component-card__brand .preview-brand {
+  min-height: 28px;
+}
+.component-card__brand .preview-brand img {
+  max-width: 100px;
+  max-height: 28px;
+}
+.workbench .wizard-controls {
+  display: flex;
+  border-top: 1px solid var(--border);
+  margin-top: 24px;
+}
+.workbench .wizard-controls > .button {
+  min-width: 0;
+  font-size: 12px;
+  padding-inline: 12px;
+}
+.summary-owned {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  color: var(--fg-muted);
+}
+.summary-owned input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary);
+}
+.summary-edit {
+  justify-self: start;
+  text-align: left;
+  font-size: 11px;
+}
+.selected-parts .icon-button {
+  min-width: 36px;
+  min-height: 36px;
+}
+.missing-parts {
+  margin-block: 20px;
+}
+.missing-parts > .eyebrow {
+  font-size: 10px;
+  margin-bottom: 12px;
+}
+.missing-parts > button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  background: transparent;
+  color: var(--fg-muted);
+  border: 0;
+  border-bottom: 1px dashed var(--border-control);
+  text-align: left;
+  padding: 12px 0;
+  font-size: 12px;
+  transition:
+    color 200ms ease,
+    padding 200ms ease;
+}
+.missing-parts > button > svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.missing-parts > button > span:last-child {
+  margin-left: auto;
+}
+.missing-parts > button:hover {
+  color: var(--fg);
+  padding-left: 6px;
+}
+.workbench .candidate-controls {
+  margin-bottom: 8px;
+}
+@media (max-width: 639px) {
+  .workbench {
+    padding-top: 24px;
+  }
+  .workbench__header {
+    gap: 16px;
+    padding-bottom: 16px;
+  }
+  .workbench > .proforma-toolbar {
+    padding: 12px;
+    margin-block: 16px;
+  }
+  .workbench .wizard-progress {
+    padding: 10px 12px;
+    margin-bottom: 16px;
+  }
+  .workbench .build-cards .product-visual {
+    height: 160px;
+    min-height: 160px;
+  }
+  .workbench .build-cards .component-card__body {
+    padding: 16px;
+    gap: 12px;
+  }
+  .assembly-progress {
+    padding: 14px;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .assembly-progress > div:first-child {
+    gap: 8px 12px;
+  }
+  .assembly-progress .eyebrow {
+    flex-basis: 100%;
+  }
+  .assembly-progress > div:first-child > .small {
+    font-size: 11px;
+  }
+  .category-toolbar {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .category-toolbar > div {
+    flex-basis: 100%;
+  }
+  .category-toolbar .owned-switch {
+    margin-left: auto;
+  }
+  .workbench .build-summary {
+    padding: 20px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .assembly-progress__track span,
+  .missing-parts > button {
+    transition: none;
+  }
+}

@@ -1,0 +1,1311 @@
+[
+    {
+        "slug": "nvidia-geforce-rtx-3050",
+        "brand": "NVIDIA",
+        "model": "GeForce RTX 3050",
+        "name_display": "NVIDIA GeForce RTX 3050",
+        "release_year": 2022,
+        "tdp_w": 130,
+        "spec": {
+            "chipset": "RTX 3050",
+            "vramGb": 8,
+            "vramType": "GDDR6",
+            "busWidthBits": 128,
+            "baseClockMhz": 1552,
+            "boostClockMhz": 1777,
+            "tdpW": 130,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 242,
+            "widthSlots": 2,
+            "heightMm": 112,
+            "powerConnectors": [
+                "8pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "DLSS 2",
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3050/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/geforce-rtx-3050.c3924",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "nvidia-geforce-rtx-3060",
+        "brand": "NVIDIA",
+        "model": "GeForce RTX 3060",
+        "name_display": "NVIDIA GeForce RTX 3060",
+        "release_year": 2021,
+        "tdp_w": 170,
+        "spec": {
+            "chipset": "RTX 3060",
+            "vramGb": 12,
+            "vramType": "GDDR6",
+            "busWidthBits": 192,
+            "baseClockMhz": 1320,
+            "boostClockMhz": 1777,
+            "tdpW": 170,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 242,
+            "widthSlots": 2,
+            "heightMm": 112,
+            "powerConnectors": [
+                "8pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "DLSS 2",
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3060/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/geforce-rtx-3060.c3681",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "nvidia-geforce-rtx-3060-ti",
+        "brand": "NVIDIA",
+        "model": "GeForce RTX 3060 Ti",
+        "name_display": "NVIDIA GeForce RTX 3060 Ti",
+        "release_year": 2020,
+        "tdp_w": 200,
+        "spec": {
+            "chipset": "RTX 3060 Ti",
+            "vramGb": 8,
+            "vramType": "GDDR6",
+            "busWidthBits": 256,
+            "baseClockMhz": 1410,
+            "boostClockMhz": 1665,
+            "tdpW": 200,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 242,
+            "widthSlots": 2,
+            "heightMm": 112,
+            "powerConnectors": [
+                "8pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "DLSS 2",
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3060-ti/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/geforce-rtx-3060-ti.c3681",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "nvidia-geforce-rtx-3070",
+        "brand": "NVIDIA",
+        "model": "GeForce RTX 3070",
+        "name_display": "NVIDIA GeForce RTX 3070",
+        "release_year": 2020,
+        "tdp_w": 220,
+        "spec": {
+            "chipset": "RTX 3070",
+            "vramGb": 8,
+            "vramType": "GDDR6",
+            "busWidthBits": 256,
+            "baseClockMhz": 1500,
+            "boostClockMhz": 1725,
+            "tdpW": 220,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 242,
+            "widthSlots": 2,
+            "heightMm": 112,
+            "powerConnectors": [
+                "8pin",
+                "8pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "DLSS 2",
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3070/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/geforce-rtx-3070.c3674",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "nvidia-geforce-rtx-3070-ti",
+        "brand": "NVIDIA",
+        "model": "GeForce RTX 3070 Ti",
+        "name_display": "NVIDIA GeForce RTX 3070 Ti",
+        "release_year": 2021,
+        "tdp_w": 290,
+        "spec": {
+            "chipset": "RTX 3070 Ti",
+            "vramGb": 8,
+            "vramType": "GDDR6X",
+            "busWidthBits": 256,
+            "baseClockMhz": 1575,
+            "boostClockMhz": 1770,
+            "tdpW": 290,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 267,
+            "widthSlots": 2.5,
+            "heightMm": 112,
+            "powerConnectors": [
+                "8pin",
+                "8pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "DLSS 2",
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3070-ti/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/geforce-rtx-3070-ti.c3734",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "nvidia-geforce-rtx-3080-10gb",
+        "brand": "NVIDIA",
+        "model": "GeForce RTX 3080",
+        "name_display": "NVIDIA GeForce RTX 3080",
+        "release_year": 2020,
+        "tdp_w": 320,
+        "spec": {
+            "chipset": "RTX 3080",
+            "vramGb": 10,
+            "vramType": "GDDR6X",
+            "busWidthBits": 320,
+            "baseClockMhz": 1440,
+            "boostClockMhz": 1710,
+            "tdpW": 320,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 285,
+            "widthSlots": 3,
+            "heightMm": 112,
+            "powerConnectors": [
+                "8pin",
+                "8pin",
+                "6pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 1
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "DLSS 2",
+                "FSR 3"
+            ]
+        },
+        "_notes": "Variante 10 GB. Existe también versión 12 GB (LHR); en Bolivia se vende predominantemente la de 10 GB.",
+        "sources": [
+            {
+                "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3080/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/geforce-rtx-3080.c3621",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "nvidia-geforce-rtx-4060",
+        "brand": "NVIDIA",
+        "model": "GeForce RTX 4060",
+        "name_display": "NVIDIA GeForce RTX 4060",
+        "release_year": 2023,
+        "tdp_w": 115,
+        "spec": {
+            "chipset": "RTX 4060",
+            "vramGb": 8,
+            "vramType": "GDDR6",
+            "busWidthBits": 128,
+            "baseClockMhz": 1830,
+            "boostClockMhz": 2460,
+            "tdpW": 115,
+            "pcieGen": 4,
+            "pcieLanes": 8,
+            "lengthMm": 240,
+            "widthSlots": 2,
+            "heightMm": 112,
+            "powerConnectors": [
+                "8pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "DLSS 3.5",
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4060/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/geforce-rtx-4060.c4077",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "nvidia-geforce-rtx-4060-ti-8gb",
+        "brand": "NVIDIA",
+        "model": "GeForce RTX 4060 Ti",
+        "name_display": "NVIDIA GeForce RTX 4060 Ti",
+        "release_year": 2023,
+        "tdp_w": 165,
+        "spec": {
+            "chipset": "RTX 4060 Ti",
+            "vramGb": 8,
+            "vramType": "GDDR6",
+            "busWidthBits": 128,
+            "baseClockMhz": 2310,
+            "boostClockMhz": 2535,
+            "tdpW": 165,
+            "pcieGen": 4,
+            "pcieLanes": 8,
+            "lengthMm": 240,
+            "widthSlots": 2,
+            "heightMm": 112,
+            "powerConnectors": [
+                "8pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "DLSS 3.5",
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4060-ti/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/geforce-rtx-4060-ti.c4084",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "nvidia-geforce-rtx-4070",
+        "brand": "NVIDIA",
+        "model": "GeForce RTX 4070",
+        "name_display": "NVIDIA GeForce RTX 4070",
+        "release_year": 2023,
+        "tdp_w": 200,
+        "spec": {
+            "chipset": "RTX 4070",
+            "vramGb": 12,
+            "vramType": "GDDR6X",
+            "busWidthBits": 192,
+            "baseClockMhz": 1920,
+            "boostClockMhz": 2475,
+            "tdpW": 200,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 285,
+            "widthSlots": 2.5,
+            "heightMm": 112,
+            "powerConnectors": [
+                "16pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "DLSS 3.5",
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4070/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/geforce-rtx-4070.c3953",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "nvidia-geforce-rtx-4070-super",
+        "brand": "NVIDIA",
+        "model": "GeForce RTX 4070 SUPER",
+        "name_display": "NVIDIA GeForce RTX 4070 SUPER",
+        "release_year": 2024,
+        "tdp_w": 220,
+        "spec": {
+            "chipset": "RTX 4070 SUPER",
+            "vramGb": 12,
+            "vramType": "GDDR6X",
+            "busWidthBits": 192,
+            "baseClockMhz": 1980,
+            "boostClockMhz": 2475,
+            "tdpW": 220,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 285,
+            "widthSlots": 2.5,
+            "heightMm": 112,
+            "powerConnectors": [
+                "16pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "DLSS 3.5",
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4070-super/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/geforce-rtx-4070-super.c4197",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "nvidia-geforce-rtx-4070-ti",
+        "brand": "NVIDIA",
+        "model": "GeForce RTX 4070 Ti",
+        "name_display": "NVIDIA GeForce RTX 4070 Ti",
+        "release_year": 2023,
+        "tdp_w": 285,
+        "spec": {
+            "chipset": "RTX 4070 Ti",
+            "vramGb": 12,
+            "vramType": "GDDR6X",
+            "busWidthBits": 192,
+            "baseClockMhz": 2310,
+            "boostClockMhz": 2610,
+            "tdpW": 285,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 336,
+            "widthSlots": 3,
+            "heightMm": 137,
+            "powerConnectors": [
+                "16pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "DLSS 3.5",
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4070-ti/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/geforce-rtx-4070-ti.c3953",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "nvidia-geforce-rtx-4070-ti-super",
+        "brand": "NVIDIA",
+        "model": "GeForce RTX 4070 Ti SUPER",
+        "name_display": "NVIDIA GeForce RTX 4070 Ti SUPER",
+        "release_year": 2024,
+        "tdp_w": 285,
+        "spec": {
+            "chipset": "RTX 4070 Ti SUPER",
+            "vramGb": 16,
+            "vramType": "GDDR6X",
+            "busWidthBits": 256,
+            "baseClockMhz": 2340,
+            "boostClockMhz": 2610,
+            "tdpW": 285,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 336,
+            "widthSlots": 3,
+            "heightMm": 137,
+            "powerConnectors": [
+                "16pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "DLSS 3.5",
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4070-ti-super/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/geforce-rtx-4070-ti-super.c4197",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "nvidia-geforce-rtx-4080",
+        "brand": "NVIDIA",
+        "model": "GeForce RTX 4080",
+        "name_display": "NVIDIA GeForce RTX 4080",
+        "release_year": 2022,
+        "tdp_w": 320,
+        "spec": {
+            "chipset": "RTX 4080",
+            "vramGb": 16,
+            "vramType": "GDDR6X",
+            "busWidthBits": 256,
+            "baseClockMhz": 2205,
+            "boostClockMhz": 2505,
+            "tdpW": 320,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 336,
+            "widthSlots": 3,
+            "heightMm": 137,
+            "powerConnectors": [
+                "16pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "DLSS 3.5",
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4080/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/geforce-rtx-4080.c3950",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "nvidia-geforce-rtx-4080-super",
+        "brand": "NVIDIA",
+        "model": "GeForce RTX 4080 SUPER",
+        "name_display": "NVIDIA GeForce RTX 4080 SUPER",
+        "release_year": 2024,
+        "tdp_w": 320,
+        "spec": {
+            "chipset": "RTX 4080 SUPER",
+            "vramGb": 16,
+            "vramType": "GDDR6X",
+            "busWidthBits": 256,
+            "baseClockMhz": 2295,
+            "boostClockMhz": 2550,
+            "tdpW": 320,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 336,
+            "widthSlots": 3,
+            "heightMm": 137,
+            "powerConnectors": [
+                "16pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "DLSS 3.5",
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4080-super/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/geforce-rtx-4080-super.c4197",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "nvidia-geforce-rtx-4090",
+        "brand": "NVIDIA",
+        "model": "GeForce RTX 4090",
+        "name_display": "NVIDIA GeForce RTX 4090",
+        "release_year": 2022,
+        "tdp_w": 450,
+        "spec": {
+            "chipset": "RTX 4090",
+            "vramGb": 24,
+            "vramType": "GDDR6X",
+            "busWidthBits": 384,
+            "baseClockMhz": 2235,
+            "boostClockMhz": 2520,
+            "tdpW": 450,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 336,
+            "widthSlots": 3,
+            "heightMm": 137,
+            "powerConnectors": [
+                "16pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 1
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "DLSS 3.5",
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/geforce-rtx-4090.c3950",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-radeon-rx-6600",
+        "brand": "AMD",
+        "model": "Radeon RX 6600",
+        "name_display": "AMD Radeon RX 6600",
+        "release_year": 2021,
+        "tdp_w": 132,
+        "spec": {
+            "chipset": "RX 6600",
+            "vramGb": 8,
+            "vramType": "GDDR6",
+            "busWidthBits": 128,
+            "baseClockMhz": 1626,
+            "boostClockMhz": 2491,
+            "tdpW": 132,
+            "pcieGen": 4,
+            "pcieLanes": 8,
+            "lengthMm": 215,
+            "widthSlots": 2,
+            "heightMm": 100,
+            "powerConnectors": [
+                "8pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/graphics/amd-radeon-rx-6600",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/radeon-rx-6600.c3774",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-radeon-rx-6650-xt",
+        "brand": "AMD",
+        "model": "Radeon RX 6650 XT",
+        "name_display": "AMD Radeon RX 6650 XT",
+        "release_year": 2022,
+        "tdp_w": 180,
+        "spec": {
+            "chipset": "RX 6650 XT",
+            "vramGb": 8,
+            "vramType": "GDDR6",
+            "busWidthBits": 128,
+            "baseClockMhz": 1798,
+            "boostClockMhz": 2635,
+            "tdpW": 180,
+            "pcieGen": 4,
+            "pcieLanes": 8,
+            "lengthMm": 240,
+            "widthSlots": 2.5,
+            "heightMm": 115,
+            "powerConnectors": [
+                "8pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/graphics/amd-radeon-rx-6650-xt",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/radeon-rx-6650-xt.c3864",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-radeon-rx-6700-xt",
+        "brand": "AMD",
+        "model": "Radeon RX 6700 XT",
+        "name_display": "AMD Radeon RX 6700 XT",
+        "release_year": 2021,
+        "tdp_w": 230,
+        "spec": {
+            "chipset": "RX 6700 XT",
+            "vramGb": 12,
+            "vramType": "GDDR6",
+            "busWidthBits": 192,
+            "baseClockMhz": 2321,
+            "boostClockMhz": 2581,
+            "tdpW": 230,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 267,
+            "widthSlots": 2.5,
+            "heightMm": 115,
+            "powerConnectors": [
+                "8pin",
+                "8pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/graphics/amd-radeon-rx-6700-xt",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/radeon-rx-6700-xt.c3682",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-radeon-rx-6750-xt",
+        "brand": "AMD",
+        "model": "Radeon RX 6750 XT",
+        "name_display": "AMD Radeon RX 6750 XT",
+        "release_year": 2022,
+        "tdp_w": 250,
+        "spec": {
+            "chipset": "RX 6750 XT",
+            "vramGb": 12,
+            "vramType": "GDDR6",
+            "busWidthBits": 192,
+            "baseClockMhz": 2495,
+            "boostClockMhz": 2600,
+            "tdpW": 250,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 267,
+            "widthSlots": 2.5,
+            "heightMm": 115,
+            "powerConnectors": [
+                "8pin",
+                "8pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/graphics/amd-radeon-rx-6750-xt",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/radeon-rx-6750-xt.c3864",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-radeon-rx-6800",
+        "brand": "AMD",
+        "model": "Radeon RX 6800",
+        "name_display": "AMD Radeon RX 6800",
+        "release_year": 2020,
+        "tdp_w": 250,
+        "spec": {
+            "chipset": "RX 6800",
+            "vramGb": 16,
+            "vramType": "GDDR6",
+            "busWidthBits": 256,
+            "baseClockMhz": 1700,
+            "boostClockMhz": 2105,
+            "tdpW": 250,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 267,
+            "widthSlots": 2.5,
+            "heightMm": 115,
+            "powerConnectors": [
+                "8pin",
+                "6pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 1
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/graphics/amd-radeon-rx-6800",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/radeon-rx-6800.c3643",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-radeon-rx-6800-xt",
+        "brand": "AMD",
+        "model": "Radeon RX 6800 XT",
+        "name_display": "AMD Radeon RX 6800 XT",
+        "release_year": 2020,
+        "tdp_w": 300,
+        "spec": {
+            "chipset": "RX 6800 XT",
+            "vramGb": 16,
+            "vramType": "GDDR6",
+            "busWidthBits": 256,
+            "baseClockMhz": 1825,
+            "boostClockMhz": 2250,
+            "tdpW": 300,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 267,
+            "widthSlots": 2.5,
+            "heightMm": 115,
+            "powerConnectors": [
+                "8pin",
+                "8pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 1
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/graphics/amd-radeon-rx-6800-xt",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/radeon-rx-6800-xt.c3643",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-radeon-rx-6950-xt",
+        "brand": "AMD",
+        "model": "Radeon RX 6950 XT",
+        "name_display": "AMD Radeon RX 6950 XT",
+        "release_year": 2022,
+        "tdp_w": 335,
+        "spec": {
+            "chipset": "RX 6950 XT",
+            "vramGb": 16,
+            "vramType": "GDDR6",
+            "busWidthBits": 256,
+            "baseClockMhz": 1890,
+            "boostClockMhz": 2310,
+            "tdpW": 335,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 267,
+            "widthSlots": 2.5,
+            "heightMm": 115,
+            "powerConnectors": [
+                "8pin",
+                "8pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/graphics/amd-radeon-rx-6950-xt",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/radeon-rx-6950-xt.c3864",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-radeon-rx-7600",
+        "brand": "AMD",
+        "model": "Radeon RX 7600",
+        "name_display": "AMD Radeon RX 7600",
+        "release_year": 2023,
+        "tdp_w": 165,
+        "spec": {
+            "chipset": "RX 7600",
+            "vramGb": 8,
+            "vramType": "GDDR6",
+            "busWidthBits": 128,
+            "baseClockMhz": 1720,
+            "boostClockMhz": 2655,
+            "tdpW": 165,
+            "pcieGen": 4,
+            "pcieLanes": 8,
+            "lengthMm": 215,
+            "widthSlots": 2,
+            "heightMm": 105,
+            "powerConnectors": [
+                "8pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7600",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/radeon-rx-7600.c3955",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-radeon-rx-7700-xt",
+        "brand": "AMD",
+        "model": "Radeon RX 7700 XT",
+        "name_display": "AMD Radeon RX 7700 XT",
+        "release_year": 2023,
+        "tdp_w": 245,
+        "spec": {
+            "chipset": "RX 7700 XT",
+            "vramGb": 12,
+            "vramType": "GDDR6",
+            "busWidthBits": 192,
+            "baseClockMhz": 1700,
+            "boostClockMhz": 2599,
+            "tdpW": 245,
+            "pcieGen": 4,
+            "pcieLanes": 8,
+            "lengthMm": 267,
+            "widthSlots": 2.5,
+            "heightMm": 115,
+            "powerConnectors": [
+                "8pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7700-xt",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/radeon-rx-7700-xt.c4061",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-radeon-rx-7800-xt",
+        "brand": "AMD",
+        "model": "Radeon RX 7800 XT",
+        "name_display": "AMD Radeon RX 7800 XT",
+        "release_year": 2023,
+        "tdp_w": 263,
+        "spec": {
+            "chipset": "RX 7800 XT",
+            "vramGb": 16,
+            "vramType": "GDDR6",
+            "busWidthBits": 256,
+            "baseClockMhz": 1295,
+            "boostClockMhz": 2430,
+            "tdpW": 263,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 267,
+            "widthSlots": 2.5,
+            "heightMm": 115,
+            "powerConnectors": [
+                "8pin",
+                "8pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7800-xt",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/radeon-rx-7800-xt.c4061",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-radeon-rx-7900-gre",
+        "brand": "AMD",
+        "model": "Radeon RX 7900 GRE",
+        "name_display": "AMD Radeon RX 7900 GRE",
+        "release_year": 2023,
+        "tdp_w": 260,
+        "spec": {
+            "chipset": "RX 7900 GRE",
+            "vramGb": 16,
+            "vramType": "GDDR6",
+            "busWidthBits": 256,
+            "baseClockMhz": 1287,
+            "boostClockMhz": 2245,
+            "tdpW": 260,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 287,
+            "widthSlots": 3,
+            "heightMm": 130,
+            "powerConnectors": [
+                "8pin",
+                "8pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "FSR 3"
+            ]
+        },
+        "_notes": "GRE = Golden Rabbit Edition, inicialmente solo China pero luego lanzada globalmente en Sept 2023.",
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7900-gre",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/radeon-rx-7900-gre.c4084",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-radeon-rx-7900-xt",
+        "brand": "AMD",
+        "model": "Radeon RX 7900 XT",
+        "name_display": "AMD Radeon RX 7900 XT",
+        "release_year": 2022,
+        "tdp_w": 315,
+        "spec": {
+            "chipset": "RX 7900 XT",
+            "vramGb": 20,
+            "vramType": "GDDR6",
+            "busWidthBits": 320,
+            "baseClockMhz": 1500,
+            "boostClockMhz": 2394,
+            "tdpW": 315,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 287,
+            "widthSlots": 3,
+            "heightMm": 130,
+            "powerConnectors": [
+                "8pin",
+                "8pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 1
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7900-xt",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/radeon-rx-7900-xt.c3955",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "amd-radeon-rx-7900-xtx",
+        "brand": "AMD",
+        "model": "Radeon RX 7900 XTX",
+        "name_display": "AMD Radeon RX 7900 XTX",
+        "release_year": 2022,
+        "tdp_w": 355,
+        "spec": {
+            "chipset": "RX 7900 XTX",
+            "vramGb": 24,
+            "vramType": "GDDR6",
+            "busWidthBits": 384,
+            "baseClockMhz": 1855,
+            "boostClockMhz": 2499,
+            "tdpW": 355,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 287,
+            "widthSlots": 3,
+            "heightMm": 130,
+            "powerConnectors": [
+                "8pin",
+                "8pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 1
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "FSR 3"
+            ]
+        },
+        "sources": [
+            {
+                "url": "https://www.amd.com/en/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7900-xtx",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/radeon-rx-7900-xtx.c3955",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "intel-arc-a770-16gb",
+        "brand": "Intel",
+        "model": "Arc A770",
+        "name_display": "Intel Arc A770",
+        "release_year": 2022,
+        "tdp_w": 225,
+        "spec": {
+            "chipset": "Arc A770",
+            "vramGb": 16,
+            "vramType": "GDDR6",
+            "busWidthBits": 256,
+            "baseClockMhz": 2100,
+            "boostClockMhz": 2400,
+            "tdpW": 225,
+            "pcieGen": 4,
+            "pcieLanes": 16,
+            "lengthMm": 272,
+            "widthSlots": 2.5,
+            "heightMm": 120,
+            "powerConnectors": [
+                "8pin",
+                "8pin"
+            ],
+            "outputs": {
+                "hdmi": 1,
+                "dp": 3,
+                "usbC": 0
+            },
+            "rayTracing": true,
+            "dlssFsr": [
+                "XeSS 1.3",
+                "FSR 3"
+            ]
+        },
+        "_notes": "Variante 16 GB. También existe versión 8 GB. Mejorado mucho con drivers post-launch. XeSS es el equivalente de Intel a DLSS.",
+        "sources": [
+            {
+                "url": "https://www.intel.com/content/www/us/en/products/sku/229151/intel-arc-a770-graphics-16gb/specifications.html",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            },
+            {
+                "url": "https://www.techpowerup.com/gpu-specs/intel-arc-a770.c3906",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    }
+]

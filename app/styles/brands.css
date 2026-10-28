@@ -1,0 +1,148 @@
+/* Source logos remain intact. Motion is purposeful, with no automatic marquee. */
+.worked-brands {
+  padding-block: 56px;
+  border-bottom: 1px solid var(--border);
+}
+.worked-brands__heading {
+  display: grid;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.worked-brands__heading h2 {
+  margin-top: 18px;
+  font-size: clamp(28px, 3.6vw, 46px);
+  letter-spacing: -0.035em;
+}
+.worked-brands__heading h2 span {
+  color: var(--fg-muted);
+}
+.worked-brands__heading > p {
+  color: var(--fg-muted);
+  font-size: 14px;
+  max-width: 40ch;
+  align-self: end;
+}
+.worked-brands__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.worked-brand {
+  min-width: 0;
+  padding: 24px 16px;
+  background: var(--bg);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.worked-brand__identity {
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white-0);
+  border-radius: 3px;
+  overflow: hidden;
+  padding: 12px;
+  transition: transform 200ms var(--ease-standard);
+}
+.worked-brand:hover .worked-brand__identity {
+  transform: translateY(-2px);
+}
+.worked-brand__logo {
+  display: block;
+  width: 100%;
+  max-width: 155px;
+  height: 58px;
+  object-fit: contain;
+}
+.worked-brand__name {
+  color: var(--navy-700);
+  font: 600 clamp(16px, 2vw, 24px)/1.2 var(--font-display);
+  letter-spacing: -0.025em;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+.worked-brand__identity[data-brand="amd-ryzen"] img {
+  max-width: 104px;
+}
+.worked-brand__identity[data-brand="intel"] img {
+  max-width: 112px;
+}
+.worked-brand__identity[data-brand="macrovip"] img {
+  max-width: 155px;
+}
+.worked-brand__caption {
+  margin-top: 20px;
+}
+.worked-brand__caption h3 {
+  font: 500 12px/1.5 var(--font-ui);
+  letter-spacing: 0;
+}
+.worked-brand__caption p {
+  color: var(--fg-muted);
+  font-size: 10px;
+  line-height: 1.7;
+  margin-top: 4px;
+}
+.worked-brands__foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 24px;
+}
+.worked-brands__foot .mono {
+  font-size: 10px;
+  color: var(--fg-muted);
+}
+.worked-brands__foot p {
+  font-size: 10px;
+  line-height: 1.7;
+  color: var(--fg-muted);
+  max-width: 69ch;
+}
+@media (min-width: 640px) {
+  .worked-brands__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .worked-brand {
+    padding: 28px 20px;
+  }
+  .worked-brands__heading {
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+  }
+  .worked-brands__heading > p {
+    justify-self: end;
+  }
+}
+@media (min-width: 1024px) {
+  .worked-brands {
+    padding-block: 72px;
+  }
+  .worked-brands__grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+  .worked-brand {
+    padding: 24px 12px;
+  }
+  .worked-brand__identity {
+    padding: 8px;
+    height: 86px;
+  }
+  .worked-brand__caption p {
+    min-height: 34px;
+  }
+}
+@media (max-width: 639px) {
+}
+@media (prefers-reduced-motion: reduce) {
+  .worked-brand__identity {
+    transition: none;
+  }
+  .worked-brand:hover .worked-brand__identity {
+    transform: none;
+  }
+}

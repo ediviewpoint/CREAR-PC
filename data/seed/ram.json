@@ -1,0 +1,393 @@
+[
+    {
+        "slug": "corsair-vengeance-ddr5-2x16gb-5600",
+        "brand": "Corsair",
+        "model": "Vengeance DDR5 2x16GB 5600MHz",
+        "name_display": "Corsair Vengeance DDR5-5600 32GB (2x16GB)",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "type": "DDR5",
+            "capacityGb": 16,
+            "kitQty": 2,
+            "frequencyMhz": 5600,
+            "casLatency": 36,
+            "voltageV": 1.25,
+            "heightMm": 43,
+            "xmp": true,
+            "expo": false,
+            "colorFinish": "Black"
+        },
+        "sources": [
+            {
+                "url": "https://www.corsair.com/us/en/p/memory/cmk32gx5m2b5600c36/vengeance-ddr5-32gb-2-x-16gb-ddr5-5600-c36-memory-module-kit-black-cmk32gx5m2b5600c36",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "corsair-vengeance-ddr5-2x16gb-6000",
+        "brand": "Corsair",
+        "model": "Vengeance DDR5 2x16GB 6000MHz",
+        "name_display": "Corsair Vengeance DDR5-6000 32GB (2x16GB)",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "type": "DDR5",
+            "capacityGb": 16,
+            "kitQty": 2,
+            "frequencyMhz": 6000,
+            "casLatency": 30,
+            "voltageV": 1.35,
+            "heightMm": 43,
+            "xmp": true,
+            "expo": false,
+            "colorFinish": "Black"
+        },
+        "sources": [
+            {
+                "url": "https://www.corsair.com/us/en/p/memory/cmk32gx5m2b6000c30/vengeance-ddr5-32gb-2-x-16gb-ddr5-6000-c30-memory-module-kit-black-cmk32gx5m2b6000c30",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "g-skill-trident-z5-ddr5-2x16gb-6000",
+        "brand": "G.Skill",
+        "model": "Trident Z5 DDR5-6000 2x16GB CL30",
+        "name_display": "G.Skill Trident Z5 DDR5-6000 32GB (2x16GB) CL30",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "type": "DDR5",
+            "capacityGb": 16,
+            "kitQty": 2,
+            "frequencyMhz": 6000,
+            "casLatency": 30,
+            "voltageV": 1.35,
+            "heightMm": 44,
+            "xmp": true,
+            "expo": false,
+            "colorFinish": "Silver"
+        },
+        "sources": [
+            {
+                "url": "https://www.gskill.com/product/165/395/1620190269/F5-6000J3040G16GX2-TZ5",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "g-skill-trident-z5-ddr5-2x16gb-7200",
+        "brand": "G.Skill",
+        "model": "Trident Z5 DDR5-7200 2x16GB CL34",
+        "name_display": "G.Skill Trident Z5 DDR5-7200 32GB (2x16GB) CL34",
+        "release_year": 2023,
+        "tdp_w": null,
+        "spec": {
+            "type": "DDR5",
+            "capacityGb": 16,
+            "kitQty": 2,
+            "frequencyMhz": 7200,
+            "casLatency": 34,
+            "voltageV": 1.4,
+            "heightMm": 44,
+            "xmp": true,
+            "expo": false,
+            "colorFinish": "Silver"
+        },
+        "sources": [
+            {
+                "url": "https://www.gskill.com/product/165/395/1680511892/F5-7200J3445G16GX2-TZ5",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "g-skill-flare-x5-ddr5-2x16gb-6000",
+        "brand": "G.Skill",
+        "model": "Flare X5 DDR5-6000 2x16GB CL30",
+        "name_display": "G.Skill Flare X5 DDR5-6000 32GB (2x16GB) CL30",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "type": "DDR5",
+            "capacityGb": 16,
+            "kitQty": 2,
+            "frequencyMhz": 6000,
+            "casLatency": 30,
+            "voltageV": 1.35,
+            "heightMm": 43,
+            "xmp": false,
+            "expo": true,
+            "colorFinish": "Black"
+        },
+        "_notes": "Expo profile optimizado para AM5/AMD.",
+        "sources": [
+            {
+                "url": "https://www.gskill.com/product/165/395/1664263964/F5-6000J3040G16GX2-FX5",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "g-skill-flare-x5-ddr5-2x16gb-6400",
+        "brand": "G.Skill",
+        "model": "Flare X5 DDR5-6400 2x16GB CL32",
+        "name_display": "G.Skill Flare X5 DDR5-6400 32GB (2x16GB) CL32",
+        "release_year": 2023,
+        "tdp_w": null,
+        "spec": {
+            "type": "DDR5",
+            "capacityGb": 16,
+            "kitQty": 2,
+            "frequencyMhz": 6400,
+            "casLatency": 32,
+            "voltageV": 1.35,
+            "heightMm": 43,
+            "xmp": false,
+            "expo": true,
+            "colorFinish": "Black"
+        },
+        "sources": [
+            {
+                "url": "https://www.gskill.com/product/165/395/1671784870/F5-6400J3239G16GX2-FX5",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "kingston-fury-beast-ddr5-2x16gb-5600",
+        "brand": "Kingston",
+        "model": "FURY Beast DDR5-5600 2x16GB",
+        "name_display": "Kingston FURY Beast DDR5-5600 32GB (2x16GB)",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "type": "DDR5",
+            "capacityGb": 16,
+            "kitQty": 2,
+            "frequencyMhz": 5600,
+            "casLatency": 40,
+            "voltageV": 1.25,
+            "heightMm": 35,
+            "xmp": true,
+            "expo": true,
+            "colorFinish": "Black"
+        },
+        "sources": [
+            {
+                "url": "https://www.kingston.com/dataSheets/KF556C40BB-16_en.pdf",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "kingston-fury-beast-ddr5-2x16gb-6000",
+        "brand": "Kingston",
+        "model": "FURY Beast DDR5-6000 2x16GB CL30",
+        "name_display": "Kingston FURY Beast DDR5-6000 32GB (2x16GB) CL30",
+        "release_year": 2023,
+        "tdp_w": null,
+        "spec": {
+            "type": "DDR5",
+            "capacityGb": 16,
+            "kitQty": 2,
+            "frequencyMhz": 6000,
+            "casLatency": 30,
+            "voltageV": 1.35,
+            "heightMm": 35,
+            "xmp": true,
+            "expo": true,
+            "colorFinish": "Black"
+        },
+        "sources": [
+            {
+                "url": "https://www.kingston.com/dataSheets/KF560C30BBEK2-32_en.pdf",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "crucial-pro-ddr5-2x16gb-5600",
+        "brand": "Crucial",
+        "model": "Pro DDR5-5600 2x16GB",
+        "name_display": "Crucial Pro DDR5-5600 32GB (2x16GB)",
+        "release_year": 2023,
+        "tdp_w": null,
+        "spec": {
+            "type": "DDR5",
+            "capacityGb": 16,
+            "kitQty": 2,
+            "frequencyMhz": 5600,
+            "casLatency": 46,
+            "voltageV": 1.1,
+            "heightMm": 31,
+            "xmp": true,
+            "expo": true,
+            "colorFinish": "Black"
+        },
+        "sources": [
+            {
+                "url": "https://www.crucial.com/memory/ddr5/cp2k16g56c46u5",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "corsair-vengeance-rgb-ddr4-2x16gb-3200",
+        "brand": "Corsair",
+        "model": "Vengeance RGB DDR4-3200 2x16GB CL16",
+        "name_display": "Corsair Vengeance RGB DDR4-3200 32GB (2x16GB) CL16",
+        "release_year": 2020,
+        "tdp_w": null,
+        "spec": {
+            "type": "DDR4",
+            "capacityGb": 16,
+            "kitQty": 2,
+            "frequencyMhz": 3200,
+            "casLatency": 16,
+            "voltageV": 1.35,
+            "heightMm": 44,
+            "xmp": true,
+            "expo": false,
+            "colorFinish": "Black"
+        },
+        "sources": [
+            {
+                "url": "https://www.corsair.com/us/en/p/memory/cmw32gx4m2e3200c16/vengeance-rgb-pro-32gb-2-x-16gb-ddr4-dram-3200mhz-c16-memory-kit-cmw32gx4m2e3200c16",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "g-skill-ripjaws-v-ddr4-2x16gb-3600",
+        "brand": "G.Skill",
+        "model": "Ripjaws V DDR4-3600 2x16GB CL16",
+        "name_display": "G.Skill Ripjaws V DDR4-3600 32GB (2x16GB) CL16",
+        "release_year": 2020,
+        "tdp_w": null,
+        "spec": {
+            "type": "DDR4",
+            "capacityGb": 16,
+            "kitQty": 2,
+            "frequencyMhz": 3600,
+            "casLatency": 16,
+            "voltageV": 1.35,
+            "heightMm": 42,
+            "xmp": true,
+            "expo": false,
+            "colorFinish": "Red"
+        },
+        "sources": [
+            {
+                "url": "https://www.gskill.com/product/165/184/1536742298/F4-3600C16D-32GVKC",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "kingston-fury-beast-ddr4-2x8gb-3200",
+        "brand": "Kingston",
+        "model": "FURY Beast DDR4-3200 2x8GB CL16",
+        "name_display": "Kingston FURY Beast DDR4-3200 16GB (2x8GB) CL16",
+        "release_year": 2020,
+        "tdp_w": null,
+        "spec": {
+            "type": "DDR4",
+            "capacityGb": 8,
+            "kitQty": 2,
+            "frequencyMhz": 3200,
+            "casLatency": 16,
+            "voltageV": 1.35,
+            "heightMm": 35,
+            "xmp": true,
+            "expo": false,
+            "colorFinish": "Black"
+        },
+        "sources": [
+            {
+                "url": "https://www.kingston.com/dataSheets/KF432C16BBK2-16_en.pdf",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "kingston-fury-beast-ddr4-2x16gb-3600",
+        "brand": "Kingston",
+        "model": "FURY Beast DDR4-3600 2x16GB CL17",
+        "name_display": "Kingston FURY Beast DDR4-3600 32GB (2x16GB) CL17",
+        "release_year": 2021,
+        "tdp_w": null,
+        "spec": {
+            "type": "DDR4",
+            "capacityGb": 16,
+            "kitQty": 2,
+            "frequencyMhz": 3600,
+            "casLatency": 17,
+            "voltageV": 1.35,
+            "heightMm": 35,
+            "xmp": true,
+            "expo": false,
+            "colorFinish": "Black"
+        },
+        "sources": [
+            {
+                "url": "https://www.kingston.com/dataSheets/KF436C17BBK2-32_en.pdf",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "crucial-ddr4-2x16gb-3200",
+        "brand": "Crucial",
+        "model": "Ballistix DDR4-3200 2x16GB CL16",
+        "name_display": "Crucial Ballistix DDR4-3200 32GB (2x16GB) CL16",
+        "release_year": 2020,
+        "tdp_w": null,
+        "spec": {
+            "type": "DDR4",
+            "capacityGb": 16,
+            "kitQty": 2,
+            "frequencyMhz": 3200,
+            "casLatency": 16,
+            "voltageV": 1.35,
+            "heightMm": 39,
+            "xmp": true,
+            "expo": false,
+            "colorFinish": "Black"
+        },
+        "sources": [
+            {
+                "url": "https://www.crucial.com/memory/ddr4/bl2k16g32c16u4b",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "corsair-vengeance-ddr5-2x32gb-6000",
+        "brand": "Corsair",
+        "model": "Vengeance DDR5-6000 2x32GB CL30",
+        "name_display": "Corsair Vengeance DDR5-6000 64GB (2x32GB) CL30",
+        "release_year": 2023,
+        "tdp_w": null,
+        "spec": {
+            "type": "DDR5",
+            "capacityGb": 32,
+            "kitQty": 2,
+            "frequencyMhz": 6000,
+            "casLatency": 30,
+            "voltageV": 1.35,
+            "heightMm": 43,
+            "xmp": true,
+            "expo": false,
+            "colorFinish": "Black"
+        },
+        "sources": [
+            {
+                "url": "https://www.corsair.com/us/en/p/memory/cmk64gx5m2b6000c30/vengeance-ddr5-64gb-2-x-32gb-ddr5-6000-c30-memory-module-kit-black-cmk64gx5m2b6000c30",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    }
+]

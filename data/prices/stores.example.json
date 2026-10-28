@@ -1,0 +1,12 @@
+[
+  {
+    "slug": "mi-tienda-santa-cruz",
+    "name": "Mi Tienda",
+    "city": "Santa Cruz de la Sierra",
+    "address": "Av. Ejemplo 123, 2do anillo",
+    "phone": "+591 3 333 4444",
+    "whatsapp": "+591 70000000",
+    "website": "https://mitienda.bo",
+    "isActive": true
+  }
+]

@@ -1,0 +1,1075 @@
+[
+    {
+        "slug": "asus-prime-b650-plus-wifi",
+        "brand": "ASUS",
+        "model": "PRIME B650-PLUS WiFi",
+        "name_display": "ASUS PRIME B650-PLUS WiFi",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "AM5",
+            "chipset": "B650",
+            "formFactor": "ATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 6400,
+            "memoryChannels": 2,
+            "pcie5Slots": 1,
+            "pcie4Slots": 1,
+            "pcie3Slots": 1,
+            "m2Slots": 4,
+            "m2MaxGen": 5,
+            "sataPorts": 4,
+            "usbA": 6,
+            "usbC": 2,
+            "wifi": "WiFi 6",
+            "bluetooth": "Bluetooth 5.2",
+            "lan": "2.5GbE",
+            "vrmPhases": 12,
+            "audioCodec": "Realtek ALC897"
+        },
+        "sources": [
+            {
+                "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b650-plus-wifi/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "asus-prime-b650m-a-wifi",
+        "brand": "ASUS",
+        "model": "PRIME B650M-A WiFi",
+        "name_display": "ASUS PRIME B650M-A WiFi",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "AM5",
+            "chipset": "B650",
+            "formFactor": "mATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 6400,
+            "memoryChannels": 2,
+            "pcie5Slots": 1,
+            "pcie4Slots": 0,
+            "pcie3Slots": 1,
+            "m2Slots": 2,
+            "m2MaxGen": 5,
+            "sataPorts": 4,
+            "usbA": 4,
+            "usbC": 1,
+            "wifi": "WiFi 6",
+            "bluetooth": "Bluetooth 5.2",
+            "lan": "2.5GbE",
+            "vrmPhases": 8,
+            "audioCodec": "Realtek ALC897"
+        },
+        "sources": [
+            {
+                "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b650m-a-wifi/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "asus-tuf-gaming-b650-plus-wifi",
+        "brand": "ASUS",
+        "model": "TUF GAMING B650-PLUS WiFi",
+        "name_display": "ASUS TUF GAMING B650-PLUS WiFi",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "AM5",
+            "chipset": "B650",
+            "formFactor": "ATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 6400,
+            "memoryChannels": 2,
+            "pcie5Slots": 1,
+            "pcie4Slots": 1,
+            "pcie3Slots": 0,
+            "m2Slots": 4,
+            "m2MaxGen": 5,
+            "sataPorts": 4,
+            "usbA": 6,
+            "usbC": 2,
+            "wifi": "WiFi 6",
+            "bluetooth": "Bluetooth 5.2",
+            "lan": "2.5GbE",
+            "vrmPhases": 14,
+            "audioCodec": "Realtek ALC4080"
+        },
+        "sources": [
+            {
+                "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650-plus-wifi/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "asus-tuf-gaming-b650m-plus-wifi",
+        "brand": "ASUS",
+        "model": "TUF GAMING B650M-PLUS WiFi",
+        "name_display": "ASUS TUF GAMING B650M-PLUS WiFi",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "AM5",
+            "chipset": "B650",
+            "formFactor": "mATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 6400,
+            "memoryChannels": 2,
+            "pcie5Slots": 1,
+            "pcie4Slots": 0,
+            "pcie3Slots": 1,
+            "m2Slots": 3,
+            "m2MaxGen": 5,
+            "sataPorts": 4,
+            "usbA": 4,
+            "usbC": 2,
+            "wifi": "WiFi 6",
+            "bluetooth": "Bluetooth 5.2",
+            "lan": "2.5GbE",
+            "vrmPhases": 8,
+            "audioCodec": "Realtek ALC4080"
+        },
+        "sources": [
+            {
+                "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-plus-wifi/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "asus-rog-strix-b650e-f-gaming-wifi",
+        "brand": "ASUS",
+        "model": "ROG STRIX B650E-F GAMING WiFi",
+        "name_display": "ASUS ROG STRIX B650E-F GAMING WiFi",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "AM5",
+            "chipset": "B650E",
+            "formFactor": "ATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 6400,
+            "memoryChannels": 2,
+            "pcie5Slots": 2,
+            "pcie4Slots": 1,
+            "pcie3Slots": 0,
+            "m2Slots": 4,
+            "m2MaxGen": 5,
+            "sataPorts": 4,
+            "usbA": 6,
+            "usbC": 3,
+            "wifi": "WiFi 6E",
+            "bluetooth": "Bluetooth 5.3",
+            "lan": "2.5GbE",
+            "vrmPhases": 16,
+            "audioCodec": "Realtek ALC4080"
+        },
+        "sources": [
+            {
+                "url": "https://www.asus.com/motherboards-components/motherboards/rog/rog-strix-b650e-f-gaming-wifi/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "asus-rog-crosshair-x670e-hero",
+        "brand": "ASUS",
+        "model": "ROG CROSSHAIR X670E HERO",
+        "name_display": "ASUS ROG CROSSHAIR X670E HERO",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "AM5",
+            "chipset": "X670E",
+            "formFactor": "ATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 6400,
+            "memoryChannels": 2,
+            "pcie5Slots": 2,
+            "pcie4Slots": 2,
+            "pcie3Slots": 0,
+            "m2Slots": 5,
+            "m2MaxGen": 5,
+            "sataPorts": 6,
+            "usbA": 8,
+            "usbC": 4,
+            "wifi": "WiFi 6E",
+            "bluetooth": "Bluetooth 5.3",
+            "lan": "2.5GbE",
+            "vrmPhases": 20,
+            "audioCodec": "Realtek ALC4082"
+        },
+        "sources": [
+            {
+                "url": "https://www.asus.com/motherboards-components/motherboards/rog/rog-crosshair-x670e-hero/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "msi-pro-b650m-a-wifi",
+        "brand": "MSI",
+        "model": "PRO B650M-A WiFi",
+        "name_display": "MSI PRO B650M-A WiFi",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "AM5",
+            "chipset": "B650",
+            "formFactor": "mATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 7200,
+            "memoryChannels": 2,
+            "pcie5Slots": 1,
+            "pcie4Slots": 0,
+            "pcie3Slots": 1,
+            "m2Slots": 2,
+            "m2MaxGen": 5,
+            "sataPorts": 4,
+            "usbA": 4,
+            "usbC": 1,
+            "wifi": "WiFi 6E",
+            "bluetooth": "Bluetooth 5.3",
+            "lan": "2.5GbE",
+            "vrmPhases": 10,
+            "audioCodec": "Realtek ALC897"
+        },
+        "sources": [
+            {
+                "url": "https://www.msi.com/Motherboard/PRO-B650M-A-WIFI",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "msi-mag-b650-tomahawk-wifi",
+        "brand": "MSI",
+        "model": "MAG B650 TOMAHAWK WiFi",
+        "name_display": "MSI MAG B650 TOMAHAWK WiFi",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "AM5",
+            "chipset": "B650",
+            "formFactor": "ATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 7200,
+            "memoryChannels": 2,
+            "pcie5Slots": 1,
+            "pcie4Slots": 1,
+            "pcie3Slots": 0,
+            "m2Slots": 4,
+            "m2MaxGen": 5,
+            "sataPorts": 6,
+            "usbA": 6,
+            "usbC": 2,
+            "wifi": "WiFi 6E",
+            "bluetooth": "Bluetooth 5.3",
+            "lan": "2.5GbE",
+            "vrmPhases": 16,
+            "audioCodec": "Realtek ALC4080"
+        },
+        "sources": [
+            {
+                "url": "https://www.msi.com/Motherboard/MAG-B650-TOMAHAWK-WIFI",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "gigabyte-b650-aorus-elite-ax",
+        "brand": "Gigabyte",
+        "model": "B650 AORUS ELITE AX",
+        "name_display": "Gigabyte B650 AORUS ELITE AX",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "AM5",
+            "chipset": "B650",
+            "formFactor": "ATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 7600,
+            "memoryChannels": 2,
+            "pcie5Slots": 1,
+            "pcie4Slots": 1,
+            "pcie3Slots": 0,
+            "m2Slots": 4,
+            "m2MaxGen": 5,
+            "sataPorts": 4,
+            "usbA": 6,
+            "usbC": 2,
+            "wifi": "WiFi 6E",
+            "bluetooth": "Bluetooth 5.3",
+            "lan": "2.5GbE",
+            "vrmPhases": 16,
+            "audioCodec": "Realtek ALC1220"
+        },
+        "sources": [
+            {
+                "url": "https://www.gigabyte.com/Motherboard/B650-AORUS-ELITE-AX-rev-10",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "gigabyte-b650m-aorus-elite-ax",
+        "brand": "Gigabyte",
+        "model": "B650M AORUS ELITE AX",
+        "name_display": "Gigabyte B650M AORUS ELITE AX",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "AM5",
+            "chipset": "B650",
+            "formFactor": "mATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 7600,
+            "memoryChannels": 2,
+            "pcie5Slots": 1,
+            "pcie4Slots": 0,
+            "pcie3Slots": 1,
+            "m2Slots": 3,
+            "m2MaxGen": 5,
+            "sataPorts": 4,
+            "usbA": 4,
+            "usbC": 1,
+            "wifi": "WiFi 6E",
+            "bluetooth": "Bluetooth 5.3",
+            "lan": "2.5GbE",
+            "vrmPhases": 10,
+            "audioCodec": "Realtek ALC1220"
+        },
+        "sources": [
+            {
+                "url": "https://www.gigabyte.com/Motherboard/B650M-AORUS-ELITE-AX-rev-10",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "gigabyte-x670e-aorus-master",
+        "brand": "Gigabyte",
+        "model": "X670E AORUS MASTER",
+        "name_display": "Gigabyte X670E AORUS MASTER",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "AM5",
+            "chipset": "X670E",
+            "formFactor": "ATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 7600,
+            "memoryChannels": 2,
+            "pcie5Slots": 2,
+            "pcie4Slots": 2,
+            "pcie3Slots": 0,
+            "m2Slots": 5,
+            "m2MaxGen": 5,
+            "sataPorts": 6,
+            "usbA": 8,
+            "usbC": 4,
+            "wifi": "WiFi 6E",
+            "bluetooth": "Bluetooth 5.3",
+            "lan": "10GbE",
+            "vrmPhases": 20,
+            "audioCodec": "Realtek ALC1220"
+        },
+        "sources": [
+            {
+                "url": "https://www.gigabyte.com/Motherboard/X670E-AORUS-MASTER-rev-10",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "msi-mpg-b650i-edge-wifi",
+        "brand": "MSI",
+        "model": "MPG B650I EDGE WiFi",
+        "name_display": "MSI MPG B650I EDGE WiFi",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "AM5",
+            "chipset": "B650",
+            "formFactor": "ITX",
+            "memoryType": "DDR5",
+            "memorySlots": 2,
+            "memoryMaxGb": 64,
+            "memoryMaxMhz": 7200,
+            "memoryChannels": 2,
+            "pcie5Slots": 1,
+            "pcie4Slots": 0,
+            "pcie3Slots": 0,
+            "m2Slots": 2,
+            "m2MaxGen": 5,
+            "sataPorts": 2,
+            "usbA": 2,
+            "usbC": 1,
+            "wifi": "WiFi 6E",
+            "bluetooth": "Bluetooth 5.3",
+            "lan": "2.5GbE",
+            "vrmPhases": 10,
+            "audioCodec": "Realtek ALC4080"
+        },
+        "sources": [
+            {
+                "url": "https://www.msi.com/Motherboard/MPG-B650I-EDGE-WIFI",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "asrock-b650m-pro-rs-wifi",
+        "brand": "ASRock",
+        "model": "B650M Pro RS WiFi",
+        "name_display": "ASRock B650M Pro RS WiFi",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "AM5",
+            "chipset": "B650",
+            "formFactor": "mATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 6400,
+            "memoryChannels": 2,
+            "pcie5Slots": 1,
+            "pcie4Slots": 0,
+            "pcie3Slots": 1,
+            "m2Slots": 2,
+            "m2MaxGen": 5,
+            "sataPorts": 4,
+            "usbA": 4,
+            "usbC": 1,
+            "wifi": "WiFi 6",
+            "bluetooth": "Bluetooth 5.2",
+            "lan": "2.5GbE",
+            "vrmPhases": 8,
+            "audioCodec": "Realtek ALC897"
+        },
+        "sources": [
+            {
+                "url": "https://www.asrock.com/mb/AMD/B650M%20Pro%20RS%20WiFi/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "msi-meg-x670e-ace",
+        "brand": "MSI",
+        "model": "MEG X670E ACE",
+        "name_display": "MSI MEG X670E ACE",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "AM5",
+            "chipset": "X670E",
+            "formFactor": "ATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 7200,
+            "memoryChannels": 2,
+            "pcie5Slots": 2,
+            "pcie4Slots": 2,
+            "pcie3Slots": 0,
+            "m2Slots": 5,
+            "m2MaxGen": 5,
+            "sataPorts": 6,
+            "usbA": 8,
+            "usbC": 4,
+            "wifi": "WiFi 6E",
+            "bluetooth": "Bluetooth 5.3",
+            "lan": "10GbE",
+            "vrmPhases": 20,
+            "audioCodec": "Realtek ALC4082"
+        },
+        "sources": [
+            {
+                "url": "https://www.msi.com/Motherboard/MEG-X670E-ACE",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "asus-rog-strix-x670e-f-gaming-wifi",
+        "brand": "ASUS",
+        "model": "ROG STRIX X670E-F GAMING WiFi",
+        "name_display": "ASUS ROG STRIX X670E-F GAMING WiFi",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "AM5",
+            "chipset": "X670E",
+            "formFactor": "ATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 6400,
+            "memoryChannels": 2,
+            "pcie5Slots": 2,
+            "pcie4Slots": 2,
+            "pcie3Slots": 0,
+            "m2Slots": 5,
+            "m2MaxGen": 5,
+            "sataPorts": 4,
+            "usbA": 6,
+            "usbC": 3,
+            "wifi": "WiFi 6E",
+            "bluetooth": "Bluetooth 5.3",
+            "lan": "2.5GbE",
+            "vrmPhases": 18,
+            "audioCodec": "Realtek ALC4082"
+        },
+        "sources": [
+            {
+                "url": "https://www.asus.com/motherboards-components/motherboards/rog/rog-strix-x670e-f-gaming-wifi/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "asus-prime-b760m-a-wifi",
+        "brand": "ASUS",
+        "model": "PRIME B760M-A WiFi",
+        "name_display": "ASUS PRIME B760M-A WiFi",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "LGA1700",
+            "chipset": "B760",
+            "formFactor": "mATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 7200,
+            "memoryChannels": 2,
+            "pcie5Slots": 1,
+            "pcie4Slots": 1,
+            "pcie3Slots": 0,
+            "m2Slots": 3,
+            "m2MaxGen": 4,
+            "sataPorts": 4,
+            "usbA": 4,
+            "usbC": 1,
+            "wifi": "WiFi 6",
+            "bluetooth": "Bluetooth 5.2",
+            "lan": "2.5GbE",
+            "vrmPhases": 10,
+            "audioCodec": "Realtek ALC897"
+        },
+        "sources": [
+            {
+                "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-wifi/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "asus-prime-b760-plus-wifi",
+        "brand": "ASUS",
+        "model": "PRIME B760-PLUS WiFi",
+        "name_display": "ASUS PRIME B760-PLUS WiFi",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "LGA1700",
+            "chipset": "B760",
+            "formFactor": "ATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 7200,
+            "memoryChannels": 2,
+            "pcie5Slots": 1,
+            "pcie4Slots": 1,
+            "pcie3Slots": 1,
+            "m2Slots": 4,
+            "m2MaxGen": 4,
+            "sataPorts": 4,
+            "usbA": 6,
+            "usbC": 2,
+            "wifi": "WiFi 6",
+            "bluetooth": "Bluetooth 5.2",
+            "lan": "2.5GbE",
+            "vrmPhases": 12,
+            "audioCodec": "Realtek ALC897"
+        },
+        "sources": [
+            {
+                "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760-plus-wifi/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "asus-tuf-gaming-b760-plus-wifi",
+        "brand": "ASUS",
+        "model": "TUF GAMING B760-PLUS WiFi",
+        "name_display": "ASUS TUF GAMING B760-PLUS WiFi",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "LGA1700",
+            "chipset": "B760",
+            "formFactor": "ATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 7200,
+            "memoryChannels": 2,
+            "pcie5Slots": 1,
+            "pcie4Slots": 1,
+            "pcie3Slots": 0,
+            "m2Slots": 4,
+            "m2MaxGen": 4,
+            "sataPorts": 4,
+            "usbA": 5,
+            "usbC": 2,
+            "wifi": "WiFi 6",
+            "bluetooth": "Bluetooth 5.2",
+            "lan": "2.5GbE",
+            "vrmPhases": 12,
+            "audioCodec": "Realtek ALC4080"
+        },
+        "sources": [
+            {
+                "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760-plus-wifi/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "asus-tuf-gaming-z790-plus-wifi",
+        "brand": "ASUS",
+        "model": "TUF GAMING Z790-PLUS WiFi",
+        "name_display": "ASUS TUF GAMING Z790-PLUS WiFi",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "LGA1700",
+            "chipset": "Z790",
+            "formFactor": "ATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 7800,
+            "memoryChannels": 2,
+            "pcie5Slots": 2,
+            "pcie4Slots": 1,
+            "pcie3Slots": 0,
+            "m2Slots": 5,
+            "m2MaxGen": 5,
+            "sataPorts": 4,
+            "usbA": 6,
+            "usbC": 2,
+            "wifi": "WiFi 6E",
+            "bluetooth": "Bluetooth 5.3",
+            "lan": "2.5GbE",
+            "vrmPhases": 16,
+            "audioCodec": "Realtek ALC4080"
+        },
+        "sources": [
+            {
+                "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-z790-plus-wifi/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "asus-rog-strix-z790-e-gaming-wifi",
+        "brand": "ASUS",
+        "model": "ROG STRIX Z790-E GAMING WiFi",
+        "name_display": "ASUS ROG STRIX Z790-E GAMING WiFi",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "LGA1700",
+            "chipset": "Z790",
+            "formFactor": "ATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 7800,
+            "memoryChannels": 2,
+            "pcie5Slots": 2,
+            "pcie4Slots": 2,
+            "pcie3Slots": 0,
+            "m2Slots": 5,
+            "m2MaxGen": 5,
+            "sataPorts": 4,
+            "usbA": 8,
+            "usbC": 4,
+            "wifi": "WiFi 6E",
+            "bluetooth": "Bluetooth 5.3",
+            "lan": "2.5GbE",
+            "vrmPhases": 20,
+            "audioCodec": "Realtek ALC4082"
+        },
+        "sources": [
+            {
+                "url": "https://www.asus.com/motherboards-components/motherboards/rog/rog-strix-z790-e-gaming-wifi/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "msi-pro-b760m-a-wifi",
+        "brand": "MSI",
+        "model": "PRO B760M-A WiFi",
+        "name_display": "MSI PRO B760M-A WiFi",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "LGA1700",
+            "chipset": "B760",
+            "formFactor": "mATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 7200,
+            "memoryChannels": 2,
+            "pcie5Slots": 1,
+            "pcie4Slots": 0,
+            "pcie3Slots": 1,
+            "m2Slots": 2,
+            "m2MaxGen": 4,
+            "sataPorts": 4,
+            "usbA": 4,
+            "usbC": 1,
+            "wifi": "WiFi 6E",
+            "bluetooth": "Bluetooth 5.3",
+            "lan": "2.5GbE",
+            "vrmPhases": 10,
+            "audioCodec": "Realtek ALC897"
+        },
+        "sources": [
+            {
+                "url": "https://www.msi.com/Motherboard/PRO-B760M-A-WIFI",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "msi-mag-b760m-mortar-wifi",
+        "brand": "MSI",
+        "model": "MAG B760M MORTAR WiFi",
+        "name_display": "MSI MAG B760M MORTAR WiFi",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "LGA1700",
+            "chipset": "B760",
+            "formFactor": "mATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 7200,
+            "memoryChannels": 2,
+            "pcie5Slots": 1,
+            "pcie4Slots": 1,
+            "pcie3Slots": 0,
+            "m2Slots": 3,
+            "m2MaxGen": 4,
+            "sataPorts": 4,
+            "usbA": 4,
+            "usbC": 2,
+            "wifi": "WiFi 6E",
+            "bluetooth": "Bluetooth 5.3",
+            "lan": "2.5GbE",
+            "vrmPhases": 12,
+            "audioCodec": "Realtek ALC4080"
+        },
+        "sources": [
+            {
+                "url": "https://www.msi.com/Motherboard/MAG-B760M-MORTAR-WIFI",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "msi-mag-z790-tomahawk-wifi",
+        "brand": "MSI",
+        "model": "MAG Z790 TOMAHAWK WiFi",
+        "name_display": "MSI MAG Z790 TOMAHAWK WiFi",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "LGA1700",
+            "chipset": "Z790",
+            "formFactor": "ATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 7200,
+            "memoryChannels": 2,
+            "pcie5Slots": 2,
+            "pcie4Slots": 1,
+            "pcie3Slots": 0,
+            "m2Slots": 5,
+            "m2MaxGen": 5,
+            "sataPorts": 6,
+            "usbA": 6,
+            "usbC": 2,
+            "wifi": "WiFi 6E",
+            "bluetooth": "Bluetooth 5.3",
+            "lan": "2.5GbE",
+            "vrmPhases": 16,
+            "audioCodec": "Realtek ALC4080"
+        },
+        "sources": [
+            {
+                "url": "https://www.msi.com/Motherboard/MAG-Z790-TOMAHAWK-WIFI",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "gigabyte-b760-aorus-elite-ax",
+        "brand": "Gigabyte",
+        "model": "B760 AORUS ELITE AX",
+        "name_display": "Gigabyte B760 AORUS ELITE AX",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "LGA1700",
+            "chipset": "B760",
+            "formFactor": "ATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 7600,
+            "memoryChannels": 2,
+            "pcie5Slots": 1,
+            "pcie4Slots": 1,
+            "pcie3Slots": 0,
+            "m2Slots": 4,
+            "m2MaxGen": 4,
+            "sataPorts": 4,
+            "usbA": 6,
+            "usbC": 2,
+            "wifi": "WiFi 6E",
+            "bluetooth": "Bluetooth 5.3",
+            "lan": "2.5GbE",
+            "vrmPhases": 14,
+            "audioCodec": "Realtek ALC1220"
+        },
+        "sources": [
+            {
+                "url": "https://www.gigabyte.com/Motherboard/B760-AORUS-ELITE-AX-rev-10",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "gigabyte-b760m-aorus-elite-ax",
+        "brand": "Gigabyte",
+        "model": "B760M AORUS ELITE AX",
+        "name_display": "Gigabyte B760M AORUS ELITE AX",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "LGA1700",
+            "chipset": "B760",
+            "formFactor": "mATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 7600,
+            "memoryChannels": 2,
+            "pcie5Slots": 1,
+            "pcie4Slots": 0,
+            "pcie3Slots": 1,
+            "m2Slots": 3,
+            "m2MaxGen": 4,
+            "sataPorts": 4,
+            "usbA": 4,
+            "usbC": 1,
+            "wifi": "WiFi 6E",
+            "bluetooth": "Bluetooth 5.3",
+            "lan": "2.5GbE",
+            "vrmPhases": 10,
+            "audioCodec": "Realtek ALC1220"
+        },
+        "sources": [
+            {
+                "url": "https://www.gigabyte.com/Motherboard/B760M-AORUS-ELITE-AX-rev-10",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "gigabyte-z790-aorus-master",
+        "brand": "Gigabyte",
+        "model": "Z790 AORUS MASTER",
+        "name_display": "Gigabyte Z790 AORUS MASTER",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "LGA1700",
+            "chipset": "Z790",
+            "formFactor": "ATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 7600,
+            "memoryChannels": 2,
+            "pcie5Slots": 2,
+            "pcie4Slots": 2,
+            "pcie3Slots": 0,
+            "m2Slots": 5,
+            "m2MaxGen": 5,
+            "sataPorts": 6,
+            "usbA": 8,
+            "usbC": 4,
+            "wifi": "WiFi 6E",
+            "bluetooth": "Bluetooth 5.3",
+            "lan": "10GbE",
+            "vrmPhases": 20,
+            "audioCodec": "Realtek ALC1220"
+        },
+        "sources": [
+            {
+                "url": "https://www.gigabyte.com/Motherboard/Z790-AORUS-MASTER-rev-10",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "gigabyte-z790-aorus-elite-ax",
+        "brand": "Gigabyte",
+        "model": "Z790 AORUS ELITE AX",
+        "name_display": "Gigabyte Z790 AORUS ELITE AX",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "LGA1700",
+            "chipset": "Z790",
+            "formFactor": "ATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 7600,
+            "memoryChannels": 2,
+            "pcie5Slots": 1,
+            "pcie4Slots": 1,
+            "pcie3Slots": 0,
+            "m2Slots": 5,
+            "m2MaxGen": 5,
+            "sataPorts": 4,
+            "usbA": 6,
+            "usbC": 2,
+            "wifi": "WiFi 6E",
+            "bluetooth": "Bluetooth 5.3",
+            "lan": "2.5GbE",
+            "vrmPhases": 16,
+            "audioCodec": "Realtek ALC1220"
+        },
+        "sources": [
+            {
+                "url": "https://www.gigabyte.com/Motherboard/Z790-AORUS-ELITE-AX-rev-10",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "asrock-b760m-pro-rs-wifi",
+        "brand": "ASRock",
+        "model": "B760M Pro RS WiFi",
+        "name_display": "ASRock B760M Pro RS WiFi",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "LGA1700",
+            "chipset": "B760",
+            "formFactor": "mATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 7200,
+            "memoryChannels": 2,
+            "pcie5Slots": 1,
+            "pcie4Slots": 0,
+            "pcie3Slots": 1,
+            "m2Slots": 2,
+            "m2MaxGen": 4,
+            "sataPorts": 4,
+            "usbA": 4,
+            "usbC": 1,
+            "wifi": "WiFi 6",
+            "bluetooth": "Bluetooth 5.2",
+            "lan": "2.5GbE",
+            "vrmPhases": 8,
+            "audioCodec": "Realtek ALC897"
+        },
+        "sources": [
+            {
+                "url": "https://www.asrock.com/mb/Intel/B760M%20Pro%20RS%20WiFi/",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    },
+    {
+        "slug": "msi-meg-z790-ace",
+        "brand": "MSI",
+        "model": "MEG Z790 ACE",
+        "name_display": "MSI MEG Z790 ACE",
+        "release_year": 2022,
+        "tdp_w": null,
+        "spec": {
+            "socket": "LGA1700",
+            "chipset": "Z790",
+            "formFactor": "ATX",
+            "memoryType": "DDR5",
+            "memorySlots": 4,
+            "memoryMaxGb": 192,
+            "memoryMaxMhz": 7200,
+            "memoryChannels": 2,
+            "pcie5Slots": 2,
+            "pcie4Slots": 2,
+            "pcie3Slots": 0,
+            "m2Slots": 5,
+            "m2MaxGen": 5,
+            "sataPorts": 6,
+            "usbA": 8,
+            "usbC": 4,
+            "wifi": "WiFi 6E",
+            "bluetooth": "Bluetooth 5.3",
+            "lan": "10GbE",
+            "vrmPhases": 20,
+            "audioCodec": "Realtek ALC4082"
+        },
+        "sources": [
+            {
+                "url": "https://www.msi.com/Motherboard/MEG-Z790-ACE",
+                "fetchedAt": "2026-10-27T03:00:00Z"
+            }
+        ]
+    }
+]
