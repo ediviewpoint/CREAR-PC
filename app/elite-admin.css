@@ -680,3 +680,16 @@ body:has(.elite-admin) > .site-footer {
     flex-shrink: 0;
   }
 }
+@media (max-width: 767px) {
+  .elite-topbar:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 65px;
+    height: 54px;
+    background: var(--ea-panel);
+    border-bottom: 1px solid var(--ea-border);
+    z-index: -1;
+  }
+}

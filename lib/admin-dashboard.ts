@@ -18,7 +18,7 @@ export async function getDashboard() {
     prisma.producto.count({ where: { deletedAt: null, createdAt: { gte: monday } } }),
     prisma.$queryRaw<
       { count: bigint }[]
-    >`SELECT COUNT(*) AS count FROM "Producto" p WHERE p."deletedAt" IS NULL AND p."estado" = 'publicado' AND p."controlaInventario" = true AND p."disponibilidad" <> 'BAJO_PEDIDO' AND COALESCE((SELECT SUM(s."cantidad") FROM "StockSucursal" s WHERE s."productoId"=p.id),0) BETWEEN 1 AND COALESCE(p."umbralStockBajo", (SELECT (valor::text)::int FROM "Configuracion" WHERE clave='umbralStockBajo'),2)`,
+    >`SELECT COUNT(*) AS count FROM "Producto" p WHERE p."deletedAt" IS NULL AND p."estado" = 'publicado' AND p."controlaInventario" = true AND p."disponibilidad" = 'EN_STOCK' AND COALESCE((SELECT SUM(s."cantidad") FROM "StockSucursal" s WHERE s."productoId"=p.id),0) BETWEEN 1 AND COALESCE(p."umbralStockBajo", (SELECT (valor::text)::int FROM "Configuracion" WHERE clave='umbralStockBajo'),2)`,
     prisma.producto.findMany({
       where: { deletedAt: null },
       orderBy: { updatedAt: "desc" },

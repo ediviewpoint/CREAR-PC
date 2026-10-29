@@ -1,6 +1,7 @@
 "use client";
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { Dialog } from "radix-ui";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { X } from "lucide-react";
 import { AdminProviders } from "./Providers";
 import { Sidebar } from "./Sidebar";
@@ -20,6 +21,9 @@ type Props = {
   rate: ExchangeRate;
 };
 function Shell({ children, user, branches, rate }: Props) {
+  const pathname = usePathname();
+  const router = useRouter();
+  const search = useSearchParams();
   const [sidebar, setSidebar] = usePreference("elitepc.sidebar", "expanded");
   const [theme, setTheme] = usePreference("elitepc.theme", "dark");
   const [branch, setBranch] = usePreference("elitepc.branch", "todas");
@@ -36,8 +40,24 @@ function Shell({ children, user, branches, rate }: Props) {
     window.addEventListener("keydown", key);
     return () => window.removeEventListener("keydown", key);
   }, []);
+  const selectedBranch =
+    pathname === "/admin/productos" ? search.get("sucursal") || branch : branch;
   const validBranch =
-    branch === "todas" || branches.some((item) => item.id === branch) ? branch : "todas";
+    selectedBranch === "todas" || branches.some((item) => item.id === selectedBranch)
+      ? selectedBranch
+      : "todas";
+  useEffect(() => {
+    const renew = () => {
+      if (document.visibilityState === "visible")
+        void fetch("/api/auth/session", { cache: "no-store" }).catch(() => {});
+    };
+    const timer = setInterval(renew, 30 * 60 * 1000);
+    window.addEventListener("focus", renew);
+    return () => {
+      clearInterval(timer);
+      window.removeEventListener("focus", renew);
+    };
+  }, []);
   return (
     <BranchContext.Provider value={validBranch}>
       <Dialog.Root open={mobileOpen} onOpenChange={setMobileOpen}>
@@ -49,7 +69,15 @@ function Shell({ children, user, branches, rate }: Props) {
             user={user}
             branches={branches}
             branch={validBranch}
-            onBranch={setBranch}
+            onBranch={(value) => {
+              setBranch(value);
+              if (pathname === "/admin/productos") {
+                const next = new URLSearchParams(search.toString());
+                next.set("sucursal", value);
+                next.delete("page");
+                router.replace(`/admin/productos?${next}`, { scroll: false });
+              }
+            }}
             theme={theme}
             onTheme={() => setTheme(theme === "dark" ? "light" : "dark")}
             onMenu={() => {

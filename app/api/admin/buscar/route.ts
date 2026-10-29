@@ -1,12 +1,18 @@
 import { prisma } from "@/lib/prisma";
 import { requireSession } from "@/lib/auth";
 import { apiError } from "@/lib/api-errors";
+import { z } from "zod";
+import { searchPriceCents } from "@/lib/productos/query";
 export async function GET(request: Request) {
   try {
     await requireSession();
-    const q = new URL(request.url).searchParams.get("q")?.trim().slice(0, 160) || "";
+    const q = z
+      .string()
+      .trim()
+      .max(160)
+      .parse(new URL(request.url).searchParams.get("q") || "");
     if (!q) return Response.json({ items: [] });
-    const numeric = /^\d+(?:[.,]\d+)*$/.test(q) ? Number(q.replace(/[.,]/g, "")) * 100 : null;
+    const numeric = searchPriceCents(q);
     const items = await prisma.producto.findMany({
       where: {
         deletedAt: null,

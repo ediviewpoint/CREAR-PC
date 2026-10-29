@@ -31,7 +31,8 @@ La especificación entregada por @elias el 29/10/2026 es la autoridad de este tr
 ## Progreso
 
 - Fase 1: implementada y verificada localmente. Prisma aplica ambas migraciones y seed idempotente en PostgreSQL aislado; pruebas de unicidad, permisos, bloqueo y auditoría pasan. Chromium verifica sesión real de ADMIN/LECTOR, dashboard, TC con aviso de respaldo, temas persistentes y drawer móvil. Lint y build de producción pasan. Pendiente de activación real: correo ADMIN, AUTH_SECRET y URL del tracker; no se migró ni desplegó producción.
-- Fases 2–6: pendientes de implementación y aceptación.
+- Fase 2: listado principal implementado y criterios de aceptación verificados localmente: 2.000 productos en menos de un segundo en PostgreSQL aislado, búsqueda por `5480` y `5.480`, orden fraccional persistente. Incluye filtros/paginación/orden en URL, chips, tabla y tarjetas móviles, selección, precio y disponibilidad rápidos con conflictos de versión, historial, borrado suave ADMIN, duplicación como borrador, categorías rápidas, columnas guardadas por usuario y límite de escrituras persistente. Chromium verifica además arrastre con teclado, columnas tras recargar, creación/renombrado de categorías, selección por pulsación larga y respuestas 401/403. Build, lint y 138 pruebas automatizadas pasan. Las acciones Excel, PDF, cotización y WordPress se conectarán en las fases 5/6 que las implementan; todavía no se ofrecen como acciones operativas.
+- Fases 3–6: pendientes. No está terminada la especificación completa ni se ha desplegado este cambio.
 
 ## Migración y revisión de la fase 1
 
@@ -42,5 +43,9 @@ En una base nueva: `pnpm prisma:migrate` y `pnpm prisma:seed`. En la base existe
 El ADMIN inicial exige `ADMIN_EMAIL` y una `ADMIN_PASSWORD` de al menos 16 caracteres; el seed crea un hash bcrypt y no reinicia cuentas ya existentes. `AUTH_SECRET` debe ser un secreto independiente. No hay credenciales de ejemplo ni registro público. Google es opcional, solo permite cuentas previamente creadas y correos verificados del dominio configurado.
 
 `pnpm test:admin:base` prepara PostgreSQL aislado en memoria, aplica ambas migraciones, crea cuentas efímeras y usa Chromium para probar acceso, roles, tema persistente, indicadores y drawer móvil. No usa la conexión de producción ni imprime contraseñas. Las capturas quedan en `output/admin-base/`.
+
+`pnpm test:admin:base --productos` agrega 2.000 productos efímeros y verifica las operaciones del listado contra sus rutas reales. `prisma/productos.test.ts` comprueba consultas, conversión de búsquedas de precio, stock por sucursal, costos omitidos, conflicto de versión, orden, borrado suave, duplicación sin inventar existencias y rollback de acciones masivas.
+
+DECISION: TanStack Table se fija en la versión estable 8 para usar su API documentada. `fractional-indexing` genera claves de orden; PostgreSQL las compara con `COLLATE "C"`. Al reordenar con filtros se buscan los vecinos reales para evitar colisiones con filas ocultas. Los lotes cuentan una solicitud para el límite de 60 escrituras por minuto y generan un historial por cada producto afectado.
 
 El TC inicial 6,96 se muestra como respaldo sin verificar hasta configurar `TIPO_CAMBIO_URL`; no se presenta como cotización del día. El panel usa provisionalmente `/admin` para conservar la portada pública, pendiente de la respuesta del dueño. Las pantallas de fases siguientes indican claramente su estado y todavía no se consideran terminadas.
