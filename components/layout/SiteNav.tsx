@@ -5,6 +5,9 @@ export function SiteNav() {
   const pathname = usePathname();
   return (
     <nav aria-label="Principal">
+      <Link href="/productos" aria-current={pathname.startsWith("/productos") ? "page" : undefined}>
+        Productos
+      </Link>
       <Link href="/catalog" aria-current={pathname.startsWith("/catalog") ? "page" : undefined}>
         Componentes
       </Link>

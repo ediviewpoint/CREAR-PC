@@ -53,10 +53,63 @@ import { saveProduct, getProduct } from "../lib/productos/guardar";
 import { extractProduct } from "../lib/ia/extraer";
 import { createBatch, nextBatch, getBatch, saveBatch } from "../lib/ia/batch";
 import { suggestMapping, mappedRow } from "../lib/importacion";
+import { quoteAction } from "../lib/cotizaciones";
+import { productPdf } from "../lib/productos/pdf";
+import { encryptSecret, decryptSecret } from "../lib/wordpress";
+import type { QuoteItem } from "../lib/cotizaciones";
 let pg: PGlite;
 let server: Server;
 let client: PrismaClient;
 let branch: string;
+describe("Integraciones de productos", () => {
+  it("congela precios y ofertas en cotización y genera PDF sin costos", async () => {
+    const user = await client.usuario.create({
+      data: { nombre: "Cotizador", email: "quote@fixture.invalid", rol: "VENDEDOR" },
+    });
+    const actor = { id: user.id, rol: "VENDEDOR" as const };
+    const product = await client.producto.findFirstOrThrow({ where: { id: "fixture-1999" } });
+    await client.producto.update({
+      where: { id: product.id },
+      data: {
+        precioSinFactura: 100000,
+        precioOferta: 90000,
+        ofertaHasta: new Date(Date.now() + 60000),
+      },
+    });
+    const quote = await quoteAction({ accion: "agregar", ids: [product.id] }, actor);
+    await client.producto.update({
+      where: { id: product.id },
+      data: { precioSinFactura: 200000, precioOferta: null },
+    });
+    const items = (quote.snapshot as unknown as { items: QuoteItem[] }).items;
+    expect(items[0]!.producto.precioSinFactura).toBe(100000);
+    expect(items[0]!.producto.precioOferta).toBe(90000);
+    expect(items[0]!.producto.ofertaHasta).toBeNull();
+    expect(items[0]!.producto).not.toHaveProperty("costo");
+    const pdf = await productPdf(items, "PRUEBA");
+    expect(pdf.subarray(0, 4).toString()).toBe("%PDF");
+    const issued = await quoteAction({ accion: "emitir", cliente: "Cliente de prueba" }, actor);
+    expect(issued.estado).toBe("emitida");
+    expect(issued.codigo).toMatch(/^EPC-\d{4}-\d{5}$/);
+    await client.producto.update({
+      where: { id: product.id },
+      data: {
+        precioSinFactura: product.precioSinFactura,
+        precioOferta: product.precioOferta,
+        ofertaHasta: product.ofertaHasta,
+      },
+    });
+  }, 30000);
+  it("cifra credenciales WordPress con autenticación de integridad", () => {
+    vi.stubEnv("AUTH_SECRET", "fixture-auth-secret");
+    const value = encryptSecret("fixture-application-password");
+    expect(value).not.toContain("fixture-application-password");
+    expect(decryptSecret(value)).toBe("fixture-application-password");
+    const bytes = Buffer.from(value, "base64");
+    bytes[20] = bytes[20]! ^ 1;
+    expect(() => decryptSecret(bytes.toString("base64"))).toThrow();
+  });
+});
 beforeAll(async () => {
   pg = new PGlite();
   for (const migration of ["20261028000000_legacy", "20261029000100_admin_base"])

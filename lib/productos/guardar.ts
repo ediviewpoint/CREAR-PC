@@ -302,7 +302,14 @@ export async function saveProduct(
         data: {
           productoId: productId,
           usuarioId: actor.id,
-          accion: id ? "editar" : origin === "batch" ? "batch" : "crear",
+          accion:
+            origin === "restaurar"
+              ? "restaurar"
+              : id
+                ? "editar"
+                : origin === "batch"
+                  ? "batch"
+                  : "crear",
           origen: batchId ? `${origin}:${batchId}` : origin,
           cambios: JSON.parse(JSON.stringify(changes)),
         },

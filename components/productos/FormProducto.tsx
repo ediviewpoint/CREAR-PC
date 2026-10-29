@@ -398,6 +398,53 @@ export function FormProducto({
           <h1>{id ? `Editar: ${values.sku || ""}` : "Nuevo Producto"}</h1>
           <p>Usa la IA para extraer automáticamente, luego ajusta lo que necesites.</p>
         </div>
+        {id && hasRole(role, "VENDEDOR") && (
+          <div className="elite-toolbar">
+            <a className="elite-button secondary" href={`/api/productos/${id}/pdf`} download>
+              Generar PDF
+            </a>
+            <button
+              type="button"
+              className="elite-button secondary"
+              onClick={() => {
+                void fetch(`/api/productos/${id}/cotizacion`, { method: "POST" })
+                  .then(async (r) => {
+                    const result = await r.json();
+                    if (!r.ok) throw new Error(result.error?.message);
+                    setMessage("Agregado a cotización");
+                    setError(false);
+                  })
+                  .catch((e) => {
+                    setMessage(e.message);
+                    setError(true);
+                  });
+              }}
+            >
+              Agregar a cotización
+            </button>
+            {editor && (
+              <button
+                type="button"
+                className="elite-button secondary"
+                onClick={() => {
+                  void fetch(`/api/productos/${id}/wordpress`, { method: "POST" })
+                    .then(async (r) => {
+                      const result = await r.json();
+                      if (!r.ok) throw new Error(result.error?.message);
+                      setMessage("Producto enviado a WordPress");
+                      setError(false);
+                    })
+                    .catch((e) => {
+                      setMessage(e.message);
+                      setError(true);
+                    });
+                }}
+              >
+                Publicar en WordPress
+              </button>
+            )}
+          </div>
+        )}
         {id && (
           <Link className="elite-button secondary" href={`/admin/productos/${id}/historial`}>
             <History size={16} />

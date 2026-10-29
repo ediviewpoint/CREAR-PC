@@ -714,3 +714,24 @@ body:has(.elite-admin) > .site-footer {
   background: none;
   color: inherit;
 }
+.elite-settings label {
+  display: block;
+  margin: 12px 0;
+}
+.elite-settings input:not([type="checkbox"]),
+.elite-settings select,
+.elite-settings textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--elite-border, #53617a);
+  border-radius: 7px;
+  background: var(--elite-card, transparent);
+  color: inherit;
+}
+.elite-settings input[type="checkbox"] {
+  margin-right: 8px;
+}
+.elite-settings fieldset {
+  border: 0;
+  padding: 0;
+}

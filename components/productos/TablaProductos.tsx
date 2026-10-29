@@ -381,6 +381,37 @@ export function TablaProductos({
             <DropdownMenu.Item asChild>
               <Link href={`/admin/productos/${item.id}/historial`}>Ver historial</Link>
             </DropdownMenu.Item>
+            {vendor && (
+              <>
+                <DropdownMenu.Item asChild>
+                  <a href={`/api/productos/${item.id}/pdf`} download>
+                    Generar PDF
+                  </a>
+                </DropdownMenu.Item>
+                <DropdownMenu.Item
+                  onSelect={() => void mutate(`/api/productos/${item.id}/cotizacion`, "POST")}
+                >
+                  Agregar a cotización
+                </DropdownMenu.Item>
+                <DropdownMenu.Item
+                  onSelect={() => {
+                    void call(`/api/productos/${item.id}/whatsapp`, "GET")
+                      .then((v) => navigator.clipboard.writeText(v.texto))
+                      .then(() => notify("Copiado"))
+                      .catch(() => notify("No se pudo copiar el texto", true));
+                  }}
+                >
+                  Copiar texto WhatsApp
+                </DropdownMenu.Item>
+              </>
+            )}
+            {editor && (
+              <DropdownMenu.Item
+                onSelect={() => void mutate(`/api/productos/${item.id}/wordpress`, "POST")}
+              >
+                Publicar en WordPress
+              </DropdownMenu.Item>
+            )}
             {editor && (
               <DropdownMenu.Item
                 onSelect={() => void mutate(`/api/productos/${item.id}/duplicar`, "POST")}
@@ -594,6 +625,32 @@ export function TablaProductos({
   const rows = allRows.slice(start, end);
   async function applyBulk() {
     const action = bulkAction;
+    if (action === "cotizacion") {
+      await mutate("/api/cotizaciones", "POST", { accion: "agregar", ids: selected });
+      setBulkAction("");
+      return;
+    }
+    if (action === "publicarWp") {
+      setPending(true);
+      let count = 0;
+      try {
+        for (const id of selected) {
+          await call("/api/productos/bulk", "POST", { accion: "publicarWp", ids: [id] });
+          count++;
+        }
+        notify(`${count} productos enviados a WordPress`);
+      } catch (error) {
+        notify(
+          `${count} enviados. ${error instanceof Error ? error.message : "No se pudo completar"}`,
+          true,
+        );
+      } finally {
+        setPending(false);
+        await client.invalidateQueries({ queryKey: ["productos"] });
+        setBulkAction("");
+      }
+      return;
+    }
     let datos: unknown;
     if (action === "categoria") datos = { categoriaId: bulkValue };
     if (["agregarEtiquetas", "quitarEtiquetas"].includes(action))
@@ -682,7 +739,7 @@ export function TablaProductos({
           <select
             aria-label="Acciones masivas"
             value={bulkAction}
-            disabled={!editor || !selected.length || pending}
+            disabled={!vendor || !selected.length || pending}
             onChange={(event) => {
               setBulkAction(event.target.value);
               setBulkValue("");
@@ -690,17 +747,23 @@ export function TablaProductos({
           >
             <option value="">Acciones ({selected.length})</option>
             {Object.entries({
-              disponible: "Marcar disponible",
-              agotado: "Marcar agotado",
-              categoria: "Cambiar categoría",
-              agregarEtiquetas: "Agregar etiquetas",
-              quitarEtiquetas: "Quitar etiquetas",
-              ajustarPrecio: "Ajustar precio",
-              esconder: "Esconder",
-              mostrar: "Mostrar",
-              duplicar: "Duplicar",
-              archivar: "Archivar",
-              ...(role === "ADMIN" ? { eliminar: "Eliminar" } : {}),
+              ...(editor
+                ? {
+                    disponible: "Marcar disponible",
+                    agotado: "Marcar agotado",
+                    categoria: "Cambiar categoría",
+                    agregarEtiquetas: "Agregar etiquetas",
+                    quitarEtiquetas: "Quitar etiquetas",
+                    ajustarPrecio: "Ajustar precio",
+                    esconder: "Esconder",
+                    mostrar: "Mostrar",
+                    duplicar: "Duplicar",
+                    archivar: "Archivar",
+                    publicarWp: "Publicar en WordPress",
+                    ...(role === "ADMIN" ? { eliminar: "Eliminar" } : {}),
+                  }
+                : {}),
+              cotizacion: "Agregar a cotización",
             }).map(([key, value]) => (
               <option key={key} value={key}>
                 {value}

@@ -362,6 +362,46 @@ async function main() {
         "Listado verificado: 2.000 productos, búsqueda numérica, precio rápido e historial, selección y acción masiva.",
       );
     }
+    if (process.argv.includes("--integraciones")) {
+      for (const [path, title] of [
+        ["configuracion", "Configuración"],
+        ["wordpress", "WordPress"],
+        ["categorias", "Categorías"],
+        ["etiquetas", "Etiquetas"],
+        ["tickets", "Productos para tickets"],
+        ["cotizacion", "Cotización"],
+      ]) {
+        await page.goto(`${base}/admin/${path}`);
+        await page.getByRole("heading", { name: title!, exact: true }).waitFor();
+      }
+      const response = await page.request.post(`${base}/api/productos`, {
+        data: {
+          sku: "Z9999",
+          titulo: "Ficha para cotización",
+          estado: "borrador",
+          precioSinFactura: 548000,
+          precioConFactura: 636000,
+        },
+      });
+      assert.ok(response.ok(), await response.text());
+      const product = await response.json();
+      const added = await page.request.post(`${base}/api/cotizaciones`, {
+        data: { accion: "agregar", ids: [product.id] },
+      });
+      assert.ok(added.ok(), await added.text());
+      const quote = await added.json();
+      const pdf = await page.request.get(`${base}/api/cotizaciones/${quote.id}/pdf`);
+      assert.equal(pdf.status(), 200);
+      assert.equal((await pdf.body()).subarray(0, 4).toString(), "%PDF");
+      await page.goto(`${base}/admin/cotizacion`);
+      await page.getByText("Z9999 Ficha para cotización").waitFor();
+      await page.goto(`${base}/productos`);
+      assert.equal(await page.getByText("Ficha para cotización", { exact: true }).count(), 0);
+      await page.goto(`${base}/admin`);
+      console.log(
+        "Integraciones verificadas: configuración, roles, categorías, etiquetas, tickets, cotización, PDF y borradores fuera del catálogo público.",
+      );
+    }
     await mkdir("output/admin-base", { recursive: true });
     await page.screenshot({ path: "output/admin-base/escritorio.png", fullPage: true });
     await page.setViewportSize({ width: 390, height: 844 });

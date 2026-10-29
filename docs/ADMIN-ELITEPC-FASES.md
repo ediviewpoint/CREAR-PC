@@ -59,3 +59,17 @@ El ADMIN inicial exige `ADMIN_EMAIL` y una `ADMIN_PASSWORD` de al menos 16 carac
 DECISION: TanStack Table se fija en la versión estable 8 para usar su API documentada. `fractional-indexing` genera claves de orden; PostgreSQL las compara con `COLLATE "C"`. Al reordenar con filtros se buscan los vecinos reales para evitar colisiones con filas ocultas. Los lotes cuentan una solicitud para el límite de 60 escrituras por minuto y generan un historial por cada producto afectado.
 
 El TC inicial 6,96 se muestra como respaldo sin verificar hasta configurar `TIPO_CAMBIO_URL`; no se presenta como cotización del día. El panel usa provisionalmente `/admin` para conservar la portada pública, pendiente de la respuesta del dueño. Las pantallas de fases siguientes indican claramente su estado y todavía no se consideran terminadas.
+
+## Cierre de implementación, 29 de octubre de 2026
+
+Esta actualización reemplaza los estados históricos de preparación anteriores. Las fases 1 a 5 tienen sus commits independientes. La fase 6 agrega cotizaciones con snapshots sin costos y precios/ofertas congelados, PDF, WhatsApp configurable, conexión WooCommerce con credenciales cifradas, configuración de usuarios/roles/alias/precios/uso IA, categorías y etiquetas, restauración de campos del historial, catálogo público y registro de repuestos por referencia de ticket. Gemgloo conserva una interfaz pendiente, como exige el alcance.
+
+La base de producción adoptó las siete migraciones previas y recibió la migración Prisma y semilla. Se conservaron los nueve componentes anteriores, sin modificar snapshots de proformas ni inventar stock o precios. El configurador anterior conserva su modelo de compatibilidad; los productos generales se publican en /productos. Los componentes migrados sin precio confirmado quedan como borrador para revisión.
+
+Acceso: /admin/login. Si todavía no existe ADMIN, el primer ingreso vincula el correo que el dueño escriba con la contraseña administrativa existente; el bootstrap se cierra atómicamente y queda auditado. No existe registro público. AUTH_SECRET independiente y Blob están configurados en Vercel.
+
+Validación: 163 pruebas automatizadas; pruebas reales de Claude con 12 fixtures, 57 campos acertados, seis vacíos correctos y cero inventos en los campos evaluados. Esto no garantiza un 100% de precisión para textos arbitrarios: la revisión humana sigue siendo obligatoria. Las pruebas de navegador verifican los módulos y sus rutas reales con PostgreSQL aislado.
+
+Dependencias externas pendientes: credenciales de WordPress para comprobar una publicación real, URL del tracker para mostrar un TC verificado y contrato de Gemgloo. El panel identifica estos estados; no presenta una sincronización ficticia. El TC inicial se muestra como respaldo sin verificar. La opción de completar por modelo sigue desmarcada por defecto y se usa Claude para extracción.
+
+DECISION: los lotes avanzan desde el cliente en grupos de tres, con leases y trabajo persistente, sin contratar una cola adicional. Publicar muchos productos en WordPress usa solicitudes por producto para respetar la duración de las funciones. Los tickets completos pertenecen a otra especificación: este módulo permite buscar productos y descontar repuestos con referencia y auditoría.

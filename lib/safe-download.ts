@@ -27,7 +27,13 @@ export function isPublicAddress(address: string) {
 export async function safeDownload(
   input: string,
   maxBytes = 5 * 1024 * 1024,
-): Promise<{ bytes: Buffer; type: string; url: string }> {
+  options: {
+    method?: string;
+    headers?: Record<string, string>;
+    body?: string;
+    allowError?: boolean;
+  } = {},
+): Promise<{ bytes: Buffer; type: string; url: string; status: number }> {
   const deadline = Date.now() + 10000;
   for (let redirects = 0; redirects <= 3; redirects++) {
     let url: URL;
@@ -63,7 +69,12 @@ export async function safeDownload(
         url,
         {
           lookup: pinned,
-          headers: { "User-Agent": "ElitePC/1.0", "Accept-Encoding": "identity" },
+          method: options.method || "GET",
+          headers: {
+            "User-Agent": "ElitePC/1.0",
+            "Accept-Encoding": "identity",
+            ...options.headers,
+          },
           timeout: Math.max(1, deadline - Date.now()),
         },
         (res) => {
@@ -94,8 +105,13 @@ export async function safeDownload(
         },
       );
       request.on("timeout", () => request.destroy(new Error("timeout")));
+      const timer = setTimeout(
+        () => request.destroy(new Error("timeout")),
+        Math.max(1, deadline - Date.now()),
+      );
+      request.on("close", () => clearTimeout(timer));
       request.on("error", reject);
-      request.end();
+      request.end(options.body);
     }).catch(() => {
       throw new ApiError(
         "URL_NO_ACCESIBLE",
@@ -104,16 +120,30 @@ export async function safeDownload(
       );
     });
     if (response.location) {
+      if (
+        (options.method && options.method !== "GET") ||
+        Object.keys(options.headers || {}).some((k) => k.toLowerCase() === "authorization")
+      )
+        throw new ApiError(
+          "URL_NO_ACCESIBLE",
+          "Usa la dirección final del sitio, sin redirecciones",
+          422,
+        );
       input = new URL(response.location, url).toString();
       continue;
     }
-    if (response.status < 200 || response.status >= 300)
+    if (!options.allowError && (response.status < 200 || response.status >= 300))
       throw new ApiError(
         "URL_NO_ACCESIBLE",
         "No pudimos abrir esa página. Pega el texto directamente",
         422,
       );
-    return { bytes: response.bytes, type: response.type, url: url.toString() };
+    return {
+      bytes: response.bytes,
+      type: response.type,
+      url: url.toString(),
+      status: response.status,
+    };
   }
   throw new ApiError("URL_NO_ACCESIBLE", "La dirección tiene demasiadas redirecciones", 422);
 }

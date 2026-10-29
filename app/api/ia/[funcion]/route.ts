@@ -8,6 +8,7 @@ import { writingPrompt } from "@/lib/ia/prompts";
 import { SpecSchema } from "@/lib/productos/schema";
 import { prisma } from "@/lib/prisma";
 import { cleanDescription } from "@/lib/productos/guardar";
+import { whatsappText } from "@/lib/productos/whatsapp";
 export const maxDuration = 60;
 const Partial = z.object({
   titulo: z.string().max(160).optional(),
@@ -24,9 +25,13 @@ const Partial = z.object({
 });
 export async function POST(request: Request, { params }: { params: Promise<{ funcion: string }> }) {
   try {
-    const session = await requireSession("EDITOR");
     const { funcion } = await params;
+    const session = await requireSession(funcion === "whatsapp" ? "VENDEDOR" : "EDITOR");
     const raw = await readJson(request);
+    if (funcion === "whatsapp") {
+      const data = z.object({ productoId: z.string().min(1).max(100) }).parse(raw);
+      return Response.json({ texto: await whatsappText(data.productoId) });
+    }
     const signal = AbortSignal.any([request.signal, AbortSignal.timeout(45000)]);
     if (funcion === "specs-por-modelo")
       return Response.json(await modelSpecs(raw, session.user, signal));

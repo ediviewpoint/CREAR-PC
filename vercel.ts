@@ -94,6 +94,7 @@ export const config: VercelConfig = {
   // Crons — Vercel Cron Jobs (plan Pro requerido para múltiples).
   // -----------------------------------------------------------
   crons: [
+    { path: "/api/cron/ofertas-vencidas", schedule: "0 8 * * *" },
     // Refresca precios de componentes desde las tiendas registradas.
     { path: "/api/cron/refresh-prices", schedule: "0 4 * * *" }, // diario 04:00 UTC = 00:00 BOT
     // Expira proformas vencidas.
