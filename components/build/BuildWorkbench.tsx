@@ -21,6 +21,9 @@ import { MVP_SLUGS } from "@/lib/catalog/mvp";
 import { warrantyLabel } from "@/lib/catalog/warranty";
 import type { ProformaData } from "@/lib/proforma/types";
 const subscribe = () => () => {};
+// Fase 0 · H-07: ocultar herramientas de desarrollo en producción.
+// Se activa solo cuando NEXT_PUBLIC_SHOW_DEV_TOOLS === "true" (dev y preview por defecto, prod no).
+const showDevTools = process.env.NEXT_PUBLIC_SHOW_DEV_TOOLS === "true";
 export function BuildWorkbench(props: Parameters<typeof WorkbenchContent>[0]) {
   const ready = useSyncExternalStore(
     subscribe,
@@ -259,26 +262,28 @@ function WorkbenchContent({
         </label>
       </header>
       <div className="proforma-toolbar">
-        <button
-          className="button button--ghost"
-          type="button"
-          disabled={!referenceAvailable}
-          onClick={() => {
-            setUndo(selected);
-            setSelected(
-              referenceBuild.flatMap((component) =>
-                component ? [{ component, owned: false, quantity: 1 }] : [],
-              ),
-            );
-            setSelectionMessage(
-              "Equipo de prueba cargado. Podés deshacer este cambio desde el resumen.",
-            );
-            setRevision((n) => n + 1);
-            setSaveError("");
-          }}
-        >
-          Cargar equipo de prueba
-        </button>
+        {showDevTools && (
+          <button
+            className="button button--ghost"
+            type="button"
+            disabled={!referenceAvailable}
+            onClick={() => {
+              setUndo(selected);
+              setSelected(
+                referenceBuild.flatMap((component) =>
+                  component ? [{ component, owned: false, quantity: 1 }] : [],
+                ),
+              );
+              setSelectionMessage(
+                "Equipo de prueba cargado. Podés deshacer este cambio desde el resumen.",
+              );
+              setRevision((n) => n + 1);
+              setSaveError("");
+            }}
+          >
+            Cargar equipo de prueba
+          </button>
+        )}
         <span className="small muted">
           {referenceAvailable
             ? "Una pieza por categoría. Los precios se cotizan por separado."
@@ -719,12 +724,13 @@ function WorkbenchContent({
                 {!compat.ok
                   ? "Revisá estas piezas"
                   : complete
-                    ? "Sin conflictos detectados"
+                    ? "Revisión técnica parcial"
                     : "Validación parcial"}
               </strong>
             </div>
             <p className="small muted">
-              {!complete && "Faltan piezas para validar el equipo completo."}
+              {!complete && "Faltan piezas para validar el equipo completo. "}
+              Esta revisión no certifica BIOS, QVL ni todos los conectores. El equipo técnico debe confirmar los datos pendientes antes del armado.
             </p>
             <ul className="compat-issues">
               {compat.issues.map((issue) => (
@@ -761,10 +767,11 @@ function WorkbenchContent({
             </ul>
           </div>
           <div className="summary-total">
-            <span className="eyebrow">Total cotizado</span>
+            <span className="eyebrow">{pendingPrices ? "Total parcial" : "Total cotizado"}</span>
             <strong>
-              {!selected.length ? "—" : pendingPrices ? "Por cotizar" : formatBob(compat.totalBob)}
+              {!selected.length ? "—" : formatBob(compat.totalBob)}
             </strong>
+            {pendingPrices && <p>{toBuy.length - priced} {toBuy.length - priced === 1 ? "pieza por consultar" : "piezas por consultar"}. El importe mostrado solo incluye piezas con precio.</p>}
           </div>
           <section className="quote-readiness" aria-label="Estado para cotizar">
             <h3>Antes de cotizar</h3>
@@ -783,7 +790,7 @@ function WorkbenchContent({
                     {!compat.ok
                       ? "Resolver conflictos"
                       : complete
-                        ? "Sin conflictos detectados"
+                        ? "Revisión técnica parcial"
                         : "Revisión parcial"}
                   </strong>
                 </span>

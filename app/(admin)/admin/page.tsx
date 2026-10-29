@@ -1,16 +1,44 @@
 import Link from "next/link";
-import { Package, PackageX, TriangleAlert, CalendarPlus, Plus } from "lucide-react";
+import { Package, PackageX, TriangleAlert, CalendarPlus, Plus, FileEdit } from "lucide-react";
 import { getDashboard } from "@/lib/admin-dashboard";
 import { auth } from "@/lib/auth";
 import { hasRole } from "@/lib/auth-permissions";
 export const metadata = { title: "Inicio · ElitePC" };
 export default async function Page() {
   const [data, session] = await Promise.all([getDashboard(), auth()]);
+  // Fase 0 · H-02: cada tarjeta trae una definición breve para que el dueño
+  // sepa qué cuenta y qué no, y por qué puede ver 0 activos con 9 cargados.
   const metrics = [
-    { label: "Productos activos", value: data.total, icon: Package },
-    { label: "Productos agotados", value: data.exhausted, icon: PackageX },
-    { label: "Con stock bajo", value: data.low, icon: TriangleAlert },
-    { label: "Creados esta semana", value: data.created, icon: CalendarPlus },
+    {
+      label: "Productos activos",
+      value: data.total,
+      icon: Package,
+      hint: "Publicados, no eliminados.",
+    },
+    {
+      label: "En borrador",
+      value: data.drafts,
+      icon: FileEdit,
+      hint: "Cargados pero sin publicar todavía.",
+    },
+    {
+      label: "Agotados",
+      value: data.exhausted,
+      icon: PackageX,
+      hint: "Publicados sin stock disponible.",
+    },
+    {
+      label: "Stock bajo",
+      value: data.low,
+      icon: TriangleAlert,
+      hint: "Por debajo del umbral de la configuración.",
+    },
+    {
+      label: "Creados esta semana",
+      value: data.created,
+      icon: CalendarPlus,
+      hint: "Lunes 00:00 BOT en adelante.",
+    },
   ];
   return (
     <>
@@ -27,11 +55,12 @@ export default async function Page() {
         )}
       </div>
       <div className="elite-stats">
-        {metrics.map(({ label, value, icon: Icon }) => (
-          <div className="elite-card elite-stat" key={label}>
+        {metrics.map(({ label, value, icon: Icon, hint }) => (
+          <div className="elite-card elite-stat" key={label} title={hint}>
             <Icon aria-hidden="true" />
             <span>{label}</span>
             <strong>{value.toLocaleString("es-BO")}</strong>
+            <small className="muted">{hint}</small>
           </div>
         ))}
       </div>

@@ -12,8 +12,11 @@ export async function getDashboard() {
     ),
   );
   const visible = { deletedAt: null, estado: "publicado" };
-  const [total, exhausted, created, low, recent, incomplete] = await Promise.all([
+  // Fase 0 · H-02: separamos "publicado" de "borrador" para que la métrica Inicio
+  // deje de confundir al dueño cuando ve "0 activos" habiendo cargado 9.
+  const [total, drafts, exhausted, created, low, recent, incomplete] = await Promise.all([
     prisma.producto.count({ where: visible }),
+    prisma.producto.count({ where: { deletedAt: null, estado: { not: "publicado" } } }),
     prisma.producto.count({ where: { ...visible, disponibilidad: "SIN_STOCK" } }),
     prisma.producto.count({ where: { deletedAt: null, createdAt: { gte: monday } } }),
     prisma.$queryRaw<
@@ -48,5 +51,13 @@ export async function getDashboard() {
       },
     }),
   ]);
-  return { total, exhausted, created, low: Number(low[0]?.count || 0), recent, incomplete };
+  return {
+    total,
+    drafts,
+    exhausted,
+    created,
+    low: Number(low[0]?.count || 0),
+    recent,
+    incomplete,
+  };
 }

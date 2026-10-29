@@ -29,6 +29,16 @@ describe("evaluateBuild — happy path", () => {
     expect(report.recommendedPsuW).toBe(Math.ceil(report.totalTdpW * 1.3));
   });
 
+  it("expone la cobertura real de reglas evaluadas (Fase 0 · H-06b)", () => {
+    const report = evaluateBuild(makeCompatibleBuild());
+    expect(report.coverage.blocking).toBe(16);
+    expect(report.coverage.warnings).toBe(8);
+    expect(report.coverage.info).toBe(3);
+    expect(report.coverage.total).toBe(
+      report.coverage.blocking + report.coverage.warnings + report.coverage.info,
+    );
+  });
+
   it("suma precios en Bs. correctamente", () => {
     const report = evaluateBuild(makeCompatibleBuild());
     // CPU 3800 + GPU 4500 + Mobo 2450 + RAM 950 + Storage 850 + PSU 1100 + Case 1300 + CoolerAir 850 = 15800

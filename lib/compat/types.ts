@@ -20,12 +20,21 @@ export type Issue = {
   involved: { category: ComponentCategory; componentId: string }[];
 };
 
+export type RuleCoverage = {
+  total: number;
+  blocking: number;
+  warnings: number;
+  info: number;
+};
+
 export type CompatReport = {
   ok: boolean;
   totalTdpW: number;
   recommendedPsuW: number;
   totalBob: number;
   issues: Issue[];
+  /** Fase 0 · H-06b: alcance real de la validación para comunicar honestamente al cliente. */
+  coverage: RuleCoverage;
 };
 
 export type BuildItemBase = {
