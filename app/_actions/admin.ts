@@ -1,37 +1,16 @@
 "use server";
-import { headers } from "next/headers";
-import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { eq } from "drizzle-orm";
 import { getDb, schema } from "@/lib/db";
-import {
-  requireAdmin,
-  passwordMatches,
-  startAdminSession,
-  endAdminSession,
-} from "@/lib/auth/admin";
-import { rateLimit, clientKey } from "@/lib/rate-limit";
+import { requireAdmin } from "@/lib/auth/admin";
+import { loginAction, logoutAction } from "@/app/_actions/auth";
 export type AdminState = { message: string };
-export async function loginAdminAction(_: AdminState, form: FormData): Promise<AdminState> {
-  const h = await headers();
-  if (
-    !rateLimit(clientKey(h.get("x-forwarded-for"), "admin-login"), { limit: 5, windowMs: 900000 })
-      .success
-  )
-    return { message: "Demasiados intentos. Esperá unos minutos." };
-  if (!process.env.ADMIN_PASSWORD || process.env.ADMIN_PASSWORD.length < 16)
-    return {
-      message: "Configurá ADMIN_PASSWORD con al menos 16 caracteres en el entorno del servidor.",
-    };
-  if (!passwordMatches(String(form.get("password") ?? "")))
-    return { message: "La contraseña no es válida." };
-  await startAdminSession();
-  redirect("/admin");
+export async function loginAdminAction(state: AdminState, form: FormData): Promise<AdminState> {
+  return loginAction(state, form);
 }
 export async function logoutAdminAction() {
-  await endAdminSession();
-  redirect("/admin/login");
+  return logoutAction();
 }
 function toSlug(parts: string[]) {
   return parts

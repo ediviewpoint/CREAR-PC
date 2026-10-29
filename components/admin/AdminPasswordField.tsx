@@ -5,7 +5,7 @@ export function AdminPasswordField() {
   const [visible, setVisible] = useState(false);
   return (
     <>
-      <label htmlFor="admin-password">Contraseña de administración</label>
+      <label htmlFor="admin-password">Contraseña</label>
       <div className="admin-password-control">
         <input
           id="admin-password"

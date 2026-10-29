@@ -1,40 +1,24 @@
 import { beforeEach, describe, it, expect, vi } from "vitest";
-const context = vi.hoisted(() => ({ jar: new Map<string, string>() }));
-vi.mock("server-only", () => ({}));
-vi.mock("next/headers", () => ({
-  cookies: async () => ({
-    get: (k: string) => (context.jar.has(k) ? { value: context.jar.get(k) } : undefined),
-    set: (k: string, v: string) => context.jar.set(k, v),
-    delete: (k: string) => context.jar.delete(k),
-  }),
+const context = vi.hoisted(() => ({ role: "" }));
+vi.mock("@/lib/auth", () => ({
+  auth: async () => (context.role ? { user: { rol: context.role } } : null),
 }));
-import { isAdmin, passwordMatches, startAdminSession, endAdminSession } from "../admin";
+import { isAdmin } from "../admin";
 import { cronAuthorized } from "@/lib/cron/auth";
 beforeEach(() => {
-  context.jar.clear();
-  vi.stubEnv("ADMIN_PASSWORD", "fixture-admin-password-only");
+  context.role = "";
   vi.stubEnv("CRON_SECRET", "fixture-cron-secret");
 });
-describe("Acceso administrativo y cron", () => {
-  it("verifica contraseña y sesión firmada", async () => {
-    expect(passwordMatches("incorrecta")).toBe(false);
-    expect(passwordMatches("fixture-admin-password-only")).toBe(true);
+describe("Acceso administrativo heredado", () => {
+  it("exige sesión Auth.js ADMIN incluso con contraseña global configurada", async () => {
+    vi.stubEnv("ADMIN_PASSWORD", "fixture-only-secret");
     expect(await isAdmin()).toBe(false);
-    await startAdminSession();
-    expect(await isAdmin()).toBe(true);
-    await endAdminSession();
-    expect(await isAdmin()).toBe(false);
-  });
-  it("rechaza cookies malformadas sin lanzar errores", async () => {
-    for (const v of ["bad", "NaN." + "a".repeat(64), "1770000000000." + "é".repeat(64)]) {
-      context.jar.set("crearpc.admin", v);
+    for (const role of ["LECTOR", "VENDEDOR", "EDITOR"]) {
+      context.role = role;
       expect(await isAdmin()).toBe(false);
     }
-  });
-  it("admin sin configuración nunca permite ingreso", async () => {
-    vi.stubEnv("ADMIN_PASSWORD", "");
-    expect(passwordMatches("")).toBe(false);
-    expect(await isAdmin()).toBe(false);
+    context.role = "ADMIN";
+    expect(await isAdmin()).toBe(true);
   });
   it("cron no admite secreto ausente ni distinto", () => {
     expect(cronAuthorized(new Request("https://fixture.invalid"))).toBe(false);

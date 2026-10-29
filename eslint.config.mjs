@@ -14,7 +14,14 @@ const config = [
     },
   },
   {
-    ignores: [".next/**", ".next-preview/**", "node_modules/**", "drizzle/**", "coverage/**"],
+    ignores: [
+      ".next/**",
+      ".next-preview/**",
+      "node_modules/**",
+      "drizzle/**",
+      "generated/**",
+      "coverage/**",
+    ],
   },
 ];
 

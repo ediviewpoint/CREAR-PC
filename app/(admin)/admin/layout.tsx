@@ -1,27 +1,29 @@
 import type { ReactNode } from "react";
-import Link from "next/link";
-import { requireAdmin } from "@/lib/auth/admin";
-import { logoutAdminAction } from "@/app/_actions/admin";
-import { AdminNav } from "@/components/admin/AdminNav";
+import { redirect } from "next/navigation";
+import { auth } from "@/lib/auth";
+import { prisma } from "@/lib/prisma";
+import { getExchangeRate } from "@/lib/configuracion";
+import { AppShell } from "@/components/admin/AppShell";
 export const dynamic = "force-dynamic";
 export const metadata = { robots: { index: false, follow: false } };
 export default async function AdminLayout({ children }: { children: ReactNode }) {
-  await requireAdmin();
+  const session = await auth();
+  if (!session?.user) redirect("/admin/login");
+  const [branches, rate] = await Promise.all([
+    prisma.sucursal.findMany({
+      where: { activa: true },
+      select: { id: true, nombre: true },
+      orderBy: { nombre: "asc" },
+    }),
+    getExchangeRate(),
+  ]);
   return (
-    <div className="admin-shell shell">
-      <aside className="admin-side">
-        <h2>CREAR PC / Taller</h2>
-        <AdminNav />
-        <Link className="text-link admin-return-link" href="/">
-          ← Volver a la web
-        </Link>
-        <form action={logoutAdminAction}>
-          <button className="button button--ghost">Cerrar sesión</button>
-        </form>
-      </aside>
-      <main id="main" className="admin-main">
-        {children}
-      </main>
-    </div>
+    <AppShell
+      user={{ id: session.user.id, nombre: session.user.name || "Usuario", rol: session.user.rol }}
+      branches={branches}
+      rate={rate}
+    >
+      {children}
+    </AppShell>
   );
 }

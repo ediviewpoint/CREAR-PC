@@ -1,0 +1,371 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum TipoProducto {
+  CARRITO
+  IMAGEN
+}
+
+enum Disponibilidad {
+  EN_STOCK
+  SIN_STOCK
+  BAJO_PEDIDO
+}
+
+enum Condicion {
+  NUEVO
+  REACONDICIONADO
+  OPEN_BOX
+  USADO
+}
+
+enum Moneda {
+  BOB
+  USD
+}
+
+enum OrigenDato {
+  MANUAL
+  TEXTO
+  BUSQUEDA_MODELO
+  IA_GENERADO
+  IMPORTACION
+  BASE_INTERNA
+}
+
+enum Confianza {
+  ALTA
+  MEDIA
+  BAJA
+}
+
+enum Rol {
+  ADMIN
+  EDITOR
+  VENDEDOR
+  LECTOR
+}
+
+model Usuario {
+  id                    String              @id @default(cuid())
+  nombre                String
+  email                 String              @unique
+  passwordHash          String?
+  googleSub             String?             @unique
+  rol                   Rol                 @default(LECTOR)
+  activo                Boolean             @default(true)
+  intentosFallidos      Int                 @default(0)
+  bloqueadoHasta        DateTime?
+  ultimoAcceso          DateTime?
+  versionSesion         Int                 @default(0)
+  preferencias          Json                @default("{}")
+  productosCreados      Producto[]          @relation("CreadorProducto")
+  productosActualizados Producto[]          @relation("EditorProducto")
+  historial             ProductoHistorial[]
+  auditoria             Auditoria[]
+  usosIA                UsoIA[]
+  trabajos              TrabajoBatch[]
+  cotizaciones          Cotizacion[]
+  createdAt             DateTime            @default(now())
+  updatedAt             DateTime            @updatedAt
+}
+
+model Producto {
+  id                  String               @id @default(cuid())
+  sku                 String               @unique
+  slug                String               @unique
+  titulo              String
+  tituloManual        Boolean              @default(false)
+  marcaId             String?
+  marca               Marca?               @relation(fields: [marcaId], references: [id])
+  modelo              String?
+  partNumber          String?
+  categoriaId         String
+  categoria           Categoria            @relation("CategoriaPrincipal", fields: [categoriaId], references: [id])
+  subcategoriaId      String?
+  subcategoria        Categoria?           @relation("Subcategoria", fields: [subcategoriaId], references: [id])
+  tipo                TipoProducto         @default(CARRITO)
+  condicion           Condicion            @default(NUEVO)
+  color               String?
+  garantia            String?
+  proveedorId         String?
+  descripcion         String?
+  precioSinFactura    Int?
+  precioConFactura    Int?
+  precioOferta        Int?
+  ofertaDesde         DateTime?
+  ofertaHasta         DateTime?
+  etiquetaDescuento   String?
+  precioUsd           Int?
+  costo               Int?
+  monedaCosto         Moneda?
+  precioMayorista     Int?
+  tipoCambioUsado     Decimal?             @db.Decimal(8, 4)
+  disponibilidad      Disponibilidad       @default(EN_STOCK)
+  controlaInventario  Boolean              @default(false)
+  umbralStockBajo     Int?
+  escondido           Boolean              @default(false)
+  destacado           Boolean              @default(false)
+  orden               String
+  requiereRevision    Boolean              @default(false)
+  estado              String               @default("publicado")
+  wpId                Int?
+  wpSyncEstado        String?
+  wpSyncFecha         DateTime?
+  wpSyncError         String?
+  textoFuente         String?
+  // DECISION: conserva el vínculo con el configurador y sus proformas históricas durante la migración.
+  legacyComponentId   String?              @unique @db.Uuid
+  datosCompatibilidad Json?
+  stockAutomatico     Boolean              @default(false)
+  specs               ProductoSpec[]
+  imagenes            ProductoImagen[]
+  destacados          ProductoDestacado[]
+  puntosClave         ProductoPuntoClave[]
+  stocks              StockSucursal[]
+  etiquetas           ProductoEtiqueta[]
+  gruposOpciones      GrupoOpciones[]
+  historial           ProductoHistorial[]
+  creadoPorId         String
+  creadoPor           Usuario              @relation("CreadorProducto", fields: [creadoPorId], references: [id])
+  actualizadoPorId    String?
+  actualizadoPor      Usuario?             @relation("EditorProducto", fields: [actualizadoPorId], references: [id])
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+  deletedAt           DateTime?
+
+  @@index([categoriaId, orden])
+  @@index([modelo])
+  @@index([partNumber])
+  @@index([disponibilidad])
+  @@index([deletedAt, estado, createdAt])
+  @@index([marcaId])
+}
+
+model ProductoSpec {
+  id         String     @id @default(cuid())
+  productoId String
+  producto   Producto   @relation(fields: [productoId], references: [id], onDelete: Cascade)
+  campo      String
+  valor      String
+  icono      String?
+  orden      Int
+  origen     OrigenDato @default(MANUAL)
+  confianza  Confianza?
+  fuenteUrl  String?
+  confirmado Boolean    @default(true)
+
+  @@unique([productoId, campo])
+}
+
+model ProductoImagen {
+  id           String   @id @default(cuid())
+  productoId   String
+  producto     Producto @relation(fields: [productoId], references: [id], onDelete: Cascade)
+  url          String
+  urlMiniatura String
+  alt          String?
+  orden        Int
+  ancho        Int?
+  alto         Int?
+
+  @@index([productoId, orden])
+}
+
+model ProductoDestacado {
+  id         String     @id @default(cuid())
+  productoId String
+  producto   Producto   @relation(fields: [productoId], references: [id], onDelete: Cascade)
+  icono      String
+  texto      String
+  orden      Int
+  origen     OrigenDato @default(MANUAL)
+
+  @@index([productoId, orden])
+}
+
+model ProductoPuntoClave {
+  id          String     @id @default(cuid())
+  productoId  String
+  producto    Producto   @relation(fields: [productoId], references: [id], onDelete: Cascade)
+  titulo      String
+  descripcion String
+  enPdf       Boolean    @default(true)
+  orden       Int
+  origen      OrigenDato @default(MANUAL)
+
+  @@index([productoId, orden])
+}
+
+model Sucursal {
+  id     String          @id @default(cuid())
+  nombre String          @unique
+  activa Boolean         @default(true)
+  stocks StockSucursal[]
+}
+
+model StockSucursal {
+  productoId String
+  sucursalId String
+  cantidad   Int      @default(0)
+  producto   Producto @relation(fields: [productoId], references: [id])
+  sucursal   Sucursal @relation(fields: [sucursalId], references: [id])
+
+  @@id([productoId, sucursalId])
+  @@index([sucursalId])
+}
+
+model Categoria {
+  id              String      @id @default(cuid())
+  nombre          String
+  slug            String      @unique
+  padreId         String?
+  padre           Categoria?  @relation("Arbol", fields: [padreId], references: [id])
+  hijas           Categoria[] @relation("Arbol")
+  plantillaTitulo String?
+  specsSugeridas  Json
+  orden           Int
+  productos       Producto[]  @relation("CategoriaPrincipal")
+  productosSub    Producto[]  @relation("Subcategoria")
+
+  @@index([padreId, orden])
+}
+
+model Marca {
+  id        String     @id @default(cuid())
+  nombre    String     @unique
+  productos Producto[]
+}
+
+model Etiqueta {
+  id        String             @id @default(cuid())
+  nombre    String             @unique
+  productos ProductoEtiqueta[]
+}
+
+model ProductoEtiqueta {
+  productoId String
+  etiquetaId String
+  producto   Producto @relation(fields: [productoId], references: [id], onDelete: Cascade)
+  etiqueta   Etiqueta @relation(fields: [etiquetaId], references: [id])
+
+  @@id([productoId, etiquetaId])
+  @@index([etiquetaId])
+}
+
+model GrupoOpciones {
+  id          String   @id @default(cuid())
+  productoId  String
+  producto    Producto @relation(fields: [productoId], references: [id], onDelete: Cascade)
+  nombre      String
+  obligatorio Boolean  @default(false)
+  multiple    Boolean  @default(false)
+  opciones    Json
+  orden       Int
+
+  @@index([productoId, orden])
+}
+
+model ProductoHistorial {
+  id         String   @id @default(cuid())
+  productoId String
+  producto   Producto @relation(fields: [productoId], references: [id])
+  usuarioId  String
+  usuario    Usuario  @relation(fields: [usuarioId], references: [id])
+  accion     String
+  cambios    Json
+  origen     String?
+  createdAt  DateTime @default(now())
+
+  @@index([productoId, createdAt])
+  @@index([usuarioId, createdAt])
+}
+
+model Alias {
+  id          String @id @default(cuid())
+  tipo        String
+  valor       String
+  normalizado String
+
+  @@unique([tipo, valor])
+}
+
+model CacheSpecs {
+  clave     String   @id
+  respuesta Json
+  fuentes   Json
+  creadoEn  DateTime @default(now())
+}
+
+model UsoIA {
+  id        String   @id @default(cuid())
+  usuarioId String
+  usuario   Usuario  @relation(fields: [usuarioId], references: [id])
+  funcion   String
+  tokensIn  Int
+  tokensOut Int
+  costoUsd  Decimal  @db.Decimal(10, 5)
+  ms        Int
+  ok        Boolean
+  createdAt DateTime @default(now())
+
+  @@index([usuarioId, createdAt])
+  @@index([funcion, createdAt])
+}
+
+model TrabajoBatch {
+  id          String   @id @default(cuid())
+  usuarioId   String
+  usuario     Usuario  @relation(fields: [usuarioId], references: [id])
+  tipoEntrada String
+  estado      String
+  total       Int
+  procesados  Int
+  items       Json
+  opciones    Json
+  costoUsd    Decimal  @default(0) @db.Decimal(10, 5)
+  version     Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([usuarioId, createdAt])
+}
+
+model Configuracion {
+  clave String @id
+  valor Json
+}
+
+model Auditoria {
+  id        String   @id @default(cuid())
+  usuarioId String?
+  usuario   Usuario? @relation(fields: [usuarioId], references: [id])
+  accion    String
+  ip        String?
+  detalle   Json
+  createdAt DateTime @default(now())
+
+  @@index([usuarioId, createdAt])
+  @@index([accion, createdAt])
+}
+
+// DECISION: las cotizaciones nuevas guardan una copia JSON inmutable; las proformas del configurador siguen conservadas.
+model Cotizacion {
+  id        String   @id @default(cuid())
+  usuarioId String
+  usuario   Usuario  @relation(fields: [usuarioId], references: [id])
+  codigo    String?  @unique
+  cliente   String?
+  estado    String   @default("abierta")
+  snapshot  Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([usuarioId, estado])
+}

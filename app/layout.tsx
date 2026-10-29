@@ -3,6 +3,7 @@ import { Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import "./globals.css";
+import "./elite-admin.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const tight = Inter_Tight({ subsets: ["latin"], variable: "--font-inter-tight", display: "swap" });
 const mono = JetBrains_Mono({
