@@ -126,3 +126,26 @@ describe("Base Prisma ElitePC", () => {
     );
   });
 });
+describe("Migración del acceso anterior", () => {
+  it("vincula un solo ADMIN con la contraseña existente y rechaza altas posteriores", async () => {
+    vi.stubEnv("ADMIN_PASSWORD", "clave-inicial-solo-fixture-2026");
+    expect(
+      await authenticateCredentials(
+        { email: "intruso@fixture.invalid", password: "incorrecta" },
+        "203.0.113.1",
+      ),
+    ).toBeNull();
+    const owner = await authenticateCredentials(
+      { email: "dueno@fixture.invalid", password: "clave-inicial-solo-fixture-2026" },
+      "203.0.113.2",
+    );
+    expect(owner?.rol).toBe("ADMIN");
+    expect(
+      await authenticateCredentials(
+        { email: "otro@fixture.invalid", password: "clave-inicial-solo-fixture-2026" },
+        "203.0.113.3",
+      ),
+    ).toBeNull();
+    expect(await client.usuario.count({ where: { rol: "ADMIN", activo: true } })).toBe(1);
+  }, 20000);
+});

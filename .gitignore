@@ -67,3 +67,5 @@ data/scratch/
 
 # evidencia visual / QA generada localmente
 output/
+
+.env*

@@ -29,6 +29,9 @@ function Shell({ children, user, branches, rate }: Props) {
   const [branch, setBranch] = usePreference("elitepc.branch", "todas");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [toast,setToast]=useState<{text:string;error?:boolean}|null>(null);
+  useEffect(()=>{const receive=(event:Event)=>setToast((event as CustomEvent<{text:string;error?:boolean}>).detail);window.addEventListener("elite-toast",receive);return()=>window.removeEventListener("elite-toast",receive);},[]);
+  useEffect(()=>{if(toast&&!toast.error){const timer=setTimeout(()=>setToast(null),4000);return()=>clearTimeout(timer);}},[toast]);
   const menuRef = useRef<HTMLButtonElement>(null);
   useEffect(() => {
     function key(event: KeyboardEvent) {
@@ -92,6 +95,7 @@ function Shell({ children, user, branches, rate }: Props) {
             <Sidebar collapsed={sidebar === "collapsed"} role={user.rol} />
           </div>
           <main id="main" className="elite-main">
+            {toast&&<div className="elite-global-toast" role={toast.error?"alert":"status"}>{toast.text}<button onClick={()=>setToast(null)} aria-label="Cerrar notificación">×</button></div>}
             {children}
           </main>
         </div>

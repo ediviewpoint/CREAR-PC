@@ -1,0 +1,10 @@
+import {createRequire} from "node:module";
+import {randomBytes} from "node:crypto";
+import {appendFile} from "node:fs/promises";
+import {spawnSync} from "node:child_process";
+const require=createRequire(import.meta.url);createRequire(require.resolve("next/package.json"))("@next/env").loadEnvConfig(process.cwd());
+const existing=process.env.AUTH_SECRET;const secret=existing&&existing!=="[SENSITIVE]"?existing:randomBytes(48).toString("hex");
+if(!existing)await appendFile(".env.local",`\nAUTH_SECRET="${secret}"\n`);
+const args=["--yes","vercel","env","add","AUTH_SECRET","production","--sensitive"];
+const result=process.platform==="win32"?spawnSync(process.env.ComSpec||"cmd.exe",["/d","/s","/c",`npx ${args.join(" ")}`],{input:`${secret}\n`,encoding:"utf8",windowsHide:true}):spawnSync("npx",args,{input:`${secret}\n`,encoding:"utf8"});
+if(result.status!==0){console.error("No se pudo registrar AUTH_SECRET. Verifica el estado de la variable en Vercel antes de reintentar; su valor no se muestra.");process.exitCode=1;}else console.log("AUTH_SECRET configurado en producción y guardado únicamente en el entorno local ignorado.");

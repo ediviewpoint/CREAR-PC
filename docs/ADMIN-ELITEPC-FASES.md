@@ -32,7 +32,13 @@ La especificación entregada por @elias el 29/10/2026 es la autoridad de este tr
 
 - Fase 1: implementada y verificada localmente. Prisma aplica ambas migraciones y seed idempotente en PostgreSQL aislado; pruebas de unicidad, permisos, bloqueo y auditoría pasan. Chromium verifica sesión real de ADMIN/LECTOR, dashboard, TC con aviso de respaldo, temas persistentes y drawer móvil. Lint y build de producción pasan. Pendiente de activación real: correo ADMIN, AUTH_SECRET y URL del tracker; no se migró ni desplegó producción.
 - Fase 2: listado principal implementado y criterios de aceptación verificados localmente: 2.000 productos en menos de un segundo en PostgreSQL aislado, búsqueda por `5480` y `5.480`, orden fraccional persistente. Incluye filtros/paginación/orden en URL, chips, tabla y tarjetas móviles, selección, precio y disponibilidad rápidos con conflictos de versión, historial, borrado suave ADMIN, duplicación como borrador, categorías rápidas, columnas guardadas por usuario y límite de escrituras persistente. Chromium verifica además arrastre con teclado, columnas tras recargar, creación/renombrado de categorías, selección por pulsación larga y respuestas 401/403. Build, lint y 138 pruebas automatizadas pasan. Las acciones Excel, PDF, cotización y WordPress se conectarán en las fases 5/6 que las implementan; todavía no se ofrecen como acciones operativas.
-- Fases 3–6: pendientes. No está terminada la especificación completa ni se ha desplegado este cambio.
+- Fase 3: formulario manual funcional con schema compartido, precios en centavos, título automático, inventario por sucursal, variantes, etiquetas, galería Blob, editores reordenables, descripción enriquecida, borradores locales, control de versión e historial. La prueba en navegador crea y edita un producto y verifica sus centavos e historial; el servidor rechaza escritura de vendedores y oculta costos. Las fases 4–6 siguen pendientes; la especificación completa aún no está terminada.
+
+## Preparación del despliegue
+
+Se creó y conectó el almacén público Blob `elitepc-productos` a producción y preview. El secreto Auth.js se genera fuera del repositorio. La migración administrativa es aditiva y el catálogo anterior se incorpora con `scripts/migrate-admin-products.ts`, idempotente, conservando identificadores de compatibilidad y proformas. Productos sin precio propio confirmado pasan a borrador y revisión; no se inventa stock por sucursal.
+
+DECISION: para no bloquear al dueño por un correo aún no definido, si no hay ningún ADMIN activo el primer ingreso con la contraseña anterior vincula el correo que el dueño escriba. La operación tiene bloqueo transaccional, límite de intentos y auditoría, y se cierra permanentemente después de crear esa primera cuenta. No permite crear usuarios adicionales. El seed con ADMIN_EMAIL continúa siendo otra opción de aprovisionamiento.
 
 ## Migración y revisión de la fase 1
 

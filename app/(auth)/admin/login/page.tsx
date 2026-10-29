@@ -16,6 +16,7 @@ export default async function AdminLogin() {
       <h1>Ingresa al panel</h1>
       <p className="page-intro">
         Administra tus productos, precios y cotizaciones con tu cuenta de ElitePC.
+        Si es tu primer ingreso al nuevo panel, usa tu correo y la contraseña anterior para vincular tu cuenta.
       </p>
       <AdminForm action={loginAction} label="Ingresar">
         <label htmlFor="email">Correo electrónico</label>

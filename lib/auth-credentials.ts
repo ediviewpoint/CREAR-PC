@@ -1,4 +1,4 @@
-import { compare, hashSync } from "bcryptjs";
+import { compare, hashSync, hash } from "bcryptjs";
 import { z } from "zod";
 import { prisma } from "@/lib/prisma";
 const credentialsSchema = z.object({
@@ -16,6 +16,59 @@ export async function authenticateCredentials(raw: unknown, ip: string | null = 
       await tx.$queryRaw`SELECT "id" FROM "Usuario" WHERE "email" = ${email} FOR UPDATE`;
       const user = await tx.usuario.findUnique({ where: { email } });
       if (!user) {
+        // DECISION: migración del acceso anterior: el dueño vincula su correo usando su contraseña existente, una sola vez.
+        await tx.$queryRaw`SELECT pg_advisory_xact_lock(hashtext('elitepc-admin-inicial'))::text`;
+        const linked =
+          (await tx.configuracion.findUnique({ where: { clave: "adminInicialVinculado" } }))
+            ?.valor === true;
+        const active = await tx.usuario.count({ where: { rol: "ADMIN", activo: true } });
+        if (
+          !linked &&
+          !active &&
+          process.env.ADMIN_PASSWORD &&
+          process.env.ADMIN_PASSWORD.length >= 16
+        ) {
+          const failures = await tx.auditoria.count({
+            where: {
+              accion: "login_fallido",
+              createdAt: { gte: new Date(Date.now() - 15 * 60000) },
+              ...(ip ? { ip } : { detalle: { path: ["email"], equals: email } }),
+            },
+          });
+          if (failures >= 5) return null;
+          const passwordHash = await hash(process.env.ADMIN_PASSWORD, 12);
+          if (await compare(password, passwordHash)) {
+            const initial = await tx.usuario.create({
+              data: {
+                email,
+                nombre: "Administrador ElitePC",
+                rol: "ADMIN",
+                passwordHash,
+                ultimoAcceso: new Date(),
+              },
+            });
+            await tx.configuracion.upsert({
+              where: { clave: "adminInicialVinculado" },
+              create: { clave: "adminInicialVinculado", valor: true },
+              update: { valor: true },
+            });
+            await tx.auditoria.create({
+              data: {
+                usuarioId: initial.id,
+                accion: "admin_inicial",
+                ip,
+                detalle: { proveedor: "migracion_acceso" },
+              },
+            });
+            return {
+              id: initial.id,
+              name: initial.nombre,
+              email: initial.email,
+              rol: initial.rol,
+              versionSesion: initial.versionSesion,
+            };
+          }
+        }
         await compare(password, dummyHash);
         await tx.auditoria.create({ data: { accion: "login_fallido", ip, detalle: { email } } });
         return null;

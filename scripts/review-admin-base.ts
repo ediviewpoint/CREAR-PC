@@ -115,6 +115,36 @@ async function main() {
     await page.waitForURL("**/admin", { timeout: 60000 });
     await page.getByRole("heading", { name: "Inicio", exact: true }).waitFor();
     console.log("Acceso de ADMIN y dashboard verificados.");
+    if (process.argv.includes("--formulario")) {
+      await page.goto(`${base}/admin/productos/nuevo`);
+      await page.getByLabel("Marca", { exact: true }).fill("HP");
+      await page.getByRole("textbox", { name: "Modelo", exact: true }).fill("14-DQ6104DX");
+      await page.getByRole("textbox", { name: "SKU / Código", exact: true }).fill("Z2766");
+      await page
+        .getByRole("combobox", { name: "Categoría", exact: true })
+        .selectOption({ label: "NOTEBOOK" });
+      await page.getByRole("textbox", { name: "Sin factura (S/F)", exact: true }).fill("5480");
+      await page.keyboard.press("Tab");
+      await page
+        .getByRole("textbox", { name: "Valor técnico 1", exact: true })
+        .fill("Intel Celeron N150");
+      await page.getByRole("button", { name: "Guardar", exact: true }).click();
+      await page.waitForURL(
+        (url) =>
+          /^\/admin\/productos\/[^/]+$/.test(url.pathname) && !url.pathname.endsWith("/nuevo"),
+        { timeout: 60000 },
+      );
+      await page.getByText("Producto guardado", { exact: false }).first().waitFor();
+      const product = await client.producto.findUniqueOrThrow({ where: { sku: "Z2766" } });
+      assert.equal(product.precioSinFactura, 548000);
+      await page.getByRole("textbox", { name: "Color", exact: true }).fill("Plata");
+      await page.getByRole("button", { name: "Guardar", exact: true }).click();
+      await expect
+        .poll(async () => client.productoHistorial.count({ where: { productoId: product.id } }))
+        .toBe(2);
+      console.log("Formulario verificado: crear, editar, centavos e historial real.");
+      await page.goto(`${base}/admin`);
+    }
     assert.equal(await page.locator(".elite-stat").count(), 4);
     assert.equal(
       await page.getByRole("combobox", { name: "Sucursal" }).locator("option").count(),

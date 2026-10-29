@@ -25,6 +25,7 @@ import { listProducts } from "../lib/productos/listar";
 import { quickPatch, reorderProduct, softDelete } from "../lib/productos/mutaciones";
 import { bulkProducts } from "../lib/productos/bulk";
 import { duplicateProduct } from "../lib/productos/duplicar";
+import { saveProduct, getProduct } from "../lib/productos/guardar";
 let pg: PGlite;
 let server: Server;
 let client: PrismaClient;
@@ -181,5 +182,56 @@ describe("Listado y edición rápida con PostgreSQL", () => {
     expect(
       await client.productoHistorial.count({ where: { productoId: copy.id, origen: "duplicar" } }),
     ).toBe(1);
+  });
+});
+describe("Formulario completo", () => {
+  it("crea, edita y audita el ejemplo sin permitir escritura al vendedor", async () => {
+    const category = await client.categoria.findUniqueOrThrow({ where: { slug: "notebook" } });
+    const input = {
+      sku: "Z9000",
+      titulo: 'HP CELERON N150 14" MOD: 14-DQ6104DX (DOSN8UA)',
+      marca: "HP",
+      modelo: "14-DQ6104DX",
+      partNumber: "DOSN8UA",
+      categoriaId: category.id,
+      categoriaNombre: "NOTEBOOK",
+      precioSinFactura: 548000,
+      controlaInventario: true,
+      stocks: [{ sucursalId: branch, cantidad: 1 }],
+      specs: [
+        { campo: "Procesador", valor: "Intel Celeron N150" },
+        { campo: "Memoria RAM", valor: "4 GB" },
+      ],
+      descripcion: "<p>Notebook <strong>HP</strong></p><script>alert(1)</script>",
+      destacados: [{ icono: "chip", texto: "Intel Celeron N150" }],
+      puntosClave: [{ titulo: "Multitarea", descripcion: "Ofimática y navegación", enPdf: true }],
+      costo: 400000,
+    };
+    await expect(saveProduct(input, { id: "sistema", rol: "VENDEDOR" })).rejects.toMatchObject({
+      code: "SIN_PERMISO",
+    });
+    const created = await saveProduct(input, { id: "sistema", rol: "ADMIN" });
+    expect(created.precioSinFactura).toBe(548000);
+    expect(created.descripcion).not.toContain("script");
+    const read = await getProduct(created.id, "EDITOR");
+    expect(read).not.toHaveProperty("costo");
+    const saved = await saveProduct(
+      { ...read, color: "Plata", stocks: [{ sucursalId: branch, cantidad: 0 }] },
+      { id: "sistema", rol: "EDITOR" },
+      created.id,
+    );
+    expect(saved.disponibilidad).toBe("SIN_STOCK");
+    expect(await client.productoHistorial.count({ where: { productoId: created.id } })).toBe(2);
+    await expect(
+      saveProduct({ ...read, color: "Azul" }, { id: "sistema", rol: "EDITOR" }, created.id),
+    ).rejects.toMatchObject({ code: "CONFLICTO_VERSION" });
+  });
+  it("permite un borrador solo con SKU y título", async () => {
+    const draft = await saveProduct(
+      { sku: "Z9001", titulo: "Borrador nuevo", estado: "borrador" },
+      { id: "sistema", rol: "EDITOR" },
+    );
+    expect(draft.estado).toBe("borrador");
+    expect(draft.precioSinFactura).toBeNull();
   });
 });
