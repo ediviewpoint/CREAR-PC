@@ -11,9 +11,11 @@ import { hasRole, type UserRole } from "@/lib/auth-permissions";
 import { autoTitle } from "@/lib/productos/titulo";
 import { parseAmount, usdToBob, withInvoice, roundBob } from "@/lib/precios";
 import { DescripcionEditor } from "./DescripcionEditor";
-import {readOfflineDraft,writeOfflineDraft} from "@/lib/draft-db";
+import { readOfflineDraft, writeOfflineDraft } from "@/lib/draft-db";
 import { Reordenable } from "./Reordenable";
 import { ImagenesUploader } from "./ImagenesUploader";
+import { PasoExtraerIA } from "./PasoExtraerIA";
+import { FuncionesIA } from "./FuncionesIA";
 const iconNames = [
   "rayo",
   "disquete",
@@ -116,8 +118,20 @@ export function FormProducto({
   const lastCategory = useRef(initial?.categoriaId || "");
   const saveRef = useRef<(state: ProductInput["estado"], another?: boolean) => void>(() => {});
   const category = data.categories.find((c) => c.id === values.categoriaId);
-  useEffect(()=>{if(id)void readOfflineDraft(`borrador-producto-${id}`).then(value=>{if(value&&typeof value==="object")setDraft(value as ProductInput);}).catch(()=>{});},[id]);
-  useEffect(()=>{if(message&&!error){const timer=setTimeout(()=>setMessage(""),4000);return()=>clearTimeout(timer);}},[message,error]);
+  useEffect(() => {
+    if (id)
+      void readOfflineDraft(`borrador-producto-${id}`)
+        .then((value) => {
+          if (value && typeof value === "object") setDraft(value as ProductInput);
+        })
+        .catch(() => {});
+  }, [id]);
+  useEffect(() => {
+    if (message && !error) {
+      const timer = setTimeout(() => setMessage(""), 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [message, error]);
   useEffect(() => {
     if (!id) {
       try {
@@ -227,7 +241,10 @@ export function FormProducto({
     const update = () => {
       setOnline(navigator.onLine);
       if (!navigator.onLine) {
-        void writeOfflineDraft(id?`borrador-producto-${id}`:"borrador-producto-nuevo",form.getValues()).catch(()=>{});
+        void writeOfflineDraft(
+          id ? `borrador-producto-${id}` : "borrador-producto-nuevo",
+          form.getValues(),
+        ).catch(() => {});
         try {
           localStorage.setItem(
             id ? `borrador-producto-${id}` : "borrador-producto-nuevo",
@@ -280,7 +297,10 @@ export function FormProducto({
         throw new Error(result.error?.message || "No se pudo guardar");
       }
       form.reset({ ...form.getValues(), ...result });
-      void writeOfflineDraft(id?`borrador-producto-${id}`:"borrador-producto-nuevo",null).catch(()=>{});
+      void writeOfflineDraft(
+        id ? `borrador-producto-${id}` : "borrador-producto-nuevo",
+        null,
+      ).catch(() => {});
       setMessage("Producto guardado");
       setError(false);
       try {
@@ -425,7 +445,21 @@ export function FormProducto({
           </button>
         </div>
       )}
+      {editor && (
+        <>
+          <PasoExtraerIA
+            editing={!!id}
+            getProduct={form.getValues}
+            onApply={(value) => form.reset(value, { keepDefaultValues: true })}
+          />
+          <FuncionesIA
+            getProduct={form.getValues}
+            onApply={(value) => form.reset(value, { keepDefaultValues: true })}
+          />
+        </>
+      )}
       <form
+        id="revisar-producto"
         className="elite-product-form"
         onSubmit={(event) => {
           event.preventDefault();

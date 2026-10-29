@@ -1,0 +1,89 @@
+{
+  "expected": {
+    "marca": "ASUS",
+    "modelo": "E410K",
+    "categoria": "NOTEBOOK",
+    "disponibilidad": "SIN_STOCK",
+    "precioSinFactura": 290000
+  },
+  "response": {
+    "sku": {
+      "valor": null,
+      "confianza": null
+    },
+    "marca": {
+      "valor": "ASUS",
+      "confianza": "alta"
+    },
+    "modelo": {
+      "valor": "E410K",
+      "confianza": "alta"
+    },
+    "partNumber": {
+      "valor": null,
+      "confianza": null
+    },
+    "categoria": {
+      "valor": "NOTEBOOK",
+      "confianza": "alta"
+    },
+    "subcategoria": {
+      "valor": null,
+      "confianza": null
+    },
+    "color": {
+      "valor": null,
+      "confianza": null
+    },
+    "condicion": {
+      "valor": null,
+      "confianza": null
+    },
+    "garantia": {
+      "valor": null,
+      "confianza": null
+    },
+    "disponibilidad": {
+      "valor": "SIN_STOCK",
+      "confianza": "alta"
+    },
+    "stock": {
+      "valor": null,
+      "confianza": null
+    },
+    "precio": {
+      "moneda": "BOB",
+      "sinFactura": {
+        "valor": 2900,
+        "confianza": "alta"
+      },
+      "conFactura": {
+        "valor": null,
+        "confianza": null
+      },
+      "oferta": {
+        "valor": null,
+        "confianza": null
+      },
+      "otrosPrecios": []
+    },
+    "specs": [
+      {
+        "campo": "Memoria RAM",
+        "valor": "8 GB",
+        "evidencia": "RAM 8GB",
+        "confianza": "alta"
+      },
+      {
+        "campo": "Almacenamiento",
+        "valor": "256 GB SSD",
+        "evidencia": "SSD 256GB",
+        "confianza": "alta"
+      }
+    ],
+    "imagenesUrl": [],
+    "etiquetasSugeridas": [],
+    "avisos": []
+  },
+  "mock": true
+}

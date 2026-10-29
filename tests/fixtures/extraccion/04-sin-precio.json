@@ -1,0 +1,83 @@
+{
+  "expected": {
+    "marca": "Epson",
+    "modelo": "L3250",
+    "categoria": "IMPRESORA",
+    "precioSinFactura": null,
+    "precioConFactura": null
+  },
+  "response": {
+    "sku": {
+      "valor": null,
+      "confianza": null
+    },
+    "marca": {
+      "valor": "Epson",
+      "confianza": "alta"
+    },
+    "modelo": {
+      "valor": "L3250",
+      "confianza": "alta"
+    },
+    "partNumber": {
+      "valor": null,
+      "confianza": null
+    },
+    "categoria": {
+      "valor": "IMPRESORA",
+      "confianza": "alta"
+    },
+    "subcategoria": {
+      "valor": null,
+      "confianza": null
+    },
+    "color": {
+      "valor": null,
+      "confianza": null
+    },
+    "condicion": {
+      "valor": null,
+      "confianza": null
+    },
+    "garantia": {
+      "valor": null,
+      "confianza": null
+    },
+    "disponibilidad": {
+      "valor": null,
+      "confianza": null
+    },
+    "stock": {
+      "valor": null,
+      "confianza": null
+    },
+    "precio": {
+      "moneda": null,
+      "sinFactura": {
+        "valor": null,
+        "confianza": "alta"
+      },
+      "conFactura": {
+        "valor": null,
+        "confianza": null
+      },
+      "oferta": {
+        "valor": null,
+        "confianza": null
+      },
+      "otrosPrecios": []
+    },
+    "specs": [
+      {
+        "campo": "Conectividad",
+        "valor": "Wi-Fi",
+        "evidencia": "Wi-Fi",
+        "confianza": "alta"
+      }
+    ],
+    "imagenesUrl": [],
+    "etiquetasSugeridas": [],
+    "avisos": []
+  },
+  "mock": true
+}

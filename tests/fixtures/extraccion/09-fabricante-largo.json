@@ -1,0 +1,88 @@
+{
+  "expected": {
+    "marca": "Acer",
+    "modelo": "A515-58M",
+    "categoria": "NOTEBOOK",
+    "precioSinFactura": null
+  },
+  "response": {
+    "sku": {
+      "valor": null,
+      "confianza": null
+    },
+    "marca": {
+      "valor": "Acer",
+      "confianza": "alta"
+    },
+    "modelo": {
+      "valor": "A515-58M",
+      "confianza": "alta"
+    },
+    "partNumber": {
+      "valor": null,
+      "confianza": null
+    },
+    "categoria": {
+      "valor": "NOTEBOOK",
+      "confianza": "alta"
+    },
+    "subcategoria": {
+      "valor": null,
+      "confianza": null
+    },
+    "color": {
+      "valor": null,
+      "confianza": null
+    },
+    "condicion": {
+      "valor": null,
+      "confianza": null
+    },
+    "garantia": {
+      "valor": null,
+      "confianza": null
+    },
+    "disponibilidad": {
+      "valor": null,
+      "confianza": null
+    },
+    "stock": {
+      "valor": null,
+      "confianza": null
+    },
+    "precio": {
+      "moneda": null,
+      "sinFactura": {
+        "valor": null,
+        "confianza": "alta"
+      },
+      "conFactura": {
+        "valor": null,
+        "confianza": null
+      },
+      "oferta": {
+        "valor": null,
+        "confianza": null
+      },
+      "otrosPrecios": []
+    },
+    "specs": [
+      {
+        "campo": "Memoria RAM",
+        "valor": "8 GB",
+        "evidencia": "Memoria RAM: 8GB",
+        "confianza": "alta"
+      },
+      {
+        "campo": "Almacenamiento",
+        "valor": "512 GB SSD",
+        "evidencia": "512GB SSD",
+        "confianza": "alta"
+      }
+    ],
+    "imagenesUrl": [],
+    "etiquetasSugeridas": [],
+    "avisos": []
+  },
+  "mock": true
+}

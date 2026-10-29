@@ -1,0 +1,82 @@
+{
+  "expected": {
+    "marca": "Logitech",
+    "modelo": "K120",
+    "categoria": "ACCESORIO",
+    "precioSinFactura": 8000
+  },
+  "response": {
+    "sku": {
+      "valor": null,
+      "confianza": null
+    },
+    "marca": {
+      "valor": "Logitech",
+      "confianza": "alta"
+    },
+    "modelo": {
+      "valor": "K120",
+      "confianza": "alta"
+    },
+    "partNumber": {
+      "valor": null,
+      "confianza": null
+    },
+    "categoria": {
+      "valor": "ACCESORIO",
+      "confianza": "alta"
+    },
+    "subcategoria": {
+      "valor": null,
+      "confianza": null
+    },
+    "color": {
+      "valor": null,
+      "confianza": null
+    },
+    "condicion": {
+      "valor": null,
+      "confianza": null
+    },
+    "garantia": {
+      "valor": null,
+      "confianza": null
+    },
+    "disponibilidad": {
+      "valor": null,
+      "confianza": null
+    },
+    "stock": {
+      "valor": null,
+      "confianza": null
+    },
+    "precio": {
+      "moneda": "BOB",
+      "sinFactura": {
+        "valor": 80,
+        "confianza": "alta"
+      },
+      "conFactura": {
+        "valor": null,
+        "confianza": null
+      },
+      "oferta": {
+        "valor": null,
+        "confianza": null
+      },
+      "otrosPrecios": []
+    },
+    "specs": [
+      {
+        "campo": "Conectividad",
+        "valor": "USB",
+        "evidencia": "USB",
+        "confianza": "alta"
+      }
+    ],
+    "imagenesUrl": [],
+    "etiquetasSugeridas": [],
+    "avisos": []
+  },
+  "mock": true
+}

@@ -1,0 +1,77 @@
+{
+  "expected": {
+    "sku": "Z2800",
+    "marca": "HP",
+    "modelo": "14-DQ6104DX",
+    "categoria": "NOTEBOOK",
+    "precioSinFactura": 548000,
+    "precioOferta": 520000
+  },
+  "response": {
+    "sku": {
+      "valor": "Z2800",
+      "confianza": "alta"
+    },
+    "marca": {
+      "valor": "HP",
+      "confianza": "alta"
+    },
+    "modelo": {
+      "valor": "14-DQ6104DX",
+      "confianza": "alta"
+    },
+    "partNumber": {
+      "valor": null,
+      "confianza": null
+    },
+    "categoria": {
+      "valor": "NOTEBOOK",
+      "confianza": "alta"
+    },
+    "subcategoria": {
+      "valor": null,
+      "confianza": null
+    },
+    "color": {
+      "valor": null,
+      "confianza": null
+    },
+    "condicion": {
+      "valor": null,
+      "confianza": null
+    },
+    "garantia": {
+      "valor": null,
+      "confianza": null
+    },
+    "disponibilidad": {
+      "valor": null,
+      "confianza": null
+    },
+    "stock": {
+      "valor": null,
+      "confianza": null
+    },
+    "precio": {
+      "moneda": "BOB",
+      "sinFactura": {
+        "valor": 5480,
+        "confianza": "alta"
+      },
+      "conFactura": {
+        "valor": null,
+        "confianza": null
+      },
+      "oferta": {
+        "valor": 5200,
+        "confianza": "media"
+      },
+      "otrosPrecios": []
+    },
+    "specs": [],
+    "imagenesUrl": [],
+    "etiquetasSugeridas": [],
+    "avisos": []
+  },
+  "mock": true
+}

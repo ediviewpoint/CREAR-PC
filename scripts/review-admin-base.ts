@@ -11,6 +11,8 @@ import { hash } from "bcryptjs";
 import { seedBase } from "../prisma/seed";
 import assert from "node:assert/strict";
 import { generateNKeysBetween } from "fractional-indexing";
+import { ExtraccionSchema } from "../lib/ia/schemas";
+import { normalizeExtraction } from "../lib/ia/normalizar";
 async function main() {
   const pg = new PGlite();
   for (const migration of ["20261028000000_legacy", "20261029000100_admin_base"])
@@ -115,6 +117,50 @@ async function main() {
     await page.waitForURL("**/admin", { timeout: 60000 });
     await page.getByRole("heading", { name: "Inicio", exact: true }).waitFor();
     console.log("Acceso de ADMIN y dashboard verificados.");
+    if (process.argv.includes("--ia")) {
+      const fixture = JSON.parse(
+        await readFile("tests/fixtures/extraccion/01-ejemplo.json", "utf8"),
+      );
+      const text = await readFile("tests/fixtures/extraccion/01-ejemplo.txt", "utf8");
+      const categories = await client.categoria.findMany();
+      const proposed = normalizeExtraction(
+        ExtraccionSchema.parse(fixture.response),
+        categories,
+        [],
+        6.96,
+        true,
+        text,
+      );
+      await page.route("**/api/ia/extraer", (route) =>
+        route.fulfill({
+          status: 200,
+          contentType: "text/event-stream",
+          body: `event: etapa\ndata: {"texto":"Ordenando specs"}\n\nevent: resultado\ndata: ${JSON.stringify({ ...proposed, posiblesDuplicados: [], usoIA: { tokensIn: 1, tokensOut: 1, ms: 1 } })}\n\n`,
+        }),
+      );
+      await page.goto(`${base}/admin/productos/nuevo`);
+      await page.getByRole("textbox", { name: "Texto para extraer con IA" }).fill(text);
+      await page.getByRole("button", { name: "Extraer con IA", exact: true }).click();
+      await expect(page.getByLabel("Modelo", { exact: true })).toHaveValue("14-DQ6104DX");
+      await expect(page.getByLabel("SKU / Código", { exact: true })).toHaveValue("Z2766");
+      assert.equal(await client.producto.count({ where: { sku: "Z2766" } }), 0);
+      await page.getByRole("button", { name: "Guardar", exact: true }).click();
+      await page.waitForURL(
+        (url) =>
+          /^\/admin\/productos\/[^/]+$/.test(url.pathname) && !url.pathname.endsWith("/nuevo"),
+        { timeout: 60000 },
+      );
+      const product = await client.producto.findUniqueOrThrow({
+        where: { sku: "Z2766" },
+        include: { specs: true },
+      });
+      assert.equal(product.precioSinFactura, 548000);
+      assert.ok(product.specs.length >= 5);
+      console.log(
+        "IA simulada de punta a punta: extracción, revisión sin guardado automático, guardado real y specs persistidas.",
+      );
+      await page.goto(`${base}/admin`);
+    }
     if (process.argv.includes("--formulario")) {
       await page.goto(`${base}/admin/productos/nuevo`);
       await page.getByLabel("Marca", { exact: true }).fill("HP");

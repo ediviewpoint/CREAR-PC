@@ -1,0 +1,116 @@
+{
+  "expected": {
+    "sku": "Z2766",
+    "marca": "HP",
+    "modelo": "14-DQ6104DX",
+    "partNumber": "DOSN8UA",
+    "categoria": "NOTEBOOK",
+    "color": "Plata",
+    "garantia": "1 año",
+    "precioSinFactura": 548000
+  },
+  "response": {
+    "sku": {
+      "valor": "Z2766",
+      "confianza": "alta"
+    },
+    "marca": {
+      "valor": "HP",
+      "confianza": "alta"
+    },
+    "modelo": {
+      "valor": "14-DQ6104DX",
+      "confianza": "alta"
+    },
+    "partNumber": {
+      "valor": "DOSN8UA",
+      "confianza": "alta"
+    },
+    "categoria": {
+      "valor": "NOTEBOOK",
+      "confianza": "alta"
+    },
+    "subcategoria": {
+      "valor": null,
+      "confianza": null
+    },
+    "color": {
+      "valor": "Plata",
+      "confianza": "alta"
+    },
+    "condicion": {
+      "valor": null,
+      "confianza": null
+    },
+    "garantia": {
+      "valor": "1 año",
+      "confianza": "alta"
+    },
+    "disponibilidad": {
+      "valor": null,
+      "confianza": null
+    },
+    "stock": {
+      "valor": null,
+      "confianza": null
+    },
+    "precio": {
+      "moneda": "BOB",
+      "sinFactura": {
+        "valor": 5480,
+        "confianza": "alta"
+      },
+      "conFactura": {
+        "valor": null,
+        "confianza": null
+      },
+      "oferta": {
+        "valor": null,
+        "confianza": null
+      },
+      "otrosPrecios": []
+    },
+    "specs": [
+      {
+        "campo": "Procesador",
+        "valor": "Intel Celeron N150",
+        "evidencia": "PROCESADOR INTEL CELERON N150",
+        "confianza": "alta"
+      },
+      {
+        "campo": "Frecuencia turbo",
+        "valor": "Hasta 3.6 GHz",
+        "evidencia": "HASTA 3.6GHZ",
+        "confianza": "alta"
+      },
+      {
+        "campo": "Memoria RAM",
+        "valor": "4 GB",
+        "evidencia": "4GB RAM",
+        "confianza": "alta"
+      },
+      {
+        "campo": "Almacenamiento",
+        "valor": "128 GB UFS",
+        "evidencia": "128GB UFS",
+        "confianza": "alta"
+      },
+      {
+        "campo": "Pantalla",
+        "valor": "14\" HD",
+        "evidencia": "14\" HD",
+        "confianza": "alta"
+      },
+      {
+        "campo": "Sistema operativo",
+        "valor": "Windows 11 Home en modo S",
+        "evidencia": "WINDOWS 11 S",
+        "confianza": "alta"
+      }
+    ],
+    "imagenesUrl": [],
+    "etiquetasSugeridas": [],
+    "avisos": []
+  },
+  "mock": true
+}

@@ -17,6 +17,7 @@
     "prisma:seed": "prisma db seed",
     "prisma:adopt": "node scripts/prisma-adopt.mjs",
     "test:admin:base": "tsx scripts/review-admin-base.ts",
+    "test:ia": "tsx scripts/test-ia.ts",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",

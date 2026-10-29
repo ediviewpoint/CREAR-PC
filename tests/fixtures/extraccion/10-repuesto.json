@@ -1,0 +1,82 @@
+{
+  "expected": {
+    "marca": "Kingston",
+    "modelo": "KF432C16BB/16",
+    "categoria": "REPUESTO",
+    "precioSinFactura": 25000
+  },
+  "response": {
+    "sku": {
+      "valor": null,
+      "confianza": null
+    },
+    "marca": {
+      "valor": "Kingston",
+      "confianza": "alta"
+    },
+    "modelo": {
+      "valor": "KF432C16BB/16",
+      "confianza": "alta"
+    },
+    "partNumber": {
+      "valor": null,
+      "confianza": null
+    },
+    "categoria": {
+      "valor": "REPUESTO",
+      "confianza": "alta"
+    },
+    "subcategoria": {
+      "valor": null,
+      "confianza": null
+    },
+    "color": {
+      "valor": null,
+      "confianza": null
+    },
+    "condicion": {
+      "valor": null,
+      "confianza": null
+    },
+    "garantia": {
+      "valor": null,
+      "confianza": null
+    },
+    "disponibilidad": {
+      "valor": null,
+      "confianza": null
+    },
+    "stock": {
+      "valor": null,
+      "confianza": null
+    },
+    "precio": {
+      "moneda": "BOB",
+      "sinFactura": {
+        "valor": 250,
+        "confianza": "alta"
+      },
+      "conFactura": {
+        "valor": null,
+        "confianza": null
+      },
+      "oferta": {
+        "valor": null,
+        "confianza": null
+      },
+      "otrosPrecios": []
+    },
+    "specs": [
+      {
+        "campo": "Memoria RAM",
+        "valor": "16 GB DDR4",
+        "evidencia": "16GB DDR4",
+        "confianza": "alta"
+      }
+    ],
+    "imagenesUrl": [],
+    "etiquetasSugeridas": [],
+    "avisos": []
+  },
+  "mock": true
+}

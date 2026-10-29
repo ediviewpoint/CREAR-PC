@@ -8,7 +8,31 @@ import { PrismaPg } from "@prisma/adapter-pg";
 import { seedBase } from "./seed";
 import { generateNKeysBetween } from "fractional-indexing";
 import { searchPriceCents } from "../lib/productos/query";
-const context = vi.hoisted(() => ({ client: null as PrismaClient | null }));
+const context = vi.hoisted(() => ({
+  client: null as PrismaClient | null,
+  aiResponse: null as unknown,
+  failOnce: false,
+}));
+vi.mock("@anthropic-ai/sdk", () => ({
+  default: class {
+    messages = {
+      create: async () => {
+        const invalid = context.failOnce;
+        context.failOnce = false;
+        return {
+          content: [
+            {
+              type: "tool_use",
+              name: "emitir_resultado",
+              input: invalid ? {} : context.aiResponse,
+            },
+          ],
+          usage: { input_tokens: 10, output_tokens: 20 },
+        };
+      },
+    };
+  },
+}));
 vi.mock("@/lib/prisma", () => ({
   prisma: new Proxy(
     {},
@@ -26,6 +50,7 @@ import { quickPatch, reorderProduct, softDelete } from "../lib/productos/mutacio
 import { bulkProducts } from "../lib/productos/bulk";
 import { duplicateProduct } from "../lib/productos/duplicar";
 import { saveProduct, getProduct } from "../lib/productos/guardar";
+import { extractProduct } from "../lib/ia/extraer";
 let pg: PGlite;
 let server: Server;
 let client: PrismaClient;
@@ -233,5 +258,30 @@ describe("Formulario completo", () => {
     );
     expect(draft.estado).toBe("borrador");
     expect(draft.precioSinFactura).toBeNull();
+  });
+});
+describe("Extracción IA en el servidor", () => {
+  it("valida, reintenta, registra uso y detecta duplicados sin guardar la propuesta", async () => {
+    vi.stubEnv("AI_API_KEY", "fixture-no-real-key");
+    const fixture = JSON.parse(await readFile("tests/fixtures/extraccion/01-ejemplo.json", "utf8"));
+    context.aiResponse = fixture.response;
+    context.failOnce = true;
+    // El catálogo de prueba ya contiene Z2766 entre sus 2.000 productos.
+    const before = await client.producto.count();
+    const output = await extractProduct(
+      {
+        texto: await readFile("tests/fixtures/extraccion/01-ejemplo.txt", "utf8"),
+        opciones: { buscarModelo: false, generarDestacados: false, moneda: "Detectar" },
+      },
+      { id: "sistema", rol: "EDITOR" },
+    );
+    expect(output.producto.precioSinFactura).toBe(548000);
+    expect(output.posiblesDuplicados.map((v) => v.sku)).toContain("Z2766");
+    expect(await client.producto.count()).toBe(before);
+    expect(await client.usoIA.findFirst({ where: { funcion: "extraer" } })).toMatchObject({
+      ok: true,
+      tokensIn: 20,
+      tokensOut: 40,
+    });
   });
 });
