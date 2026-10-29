@@ -657,6 +657,12 @@ export function TablaProductos({
               <Plus size={16} />
               Crear nuevo
             </Link>
+            <a
+              className="elite-button secondary"
+              href={`/api/productos/export?${query}&columnas=${encodeURIComponent(["sku", ...table.getVisibleLeafColumns().map((v) => v.id)].join(","))}${selected.length ? `&ids=${selected.join(",")}` : ""}`}
+            >
+              Exportar Excel
+            </a>
           </div>
         )}
       </div>

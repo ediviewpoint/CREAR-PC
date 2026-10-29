@@ -117,6 +117,36 @@ async function main() {
     await page.waitForURL("**/admin", { timeout: 60000 });
     await page.getByRole("heading", { name: "Inicio", exact: true }).waitFor();
     console.log("Acceso de ADMIN y dashboard verificados.");
+    if (process.argv.includes("--batch")) {
+      await page.goto(`${base}/admin/batch-ia?entrada=archivo`);
+      await page
+        .locator('input[type="file"]')
+        .first()
+        .setInputFiles({
+          name: "inventario.csv",
+          mimeType: "text/csv",
+          buffer: Buffer.from(
+            "SKU,Titulo,Marca,Modelo,Categoria,Precio BOB\nZ5000,Notebook HP prueba,HP,14-DQ6104DX,NOTEBOOK,5480\nZ5001,Notebook Dell prueba,Dell,3530,NOTEBOOK,6000",
+          ),
+        });
+      await page.getByRole("button", { name: "Continuar con 2 filas", exact: true }).click();
+      await page.getByRole("button", { name: "4. Pasar a revisión", exact: true }).click();
+      await page
+        .getByRole("checkbox", { name: "Seleccionar todas las propuestas", exact: true })
+        .check();
+      await page.getByRole("button", { name: "Guardar seleccionados", exact: true }).click();
+      await expect
+        .poll(() => client.producto.count({ where: { sku: { in: ["Z5000", "Z5001"] } } }), {
+          timeout: 20000,
+        })
+        .toBe(2);
+      assert.equal(
+        (await client.producto.findUniqueOrThrow({ where: { sku: "Z5000" } })).precioSinFactura,
+        548000,
+      );
+      console.log("Importación CSV verificada: mapeo, bandeja y guardado por SKU sin duplicar.");
+      await page.goto(`${base}/admin`);
+    }
     if (process.argv.includes("--ia")) {
       const fixture = JSON.parse(
         await readFile("tests/fixtures/extraccion/01-ejemplo.json", "utf8"),

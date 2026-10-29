@@ -448,6 +448,7 @@ export function FormProducto({
       {editor && (
         <>
           <PasoExtraerIA
+            manualSku={!!form.formState.dirtyFields.sku}
             editing={!!id}
             getProduct={form.getValues}
             onApply={(value) => form.reset(value, { keepDefaultValues: true })}

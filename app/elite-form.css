@@ -339,3 +339,61 @@
   margin-top: 12px;
   accent-color: var(--ea-violet);
 }
+.elite-batch {
+  margin-bottom: 24px;
+}
+.elite-batch label {
+  display: grid;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--ea-muted);
+  margin: 10px 0;
+}
+.elite-batch input:not([type="checkbox"]),
+.elite-batch select,
+.elite-batch textarea {
+  padding: 9px;
+  background: var(--ea-bg);
+  color: var(--ea-text);
+  border: 1px solid var(--ea-border);
+  border-radius: 5px;
+  font: inherit;
+  min-width: 0;
+  max-width: 100%;
+}
+.elite-batch textarea {
+  width: 100%;
+  margin: 15px 0;
+}
+.elite-batch-options {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.elite-batch-options label {
+  max-width: 240px;
+}
+.elite-batch progress {
+  width: 100%;
+  accent-color: var(--ea-violet);
+  margin: 15px 0;
+}
+.elite-batch .elite-products-table input {
+  width: 120px;
+  font-size: 11px;
+}
+.elite-batch .elite-products-table small {
+  display: block;
+  color: #f396ac;
+  max-width: 180px;
+  white-space: normal;
+}
+.elite-batch pre {
+  max-height: 250px;
+  overflow: auto;
+  font-size: 11px;
+}
+.elite-batch .elite-table-scroll {
+  margin: 15px 0;
+}

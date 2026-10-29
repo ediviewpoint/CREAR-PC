@@ -16,10 +16,12 @@ export function PasoExtraerIA({
   getProduct,
   onApply,
   editing,
+  manualSku = false,
 }: {
   getProduct: () => ProductInput;
   onApply: (data: ProductInput) => void;
   editing: boolean;
+  manualSku?: boolean;
 }) {
   const [text, setText] = useState("");
   const [images, setImages] = useState<string[]>([]);
@@ -79,10 +81,8 @@ export function PasoExtraerIA({
       if (!final) throw new Error("La extracción no terminó. Intenta de nuevo");
       const { mergeExtraction } = await import("@/lib/ia/normalizar");
       const base = structuredClone(snapshot);
-      if (!editing && !base.marca && !base.modelo) {
-        base.sku = "";
-        base.titulo = "";
-      }
+      if (!editing && !manualSku) base.sku = "";
+      if (!editing && !base.tituloManual) base.titulo = "";
       if (base.destacados.every((v) => !v.texto)) base.destacados = [];
       if (base.puntosClave.every((v) => !v.descripcion)) base.puntosClave = [];
       const merged = mergeExtraction(base, final.producto, mode);

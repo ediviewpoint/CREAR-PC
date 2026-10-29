@@ -146,9 +146,9 @@ export async function extractProduct(
       ],
     },
     take: 5,
-    select: { id: true, sku: true, titulo: true },
+    select: { id: true, sku: true, titulo: true,updatedAt:true },
   });
-  return { ...result, posiblesDuplicados: possible, usoIA: output.usoIA };
+  return { ...result, posiblesDuplicados: possible.map(v=>({...v,updatedAt:v.updatedAt.toISOString()})), usoIA: output.usoIA };
 }
 export async function modelSpecs(
   input: unknown,

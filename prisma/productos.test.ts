@@ -51,6 +51,8 @@ import { bulkProducts } from "../lib/productos/bulk";
 import { duplicateProduct } from "../lib/productos/duplicar";
 import { saveProduct, getProduct } from "../lib/productos/guardar";
 import { extractProduct } from "../lib/ia/extraer";
+import { createBatch, nextBatch, getBatch, saveBatch } from "../lib/ia/batch";
+import { suggestMapping, mappedRow } from "../lib/importacion";
 let pg: PGlite;
 let server: Server;
 let client: PrismaClient;
@@ -284,4 +286,59 @@ describe("Extracción IA en el servidor", () => {
       tokensOut: 40,
     });
   });
+});
+describe("Batch e importación", () => {
+  it("interpreta columnas USD/BOB y códigos sin cambiar la escala", () => {
+    const mapping = suggestMapping(["Código", "Producto", "Precio BOB", "USD", "Stock"]);
+    const row = mappedRow(
+      { Código: "z9000", Producto: "Notebook HP", "Precio BOB": "5.480,00", USD: 785, Stock: 2 },
+      mapping,
+    );
+    expect(row).toMatchObject({
+      sku: "Z9000",
+      precioSinFactura: 548000,
+      precioUsd: 78500,
+      stock: 2,
+    });
+  });
+  it("procesa 20 propuestas, conserva el trabajo y guarda sin duplicar al reintentar", async () => {
+    const user = await client.usuario.create({
+      data: { nombre: "Batch fixture", email: "batch@fixture.invalid", rol: "EDITOR" },
+    });
+    const actor = { id: user.id, rol: "EDITOR" as const };
+    const fixture = JSON.parse(await readFile("tests/fixtures/extraccion/01-ejemplo.json", "utf8"));
+    context.aiResponse = fixture.response;
+    const text = (await readFile("tests/fixtures/extraccion/01-ejemplo.txt", "utf8")).replace(
+      /\n/g,
+      " ",
+    );
+    const created = await createBatch(
+      {
+        tipoEntrada: "texto",
+        contenido: Array(20).fill(text).join("\n"),
+        opciones: {
+          separar: "linea",
+          generarDestacados: false,
+          buscarModelo: false,
+          moneda: "Detectar",
+          margen: 0,
+          separador: "",
+        },
+      },
+      actor,
+    );
+    let job = await nextBatch(created.trabajoId, actor);
+    expect(job.procesados).toBe(3);
+    expect(await client.productoHistorial.count({ where: { usuarioId: user.id } })).toBe(0);
+    while (job.procesados < 20) job = await nextBatch(job.id, actor);
+    expect((await getBatch(job.id, actor)).total).toBe(20);
+    const items = job.items as unknown as { id: string }[];
+    const first = { items: items.slice(0, 2).map((v) => ({ id: v.id, accion: "crear" })) };
+    const count = await client.producto.count();
+    const saved = await saveBatch(job.id, first, actor);
+    expect(saved.resultados.every((v) => v.estado === "guardado")).toBe(true);
+    expect(await client.producto.count()).toBe(count + 2);
+    await saveBatch(job.id, first, actor);
+    expect(await client.producto.count()).toBe(count + 2);
+  }, 30000);
 });
